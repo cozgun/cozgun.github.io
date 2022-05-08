@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    .centerAll {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .center {
+      text-align: center;
+      margin: auto;
+      width: 100%;
+      /* border: 3px solid #73AD21; */
+      padding: 10px;
+    }
+
+    .centerText {
+      text-align: center
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    table.text_size tr td {
+      font-size: 11px;
+    }
+
+
+    /* div {text-align: center;} */
+    .vertical-center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+
+
+    li {
+      position: relative;
+      padding-left: 11px;
+      margin: 0 0 3px 0;
+    }
+
+    div.firstColumn {
+      padding: 0px;
+      border-style: solid;
+      border-width: 0px 0px 0px 1px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: darkblue;
+    }
+
+    div.topBottomBorder {
+      padding: 10px;
+      border-style: solid;
+      border-width: 1px 0px 1px 0px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    div.first {
+      padding: 0px;
+    }
+
+    div.leftBorder {
+      padding: 0px;
+      border-style: solid;
+      border-width: 0px 0px 0px 1px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: purple;
+    }
+
+    div.bottomBorder {
+      padding: 0px;
+      border-style: solid;
+      border-width: 0px 0px 1px 0px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    canvas.first {
+      /* background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 10px;
+    }
+
+
+    div.second {
+      /* background: rgba(255, 255, 0, 0.2);
+      background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 0px;
+    }
+
+    div.third {
+      /* background: rgba(255, 255, 0, 0.1);
+      background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 0px;
+    }
+
+    div.height {
+      height: 150px;
+    }
+
+    div.background {
+      background: rgba(109, 216, 235, 0.3);
+      padding: 0px;
+    }
+  </style>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Margin Analysis</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+
+</head>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="services/sqlservice.js"></script>
+
+<body>
+  <div class="container-fluid">
+    <main role="main" class="col-md-12 pull-left">
+      <div id="main-div" class="col-md-12 pull-left">
+        <h1 class="display-5">Margin Analysis</h1>
+        <div class="container">
+          <div class="row topBottomBorder">
+            <div class="col-md-2 centerAll "
+              style="color:blue; text-align:center; font-size: 20px; line-height:0.80; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+              Compare Dates
+            </div>
+
+            <div class="col-md-3 auto center ">
+              <div class="first">
+                <input class="centerText" type="text" id="firstDateMargins" readonly>
+              </div>
+            </div>
+            <div class="col-md-3 auto center ">
+              <div class="first">
+                <input class="centerText" type="date" id="secondDateMargins" name="trip-start" min="2014-06-30">
+              </div>
+            </div>
+            <div class="col-md-3 auto center ">
+              <div class="first">
+                <input class="centerText" type="date" id="thirdDateMargins" name="trip-start" min="2014-06-30">
+                <button type="button" style="font-size: 12px" class="btn btn-primary" onclick="getMarginsData()">Update
+                  Graphs</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row topBottomBorder" style="height: 150px">
+            <div class="col-md-1 centerAll "
+              style="color:blue; text-align:center; font-size: 20px; line-height:0.80; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+              Average Margins Actual vs Budget (array ler düzeltilecek.  boş kayıtlar sorun yaratıyor.)
+            </div>
+
+            <div class="col-md-4 auto center ">
+              <div class="first centerAll">
+                <canvas id="marginsByCurr" height="100"></canvas>
+              </div>
+            </div>
+            <div class="col-md-3 auto center">
+              <div class="first centerAll">
+                <canvas id="marginsByCurr2" height="100"></canvas>
+              </div>
+            </div>
+            <div class="col-md-3 auto center">
+              <div class="first centerAll">
+                <canvas id="marginsByCurr3" height="100"></canvas>
+              </div>
+            </div>
+          </div>
+<br>
+          <div class="row centerAll" id="margRowHeader" style="color:blue; text-align:center; font-size: 22px; line-height:0.80; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+          </div>
+          <div class="row" >
+            <div class="col-md-1 centerAll " 
+              style="color:blue; text-align:center; font-size: 18px; line-height:0.80; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+              Average margins
+            </div>
+
+            <div class="col-md-11 auto center ">
+              <div class="first">
+                <canvas id="marginAllTrend" height="30"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="row background">
+            <div class="col-md-1 centerAll">
+                <div style="color:blue; text-align:center; font-size: 18px; line-height:0.80; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+                Average COFs
+              </div>
+            </div>
+
+            <div class="col-md-11 auto center ">
+              <div class="row">
+                <div class="first">
+                  <canvas id="cofUSDEUR" height="20"></canvas>
+                </div>
+              </div>
+              <div class="row">
+                <div class="first">
+                  <canvas id="cofTRY" height="20"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row ">
+            <div class="col-md-1 centerAll">
+                <div style="color:blue; text-align:center; font-size: 18px; line-height:0.80; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+                Average Interest Rates
+              </div>
+            </div>
+
+            <div class="col-md-11 auto center ">
+              <div class="row">
+                <div class="first">
+                  <canvas id="intUSDEUR" height="20"></canvas>
+                </div>
+              </div>
+              <div class="row">
+                <div class="first">
+                  <canvas id="intTRY" height="20"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row topBottomBorder">
+            <div class="col-md-2 centerAll"
+              style="color:blue; text-align:center; font-size: 20px; line-height:0.80; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+              Top Margins by Currency & Customer
+            </div>
+
+            <div class="col-md-3 auto center ">
+              <!-- <div class="first">
+                      <canvas id="topMarginsByCust"></canvas>
+                    </div> -->
+              <!-- <h5>Margins</h5> -->
+              <table id="marginsByCust-table" class="table table-striped text_size">
+                <thead style="font-size: 12px">
+                  <tr>
+                    <th scope="col" style="text-align:left" onclick="sortTable('marginsByCust-table',0)">Customer name
+                    </th>
+                    <th scope="col" onclick="sortTable('marginsByCust-table',1)">Curr</th>
+                    <th scope="col" onclick="sortTable('marginsByCust-table',2)">Margin</th>
+                    <th scope="col" onclick="sortTable('marginsByCust-table',3)">Rate</th>
+                    <th scope="col" onclick="sortTable('marginsByCust-table',3)">Rating</th>
+                    <!-- <th style="color:black; background-color:lightgreen" scope="col">diff.</th> -->
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+
+            </div>
+            <div class="col-md-3 auto center">
+              <!-- <div class="first">
+                      <canvas id="topMarginsByCust2"></canvas>
+                    </div> -->
+              <table id="marginsByCust2-table" class="table table-striped text_size">
+                <thead style="font-size: 12px">
+                  <tr>
+                    <th scope="col" style="text-align:left" onclick="sortTable('marginsByCust2-table',0)">Customer name
+                    </th>
+                    <th scope="col" onclick="sortTable('marginsByCust2-table',1)">Curr</th>
+                    <th scope="col" onclick="sortTable('marginsByCust2-table',2)">Margin</th>
+                    <th scope="col" onclick="sortTable('marginsByCust2-table',3)">Rate</th>
+                    <th scope="col" onclick="sortTable('marginsByCust2-table',3)">Rating</th>
+                    <!-- <th style="color:black; background-color:lightgreen" scope="col">diff.</th> -->
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+
+            </div>
+            <div class="col-md-3 auto center">
+              <!-- <div class="first">
+                      <canvas id="topMarginsByCust3"></canvas>
+                    </div> -->
+              <table id="marginsByCust3-table" class="table table-striped text_size">
+                <thead style="font-size: 12px">
+                  <tr>
+                    <th scope="col" style="text-align:left" onclick="sortTable('marginsByCust3-table',0)">Customer name
+                    </th>
+                    <th scope="col" onclick="sortTable('marginsByCust3-table',1)">Curr</th>
+                    <th scope="col" onclick="sortTable('marginsByCust3-table',2)">Margin</th>
+                    <th scope="col" onclick="sortTable('marginsByCust3-table',3)">Rate</th>
+                    <th scope="col" onclick="sortTable('marginsByCust3-table',3)">Rating</th>
+                    <!-- <th style="color:black; background-color:lightgreen" scope="col">diff.</th> -->
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+
+            </div>
+          </div>
+
+          
+          
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+</body>
+
+</html>
