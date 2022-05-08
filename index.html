@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    .center {
+      margin: auto;
+      width: 100%;
+      /* border: 3px solid #73AD21; */
+      padding: 10px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    /* div {text-align: center;} */
+    .vertical-center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+
+    li {
+      position: relative;
+      padding-left: 11px;
+      margin: 0 0 3px 0;
+    }
+
+    div.firstColumn {
+      padding: 0px;
+      border-style: solid;
+      border-width: 0px 0px 0px 1px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: darkblue;
+    }
+
+    div.topBottomBorder {
+      padding: 10px;
+      border-style: solid;
+      border-width: 1px 0px 1px 0px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    div.first {
+      padding: 0px;
+      border-style: solid;
+      border-width: 0px 0px 1px 0px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+      /* background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      /* width: 200px;
+  height: 150px;   */
+    }
+
+    canvas.first {
+      /* background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 10px;
+    }
+
+
+    div.second {
+      /* background: rgba(255, 255, 0, 0.2);
+      background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 0px;
+    }
+
+    div.third {
+      /* background: rgba(255, 255, 0, 0.1);
+      background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 0px;
+    }
+
+    div.fourth {
+      /* background: rgba(255, 255, 0, 0.05);
+      background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 0px;
+    }
+  </style>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finance DashBoard Desktop App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+
+</head>
+<!-- <p id='pdf-path'></p> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<body>
+  <!-- <body onunload="deleteItems()"> -->
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <div class="topBottomBorder">
+          <ul class="nav flex-column">
+            <li class="display-6">
+              Finance Dashboard
+            </li>
+            <li id="versLi"> version 1.0.0
+            </li>
+            <li class="nav-item">
+              <button type="button" style="font-size: 14px" class="btn btn-primary" onclick="openMain()">Landing
+                Page</button>
+            </li>
+
+            <li class="nav-item">
+              <button type="button" style="font-size: 14px" class="btn btn-primary"
+                onclick="openExpenseSummary()">Expense
+                Summary</button>
+            </li>
+
+            <li class="nav-item">
+              <button type="button" style="font-size: 14px" class="btn btn-primary" onclick="openExpense()">Expense GL Details</button>
+            </li>
+            <li class="nav-item">
+              <button type="button" style="font-size: 14px" class="btn btn-primary" onclick="openLoans()">Loan
+                Analysis</button>
+            </li>
+            <li class="nav-item">
+              <button type="button" style="font-size: 14px" class="btn btn-primary" onclick="openNoncashLoans()">Non-cash Loan Analysis</button>
+            </li>
+            <li class="nav-item">
+              <button type="button" style="font-size: 14px" class="btn btn-primary" onclick="openMargins()">Margin
+                Analysis</button>
+            </li>
+
+            <li class="nav-item">
+              <button type="button" id="btnOpenLoans" style="font-size: 14px" class="btn btn-primary"
+                onclick="deleteItems()">Clear local storage</button>
+            </li>
+
+            <li class="nav-item">
+              <button type="button" id="btnOpenLoans" style="font-size: 14px" class="btn btn-primary">Update graph</button>
+            </li>
+
+          </ul>
+        </div>
+          <br>
+          <br>
+
+          <div class="topBottomBorder">
+            <!-- <h1 class="display-7" id="finalPLh1"></h1> -->
+            <!-- <p id="finalPLh1" style="text-align:center; font-size: 28px; line-height:1"></p> -->
+            <p id="finalPLAmt"
+              style="color:blue;  text-align:center; font-size: 50px; line-height:0.8; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ">
+            </p>
+            <p id="finalPLText"
+              style="text-align:center; font-size: 20px; line-height:0.80; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+            </p>
+          </div>
+          <div class="topBottomBorder">
+            <p id="avgMargin"
+              style="color:blue;  text-align:center; font-size: 50px; line-height:0.8; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ">
+            </p>
+            <p id="avgMarginText"
+              style="text-align:center; font-size: 20px; line-height:0.80; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+            </p>
+          </div>
+
+        </div>
+      </nav>
+
+      <main role="main" class="col-md-10 pull-left">
+        <div id="main-div" class="col-md-10; pull-left">
+          <h1 class="display-5">Landing Page</h1>
+          <div class="container">
+            <div class="row ">
+              <div class="col-md-4 auto center ">
+                <!-- <div class="topBottomBorder">
+                  <p id="finalPLAmt"
+                    style="color:blue;  text-align:center; font-size: 50px; line-height:0.8; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ">
+                  </p>
+                  <p id="finalPLText"
+                    style="text-align:center; font-size: 20px; line-height:0.80; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+                  </p>
+                </div> -->
+                <br>
+                <div class="first">
+                  <select style="font-size: 20px; width:120px" id="selectYear" class="form-select center"
+                    aria-label="Select year" onchange="refreshMtdPL(); refreshAccPL();">
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                  </select>
+                  <div class="first">
+                    <canvas id="canvasMonthendBalance"></canvas>
+                  </div>
+                  <br>
+                  <canvas id="canvasMtdAll"></canvas>
+                </div>
+                <br>
+                <div class="first">
+                  <canvas id="canvasAnnualAll"></canvas>
+                </div>
+              </div>
+              <!-- <div class="col-md-1 auto center "></div> -->
+              <div class="col-md-4 center">
+                <p style="text-align:center; font-size: 20px; line-height:1">Trends in Past 12 Monthends:</p>
+                <div class="first">
+                  <!-- <h1 class="display-6" id="finalPLh1"></h1> -->
+                  <canvas id="exchangeRates"></canvas>
+                </div>
+                <br>
+                <div class="first">
+                  <canvas id="loansChart"></canvas>
+                </div>
+                <br>
+                <div class="first">
+                  <canvas id="nonCashLoansChart"></canvas>
+                </div>
+              </div>
+
+              <div class="col-md-4 center">
+                <p style="text-align:center; font-size: 20px; line-height:1">Trends in Past Years:</p>
+                <div class="first">
+                  <!-- <h1 class="display-6" id="finalPLh1"></h1> -->
+                  <canvas id="exchangeRatesAnnual"></canvas>
+                </div>
+                <br>
+                <div class="first">
+                  <canvas id="loansChartAnnual"></canvas>
+                </div>
+                <br>
+                <div class="first">
+                  <canvas id="nonCashLoansChartAnnual"></canvas>
+                </div>
+              </div>
+              <!-- <div class="col-md-3 auto center"> -->
+                <!-- <p id="parCurrComposition" style="text-align:center; font-size: 20px; line-height:1"></p>
+                <div class="first">
+                  <canvas id="cashCurrencyChart"></canvas>
+                </div>
+                <div class="first">
+                  <canvas id="top5cashChart"></canvas>
+                </div>
+                <div class="first">
+                  <canvas id="nonCashCurrencyChart"></canvas>
+                </div> -->
+                <!-- <div class="first"> -->
+                  <!-- <p style="text-align:center; font-size: 14px; line-height:1">Top 5 Non-cash Exposures</p> -->
+                  <!-- <canvas id="top5nonCashChart"></canvas> -->
+                <!-- </div> -->
+
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+
+</html>
