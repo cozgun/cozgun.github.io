@@ -412,17 +412,22 @@ var mtdBalanceChart = new Chart(ctx, {
   type: "line",
   responsive: true,
   data: {
-    // labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+    labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
     datasets: [
-      {
-        label: "Actual",
-        // data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-        borderColor: "#3cba9f",
-        backgroundColor: [
-          "Green",
-        ],
-        fill: true,
-      },
+          {
+      label: "Budget",
+      type: "line",
+      backgroundColor: "orange",
+      borderColor: "orange",
+      borderWidth: 1,
+      data: [14349.166666666666,28698.333333333332,43047.5,57396.666666666664,71745.83333333333,86095,100444.16666666666,114793.33333333333,129142.5,143491.66666666666,157840.8333333333,172190]
+      //   .data.datasets[0].backgroundColor[0] = "red";
+    },
+    {
+      label: "Actual",
+      backgroundColor: "blue",
+      data: [12132.78387,21747.35098,29678.96264,39326.49621,47107.46951,0,0,0,0,0,0,0]
+    }
 
     ],
   },
@@ -603,7 +608,7 @@ let exchRatesArray = [];
 var ctx = document.getElementById("exchangeRates").getContext("2d");
 var exchangeRatesChart = new Chart(ctx, {
   type: 'line',
-  // data: exchangeRateData,
+  data: {"labels":["21-5","21-6","21-7","21-8","21-9","21-10","21-11","21-12","22-1","22-2","22-3","22-4"],"datasets":[{"label":"USD","data":[8.499,8.6803,8.4139,8.3043,8.8785,9.4813,12.9387,13.329,13.4015,13.8286,14.6371,14.7852],"backgroundColor":"blue","borderColor":"blue","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1},{"label":"EUR","data":[10.3629,10.3249,10.0084,9.8228,10.2933,10.998,14.6798,15.0867,14.9676,15.4724,16.2855,15.6139],"backgroundColor":"purple","borderColor":"purple","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1}]},
   axisX: {
     labelFontSize: 10
   },
@@ -637,7 +642,7 @@ var exchangeRatesChart = new Chart(ctx, {
 var ctx = document.getElementById("exchangeRatesAnnual").getContext("2d");
 var exchangeRatesAnnualChart =  new Chart(ctx, {
   type: 'line',
-  // data: exchangeRateData,
+  data: {"labels":["15-12","16-12","17-12","18-12","19-12","20-12","21-12","22-4"],"datasets":[{"label":"USD","data":[2.9181,3.5192,3.7719,5.281,5.94,7.4194,13.329,14.7852],"backgroundColor":"blue","borderColor":"blue","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1},{"label":"EUR","data":[3.1838,3.7099,4.5155,6.0422,6.6621,9.1164,15.0867,15.6139],"backgroundColor":"purple","borderColor":"purple","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1}]}
   axisX: {
     labelFontSize: 10
   },
@@ -672,7 +677,7 @@ var exchangeRatesAnnualChart =  new Chart(ctx, {
 var ctx = document.getElementById("loansChart").getContext("2d");
 var loanChart = new Chart(ctx, {
   type: 'bar',
-  // data: loanChartData,
+  data: {"labels":["21-5","21-6","21-7","21-8","21-9","21-10","21-11","21-12","22-1","22-2","22-3","22-4"],"datasets":[{"label":"FX Loans","data":[756,761,586,574,608,658,820,795,768,709,733,651],"backgroundColor":"blue"},{"label":"TRY Loans","data":[290,240,220,220,261,0,0,590,740,740,490,490],"backgroundColor":"lightblue"},{"label":"Banks","data":[936,964,1034,999,976,1295,1278,677,552,558,846,842],"backgroundColor":"orange"},{"label":"Reserves","data":[130,125,86,84,85,91,125,122,114,110,106,86],"backgroundColor":"gray"}]},
   axisX: {
     labelFontSize: 10
   },
@@ -720,7 +725,7 @@ var loanChart = new Chart(ctx, {
 var ctx = document.getElementById("loansChartAnnual").getContext("2d");
 var loansChartAnnual = new Chart(ctx, {
   type: 'bar',
-  // data: loanChartData,
+  data: {"labels":["15-12","16-12","17-12","18-12","19-12","20-12","21-12","22-4"],"datasets":[{"label":"FX Loans","data":[121,0,450,747,538,561,795,651],"backgroundColor":"blue"},{"label":"TRY Loans","data":[1,0,621,647,217,290,590,490],"backgroundColor":"lightblue"},{"label":"Banks","data":[723,0,239,265,842,850,677,842],"backgroundColor":"orange"},{"label":"Reserves","data":[9,0,75,132,91,102,122,86],"backgroundColor":"gray"}]},
   axisX: {
     labelFontSize: 10
   },
@@ -770,7 +775,7 @@ var loansChartAnnual = new Chart(ctx, {
 var ctx = document.getElementById("nonCashLoansChart").getContext("2d");
 var nonCashLoanChart = new Chart(ctx, {
   type: 'bar',
-  // data: nonCashLoanChartData,
+  data: {"labels":["21-5","21-6","21-7","21-8","21-9","21-10","21-11","21-12","22-1","22-2","22-3","22-4"],"datasets":[{"label":"L/G","data":[89,125,121,118,124,133,177,182,180,186,195,187],"backgroundColor":"blue"},{"label":"L/C","data":[401,415,507,451,437,558,771,712,737,425,635,520],"backgroundColor":"lightblue"},{"label":"Acceptances","data":[],"backgroundColor":"orange"}]},
   axisX: {
     labelFontSize: 10
   },
@@ -821,7 +826,7 @@ var nonCashLoanChart = new Chart(ctx, {
 var ctx = document.getElementById("nonCashLoansChartAnnual").getContext("2d");
 var nonCashLoansChartAnnual = new Chart(ctx, {
   type: 'bar',
-  // data: nonCashLoanChartData,
+  data: {"labels":["15-12","16-12","17-12","18-12","19-12","20-12","21-12","22-4"],"datasets":[{"label":"L/G","data":[98,0,73,2,59,78,182,187],"backgroundColor":"blue"},{"label":"L/C","data":[0,0,305,202,357,291,712,520],"backgroundColor":"lightblue"},{"label":"Acceptances","data":[],"backgroundColor":"orange"}]},
   axisX: {
     labelFontSize: 10
   },
