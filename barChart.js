@@ -71,17 +71,22 @@ var mtdAllChart = new Chart(ctx, {
   type: "bar",
   responsive: true,
   data: {
-    // labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+    labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
     datasets: [
-      {
-        label: "Actual",
-        // data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-        borderColor: "#3cba9f",
-        backgroundColor: [
-          "Green",
-        ],
-        fill: true,
-      },
+    {
+      label: "Budget",
+      type: "line",
+      backgroundColor: "orange",
+      borderColor: "orange",
+      borderWidth: 1,
+      data: [14349.166666666666,14349.166666666666,14349.166666666666,14349.166666666666,14349.166666666666,14349.166666666666,14349.166666666666,14349.166666666666,14349.166666666666,14349.166666666666,14349.166666666666,14349.166666666666]
+      //   .data.datasets[0].backgroundColor[0] = "red";
+    },
+    {
+      label: "Actual",
+      backgroundColor: "blue",
+      data: [12132.78387,9614.56711,7931.61166,9647.53357,7780.9733,0,0,0,0,0,0,0]
+    }
 
     ],
   },
