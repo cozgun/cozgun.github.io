@@ -392,27 +392,6 @@
       }
     }
 
-    // include the ipc module to communicate with main process.
-    const ipcRenderer = require('electron').ipcRenderer;
-    const btnclick = document.getElementById('btnOpenExpenses');
-
-    function refreshAccPL() {
-      var sqlStrAccumulatedPL = "SELECT Month([GLB_DATA_TAR]) AS myMonth, Sum(dbo.DW_GN_GLB.GLB_YTLKARS/1000) as AMT " +
-        "FROM DBO.DW_GN_GLB WHERE (((GLB_BASIC)>'49999999') and ((GLB_BASIC)<'90000000')) GROUP BY dbo.DW_GN_GLB.GLB_DATA_TAR, Month([GLB_DATA_TAR]), Year([GLB_DATA_TAR])" +
-        "HAVING ( ((DBO.DW_GN_GLB.GLB_DATA_TAR) In (SELECT MAX(GLB_DATA_TAR) FROM DBO.DW_GN_GLB GROUP BY MONTH(GLB_DATA_TAR), YEAR(GLB_DATA_TAR)" +
-        ")) AND ((Year([GLB_DATA_TAR]))=" + getId("selectYear").value + ")) ORDER BY Month([GLB_DATA_TAR]);";
-      var sqlStrBudgetMonthly = "SELECT TUTAR, BudgetYear FROM budgetByYear WHERE BudgetYear = " + getId("selectYear").value;
-      getAccPLChartData(mtdBalanceChart, sqlStrAccumulatedPL, sqlStrBudgetMonthly, 'dw_production');
-    }
-
-    function refreshMtdPL() {
-      var sqlStrMtdAllByDk = "SELECT Sum([TUTAR]/1000) AS AMT, MONTH(37254+[ISLEM_TAR_NO]) AS myMonth FROM dbo.DW_HAREKET_PRODUCTION WHERE TRAN_NAME <> 'YSKZ' AND ISLEM_TAR_NO >= " +
-        dateNoStart('selectYear') + " AND ISLEM_TAR_NO <= " + dateNoEnd('selectYear') + " AND (((DKB_HES_NO)>'49999999') and ((DKB_HES_NO)<'90000000')) AND (Not (TRAN_NAME)='QQQQ') GROUP BY MONTH(37254+[ISLEM_TAR_NO]) ORDER BY MONTH(37254+[ISLEM_TAR_NO]);";
-      var sqlStrBudgetMonthly = "SELECT TUTAR, BudgetYear FROM budgetByYear WHERE BudgetYear = " + getId("selectYear").value;
-      // console.log(sqlStrBudgetMonthly)
-      getMonthlyChartData(mtdAllChart, sqlStrMtdAllByDk, sqlStrBudgetMonthly, 'dw_production');
-    }
-
   </script>
 </body>
 
