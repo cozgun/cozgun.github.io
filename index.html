@@ -239,7 +239,10 @@
 
               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <button type="button" style="font-size: 13px" class="btn btn-outline-primary"
-                  onclick="openExpenseSummary()">Expense
+
+                        onclick="window.open(document.URL, 'expenseSummary.html', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');"
+                        
+                        >Expense
                   Summary</button>
                 <button type="button" style="font-size: 13px" class="btn btn-outline-primary"
                   onclick="openExpense()">Expense GL
@@ -420,13 +423,12 @@ var mtdBalanceChart = new Chart(ctx, {
       backgroundColor: "orange",
       borderColor: "orange",
       borderWidth: 1,
-      data: [14349.166666666666,28698.333333333332,43047.5,57396.666666666664,71745.83333333333,86095,100444.16666666666,114793.33333333333,129142.5,143491.66666666666,157840.8333333333,172190]
-      //   .data.datasets[0].backgroundColor[0] = "red";
+      data: [1000, 2000,3000,4000,5000,6000,7000,8000,9000,10000,11000,12000]
     },
     {
       label: "Actual",
       backgroundColor: "blue",
-      data: [12132.78387,21747.35098,29678.96264,39326.49621,47107.46951,0,0,0,0,0,0,0]
+      data: [1100,2582,3885,5175,6230,0,0,0,0,0,0,0]
     }
 
     ],
@@ -483,13 +485,12 @@ var mtdAllChart = new Chart(ctx, {
       backgroundColor: "orange",
       borderColor: "orange",
       borderWidth: 1,
-      data: [14349.166666666666,14349.166666666666,14349.166666666666,14349.166666666666,14349.166666666666,14349.166666666666,14349.166666666666,14349.166666666666,14349.166666666666,14349.166666666666,14349.166666666666,14349.166666666666]
-      //   .data.datasets[0].backgroundColor[0] = "red";
+      data: [1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000]
     },
     {
       label: "Actual",
       backgroundColor: "blue",
-      data: [12132.78387,9614.56711,7931.61166,9647.53357,7780.9733,0,0,0,0,0,0,0]
+      data: [1100,1482,1303,1290,1055,0,0,0,0,0,0,0]
     }
 
     ],
@@ -541,13 +542,13 @@ var annualAllChart = new Chart(ctx, {
     datasets: [
       {
         label: "Actual",
-        data: [19177.47099,27997.61048,40785,64729.00495,68131.59864,135461.85566,77103.56068,135713.15586,47107.46951],
+        data: [1917,2799,4078,6472,6813,13546,7710,13571,4710],
         backgroundColor: "Blue",
       },
           {
       label: "Budget",
       backgroundColor: "orange",
-      data: [0,0,25000,43200,73100,109500,92300,99400,172190]
+      data: [1500,1700,2500,4300,7500,11950,9000,10000,16000]
     }
     ],
   },
@@ -725,7 +726,7 @@ var loanChart = new Chart(ctx, {
 var ctx = document.getElementById("loansChartAnnual").getContext("2d");
 var loansChartAnnual = new Chart(ctx, {
   type: 'bar',
-  data: {"labels":["15-12","16-12","17-12","18-12","19-12","20-12","21-12","22-4"],"datasets":[{"label":"FX Loans","data":[121,0,450,747,538,561,795,651],"backgroundColor":"blue"},{"label":"TRY Loans","data":[1,0,621,647,217,290,590,490],"backgroundColor":"lightblue"},{"label":"Banks","data":[723,0,239,265,842,850,677,842],"backgroundColor":"orange"},{"label":"Reserves","data":[9,0,75,132,91,102,122,86],"backgroundColor":"gray"}]},
+  data: {"labels":["15-12","16-12","17-12","18-12","19-12","20-12","21-12","22-4"],"datasets":[{"label":"FX Loans","data":[121,350,450,747,538,561,795,651],"backgroundColor":"blue"},{"label":"TRY Loans","data":[1,0,621,647,217,290,590,490],"backgroundColor":"lightblue"},{"label":"Banks","data":[723,0,239,265,842,850,677,842],"backgroundColor":"orange"},{"label":"Reserves","data":[9,0,75,132,91,102,122,86],"backgroundColor":"gray"}]},
   axisX: {
     labelFontSize: 10
   },
@@ -775,7 +776,7 @@ var loansChartAnnual = new Chart(ctx, {
 var ctx = document.getElementById("nonCashLoansChart").getContext("2d");
 var nonCashLoanChart = new Chart(ctx, {
   type: 'bar',
-  data: {"labels":["21-5","21-6","21-7","21-8","21-9","21-10","21-11","21-12","22-1","22-2","22-3","22-4"],"datasets":[{"label":"L/G","data":[89,125,121,118,124,133,177,182,180,186,195,187],"backgroundColor":"blue"},{"label":"L/C","data":[401,415,507,451,437,558,771,712,737,425,635,520],"backgroundColor":"lightblue"},{"label":"Acceptances","data":[],"backgroundColor":"orange"}]},
+  data: {"labels":["21-5","21-6","21-7","21-8","21-9","21-10","21-11","21-12","22-1","22-2","22-3","22-4"],"datasets":[{"label":"L/G","data":[100,178,108,110,178,177,157,100,199,134,122,154],"backgroundColor":"blue"},{"label":"L/C","data":[200,247,303,292,375,231,318,300,338,285,336,266],"backgroundColor":"lightblue"},{"label":"Acceptances","data":[50,56,95,90,62,52,91,61,52,94,65,62],"backgroundColor":"orange"}]},
   axisX: {
     labelFontSize: 10
   },
@@ -826,7 +827,7 @@ var nonCashLoanChart = new Chart(ctx, {
 var ctx = document.getElementById("nonCashLoansChartAnnual").getContext("2d");
 var nonCashLoansChartAnnual = new Chart(ctx, {
   type: 'bar',
-  data: {"labels":["15-12","16-12","17-12","18-12","19-12","20-12","21-12","22-4"],"datasets":[{"label":"L/G","data":[98,0,73,2,59,78,182,187],"backgroundColor":"blue"},{"label":"L/C","data":[0,0,305,202,357,291,712,520],"backgroundColor":"lightblue"},{"label":"Acceptances","data":[],"backgroundColor":"orange"}]},
+  data: {"labels":["15-12","16-12","17-12","18-12","19-12","20-12","21-12","22-4"],"datasets":[{"label":"L/G","data":[70,122,94,104,94,111,95,132,116,104,107,89],"backgroundColor":"blue"},{"label":"L/C","data":[140,251,231,255,212,181,169,169,257,239,223,219],"backgroundColor":"lightblue"},{"label":"Acceptances","data":[30,32,44,60,37,39,34,60,56,30,34,55],"backgroundColor":"orange"}]},
   axisX: {
     labelFontSize: 10
   },
