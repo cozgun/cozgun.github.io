@@ -1,6 +1,6 @@
 
 const Chart = require('.\chart.js\dist\chart.js');
-//const ChartDataLabels = require('chartjs-plugin-datalabels');
+const ChartDataLabels = require('.\chartjs-plugin-datalabels\dist\chartjs-plugin-datalabels.js');
 Chart.register(ChartDataLabels);
 Chart.defaults.font.family = 'Calibri'
 Chart.defaults.font.size = 12
