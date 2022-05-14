@@ -205,21 +205,6 @@ var exchangeRatesChart = new Chart(ctx, {
   options: {
 
     scales: {
-      //   xAxes: {
-      //   gridLines: {
-      //     display: false ,
-      //     color: "#FFFFFF"
-      //   },
-      // },
-      // xAxes: [{
-      //   gridLines: {
-      //     display: true,
-      //     color: "white"
-      //   },
-      //   ticks: {
-      //     display: true
-      //   }
-      // }]
     },
     plugins: {
       datalabels: {
@@ -254,21 +239,6 @@ var exchangeRatesAnnualChart =  new Chart(ctx, {
   options: {
 
     scales: {
-      //   xAxes: {
-      //   gridLines: {
-      //     display: false ,
-      //     color: "#FFFFFF"
-      //   },
-      // },
-      // xAxes: [{
-      //   gridLines: {
-      //     display: true,
-      //     color: "white"
-      //   },
-      //   ticks: {
-      //     display: true
-      //   }
-      // }]
     },
     plugins: {
       datalabels: {
@@ -293,8 +263,6 @@ var exchangeRatesAnnualChart =  new Chart(ctx, {
   }
 });
 
-
-// chart.options.plugins.title.text = "P&L Trend" + " ('000 TRY)"
 
 var ctx = document.getElementById("loansChart").getContext("2d");
 var loanChart = new Chart(ctx, {
