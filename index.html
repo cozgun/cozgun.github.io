@@ -532,17 +532,18 @@ var annualAllChart = new Chart(ctx, {
   type: "bar",
   responsive: true,
   data: {
-    // labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+    // labels: [2014,2015,2016,2017,2018,2019,2020,2021,2022],
     datasets: [
       {
         label: "Actual",
-        // data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-        borderColor: "#3cba9f",
-        backgroundColor: [
-          "Blue",
-        ],
-        fill: true,
+        data: [19177.47099,27997.61048,40785,64729.00495,68131.59864,135461.85566,77103.56068,135713.15586,47107.46951],
+        backgroundColor: "Blue",
       },
+          {
+      label: "Budget",
+      backgroundColor: "orange",
+      data: [0,0,25000,43200,73100,109500,92300,99400,172190]
+    }
     ],
   },
   options: {
