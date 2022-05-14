@@ -3,11 +3,40 @@
 
 <head>
   <style>
+    .no-border {
+      border: 0;
+      box-shadow: none;
+      /* You may want to include this as bootstrap applies these styles too */
+    }
+
+    .divHeader {
+      padding-top: 10px;
+      color: black;
+      text-align: left;
+      font-size: 22px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      border-style: solid;
+      border-width: 1px 0px 0px 0px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    .centerAll {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     .center {
+      text-align: center;
       margin: auto;
       width: 100%;
       /* border: 3px solid #73AD21; */
       padding: 10px;
+    }
+
+    .centerText {
+      text-align: center
     }
 
     h1 {
@@ -18,6 +47,22 @@
       text-align: center;
     }
 
+    .bigFigure {
+      color: lightgray;
+      text-align: center;
+      font-size: 40px;
+      line-height: 0.8;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    }
+
+    .bigFigureText {
+      color: gray;
+      text-align: center;
+      font-size: 15px;
+      line-height: 0.80;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    }
+
     /* div {text-align: center;} */
     .vertical-center {
       margin: 0;
@@ -26,6 +71,7 @@
       -ms-transform: translateY(-50%);
       transform: translateY(-50%);
     }
+
 
     li {
       position: relative;
@@ -49,12 +95,28 @@
       border-color: lightgray;
     }
 
-    div.first {
-      padding: 0px;
+    div.topBorder {
+      padding: 10px;
+      border-style: solid;
+      border-width: 1px 0px 0px 0px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    div.bottomBorder {
+      /* padding: 10px; */
       border-style: solid;
       border-width: 0px 0px 1px 0px;
       /* 25px top, 10px right, 4px bottom and 35px left */
       border-color: lightgray;
+    }
+
+    div.first {
+      padding: 0px;
+      /* border-style: solid;
+      border-width: 0px 0px 1px 0px; */
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      /* border-color: lightgray; */
       /* background: rgba(109, 216, 235, 0.3);
       border-radius: 20px;
       padding: 10px; */
@@ -86,6 +148,15 @@
       padding: 0px;
     }
 
+    div.height {
+      height: 150px;
+    }
+
+    div.heightAsChartTitle {
+      height: 10;
+      text-align: center
+    }
+
     div.fourth {
       /* background: rgba(255, 255, 0, 0.05);
       background: rgba(109, 216, 235, 0.3);
@@ -97,184 +168,253 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Finance DashBoard Desktop App</title>
+  <title>Landing Page</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
 
 </head>
-<!-- <p id='pdf-path'></p> -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="services/sqlservice.js"></script>
 
 <body>
-  <!-- <body onunload="deleteItems()"> -->
-
   <div class="container-fluid">
-    <div class="row">
-      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-        <div class="sidebar-sticky">
-          <div class="topBottomBorder">
-          <ul class="nav flex-column">
-            <li class="display-6">
+    <main role="main" class="col-md-12 pull-left">
+      <div id="main-div" class="col-md-12 pull-left">
+        <!-- <h1 class="display-5">Landing-new</h1> -->
+        <div class="container">
+          <div class="row">
+
+            <div class="col-md-2 auto center ">
+              <div class="first">
+                <p class="bigFigure" id="finalPLAmt">
+                </p>
+                <p class="bigFigureText" id="finalPLText">
+                </p>
+              </div>
+            </div>
+            <div class="col-md-2 auto center ">
+              <div class="first">
+                <p class="bigFigure" id="avgMargin"></p>
+                <p class="bigFigureText" id="avgMarginText"></p>
+              </div>
+            </div>
+
+            <div class="col-md-2 auto center ">
+              <div class="first">
+                <p class="bigFigure">X Sum</p>
+                <p class="bigFigureText">Another text</p>
+              </div>
+            </div>
+
+            <div class="col-md-2 auto center ">
+              <div class="first">
+                <p class="bigFigure">X Sum</p>
+                <p class="bigFigureText">Another text</p>
+              </div>
+            </div>
+            <div class="col-md-2 auto center ">
+              <div class="first">
+                <p class="bigFigure">X Sum</p>
+                <p class="bigFigureText">Another text</p>
+              </div>
+            </div>
+            <div class="col-md-2 auto center ">
+              <div class="first">
+                <p class="bigFigure">X Sum</p>
+                <p class="bigFigureText">Another text</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-3 auto"
+              style="color:gray; text-align:left; font-size: 32px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
               Finance Dashboard
-            </li>
-            <li id="versLi"> version 1.0.0
-            </li>
-            <li class="nav-item">
-              <button type="button" style="font-size: 14px" class="btn btn-primary" onclick="openMain()">Landing
-                Page</button>
-            </li>
+            </div>
 
-            <li class="nav-item">
-              <button type="button" style="font-size: 14px" class="btn btn-primary"
-                onclick="openExpenseSummary()">Expense
-                Summary</button>
-            </li>
+            <div class="col-md-9 auto center">
 
-            <li class="nav-item">
-              <button type="button" style="font-size: 14px" class="btn btn-primary" onclick="openExpense()">Expense GL Details</button>
-            </li>
-            <li class="nav-item">
-              <button type="button" style="font-size: 14px" class="btn btn-primary" onclick="openLoans()">Loan
-                Analysis</button>
-            </li>
-            <li class="nav-item">
-              <button type="button" style="font-size: 14px" class="btn btn-primary" onclick="openNoncashLoans()">Non-cash Loan Analysis</button>
-            </li>
-            <li class="nav-item">
-              <button type="button" style="font-size: 14px" class="btn btn-primary" onclick="openMargins()">Margin
-                Analysis</button>
-            </li>
-
-            <li class="nav-item">
-              <button type="button" id="btnOpenLoans" style="font-size: 14px" class="btn btn-primary"
-                onclick="deleteItems()">Clear local storage</button>
-            </li>
-
-            <li class="nav-item">
-              <button type="button" id="btnOpenLoans" style="font-size: 14px" class="btn btn-primary">Update graph</button>
-            </li>
-
-          </ul>
-        </div>
-          <br>
-          <br>
-
-          <div class="topBottomBorder">
-            <!-- <h1 class="display-7" id="finalPLh1"></h1> -->
-            <!-- <p id="finalPLh1" style="text-align:center; font-size: 28px; line-height:1"></p> -->
-            <p id="finalPLAmt"
-              style="color:blue;  text-align:center; font-size: 50px; line-height:0.8; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ">
-            </p>
-            <p id="finalPLText"
-              style="text-align:center; font-size: 20px; line-height:0.80; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
-            </p>
-          </div>
-          <div class="topBottomBorder">
-            <p id="avgMargin"
-              style="color:blue;  text-align:center; font-size: 50px; line-height:0.8; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ">
-            </p>
-            <p id="avgMarginText"
-              style="text-align:center; font-size: 20px; line-height:0.80; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
-            </p>
-          </div>
-
-        </div>
-      </nav>
-
-      <main role="main" class="col-md-10 pull-left">
-        <div id="main-div" class="col-md-10; pull-left">
-          <h1 class="display-5">Landing Page</h1>
-          <div class="container">
-            <div class="row ">
-              <div class="col-md-4 auto center ">
-                <!-- <div class="topBottomBorder">
-                  <p id="finalPLAmt"
-                    style="color:blue;  text-align:center; font-size: 50px; line-height:0.8; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ">
-                  </p>
-                  <p id="finalPLText"
-                    style="text-align:center; font-size: 20px; line-height:0.80; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
-                  </p>
-                </div> -->
-                <br>
-                <div class="first">
-                  <select style="font-size: 20px; width:120px" id="selectYear" class="form-select center"
-                    aria-label="Select year" onchange="refreshMtdPL(); refreshAccPL();">
-                    <option value="2022">2022</option>
-                    <option value="2021">2021</option>
-                    <option value="2020">2020</option>
-                    <option value="2019">2019</option>
-                    <option value="2018">2018</option>
-                    <option value="2017">2017</option>
-                    <option value="2016">2016</option>
-                    <option value="2015">2015</option>
-                  </select>
-                  <div class="first">
-                    <canvas id="canvasMonthendBalance"></canvas>
-                  </div>
-                  <br>
-                  <canvas id="canvasMtdAll"></canvas>
-                </div>
-                <br>
-                <div class="first">
-                  <canvas id="canvasAnnualAll"></canvas>
-                </div>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="button" style="font-size: 13px" class="btn btn-outline-primary"
+                  onclick="openExpenseSummary()">Expense
+                  Summary</button>
+                <button type="button" style="font-size: 13px" class="btn btn-outline-primary"
+                  onclick="openExpense()">Expense GL
+                  Details</button>
+                <button type="button" style="font-size: 13px" class="btn btn-outline-primary" onclick="openLoans()">Loan
+                  Analysis</button>
+                <button type="button" style="font-size: 13px" class="btn btn-outline-primary"
+                  onclick="openNoncashLoans()">Non-cash Loan Analysis</button>
+                <button type="button" style="font-size: 13px" class="btn btn-outline-primary"
+                  onclick="openMargins()">Margin
+                  Analysis</button>
+                <button type="button" id="btnOpenLoans" style="font-size: 13px" class="btn btn-outline-primary"
+                  onclick="deleteItems()">Clear local storage</button>
               </div>
-              <!-- <div class="col-md-1 auto center "></div> -->
-              <div class="col-md-4 center">
-                <p style="text-align:center; font-size: 20px; line-height:1">Trends in Past 12 Monthends:</p>
-                <div class="first">
-                  <!-- <h1 class="display-6" id="finalPLh1"></h1> -->
-                  <canvas id="exchangeRates"></canvas>
-                </div>
-                <br>
-                <div class="first">
-                  <canvas id="loansChart"></canvas>
-                </div>
-                <br>
-                <div class="first">
-                  <canvas id="nonCashLoansChart"></canvas>
-                </div>
-              </div>
-
-              <div class="col-md-4 center">
-                <p style="text-align:center; font-size: 20px; line-height:1">Trends in Past Years:</p>
-                <div class="first">
-                  <!-- <h1 class="display-6" id="finalPLh1"></h1> -->
-                  <canvas id="exchangeRatesAnnual"></canvas>
-                </div>
-                <br>
-                <div class="first">
-                  <canvas id="loansChartAnnual"></canvas>
-                </div>
-                <br>
-                <div class="first">
-                  <canvas id="nonCashLoansChartAnnual"></canvas>
-                </div>
-              </div>
-              <!-- <div class="col-md-3 auto center"> -->
-                <!-- <p id="parCurrComposition" style="text-align:center; font-size: 20px; line-height:1"></p>
-                <div class="first">
-                  <canvas id="cashCurrencyChart"></canvas>
-                </div>
-                <div class="first">
-                  <canvas id="top5cashChart"></canvas>
-                </div>
-                <div class="first">
-                  <canvas id="nonCashCurrencyChart"></canvas>
-                </div> -->
-                <!-- <div class="first"> -->
-                  <!-- <p style="text-align:center; font-size: 14px; line-height:1">Top 5 Non-cash Exposures</p> -->
-                  <!-- <canvas id="top5nonCashChart"></canvas> -->
-                <!-- </div> -->
-
-              <!-- </div> -->
             </div>
           </div>
+
+          <div class="row">
+          <div class="divHeader">
+            <label for="selectYear">P&L Trends of year </label>
+            <select id="selectYear" aria-label="Select year" onchange="refreshMtdPL(); refreshAccPL();">
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+              <option value="2020">2020</option>
+              <option value="2019">2019</option>
+              <option value="2018">2018</option>
+              <option value="2017">2017</option>
+              <option value="2016">2016</option>
+              <option value="2015">2015</option>
+            </select>
+          </div>
         </div>
-      </main>
-    </div>
+
+          <div class="row ">
+            <div class="col-md-4 heightAsChartTitle">
+              Current Year ('000 TRY')
+            </div>
+            <div class="col-md-4 heightAsChartTitle">
+              Current Year MTD ('000 TRY')
+            </div>
+            <div class="col-md-4 heightAsChartTitle ">
+              P&L by Years ('000 TRY')
+            </div>
+          </div>
+
+          <div class="row ">
+            <div class="col-md-4 auto center ">
+              <div class="first centerAll">
+                <canvas id="canvasMonthendBalance"></canvas>
+                <!-- <canvas id="cashCurrencyChart" width="200" height="200"></canvas> -->
+              </div>
+            </div>
+            <div class="col-md-4 auto center">
+              <div class="first centerAll">
+                <canvas id="canvasMtdAll"></canvas>
+                <!-- <canvas id="cashCurrencyChart2" width="200" height="200"></canvas> -->
+              </div>
+            </div>
+            <div class="col-md-4 auto center">
+              <div class="first centerAll">
+                <canvas id="canvasAnnualAll"></canvas>
+                <!-- <canvas id="cashCurrencyChart3" width="200" height="200"></canvas> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="row divHeader">Monthly and Annual Trends of Balancesheet:
+          </div>
+
+          <div class="row ">
+            <div class="col-md-4 heightAsChartTitle">
+              Exchange Rates
+            </div>
+            <div class="col-md-4 heightAsChartTitle">
+              Cash Loans
+            </div>
+            <div class="col-md-4 heightAsChartTitle ">
+              Non-cash Loans
+            </div>
+          </div>
+
+          <div class="row ">
+            <div class="col-md-4 auto center ">
+              <div class="first">
+                <canvas id="exchangeRates"></canvas>
+              </div>
+            </div>
+            <div class="col-md-4 auto center">
+              <div class="first">
+                <canvas id="loansChart"></canvas>
+              </div>
+            </div>
+            <div class="col-md-4 auto center">
+              <div class="first">
+                <canvas id="nonCashLoansChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="row ">
+            <div class="col-md-4 auto center ">
+              <div class="first">
+                <canvas id="exchangeRatesAnnual"></canvas>
+              </div>
+            </div>
+            <div class="col-md-4 auto center">
+              <div class="first">
+                <canvas id="loansChartAnnual"></canvas>
+              </div>
+            </div>
+            <div class="col-md-4 auto center">
+              <div class="first">
+                <canvas id="nonCashLoansChartAnnual"></canvas>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <script src="barChart.js"></script>
+
+    </main>
   </div>
+
+  <script type="text/javascript">
+    function openExpenseSummary() { ipcRenderer.send("openExpenseSummary") };
+    function openExpense() { ipcRenderer.send("openExpense") };
+    function openMain() { ipcRenderer.send("openMain") };
+    function openLoans() { ipcRenderer.send("openLoans") };
+    function openNoncashLoans() { ipcRenderer.send("openNoncashLoans") };
+    function openMargins() { ipcRenderer.send("openMargins") };
+    var getId = function (id) { return document.getElementById(id); };
+    getParameters()
+    document.addEventListener("DOMContentLoaded", () => {
+
+    });
+
+    function deleteItems() {
+      localStorage.clear();
+    }
+
+    function fillSelect(values = []) {
+      // burası vakit olduğunda güncellenebilir.  türkçe karakterler için sadece girilen değere değil, olası benzer karakterlere de bakıp sonuçları array a ekleyebiliriz.
+      var dropdown = getId("arrays");
+      dropdown.options.length = 0;
+      var searchResults = GLList.filter(word => word.includes(getId("myInput").value.toUpperCase()));
+      // console.log("searchResults:" + searchResults)
+
+      for (var i = 0; i < searchResults.length; ++i) {
+        // console.log("dropdown.length:" + dropdown.length)
+        dropdown[dropdown.length] = new Option(searchResults[i], searchResults[i]);
+      }
+    }
+
+    // include the ipc module to communicate with main process.
+    const ipcRenderer = require('electron').ipcRenderer;
+    const btnclick = document.getElementById('btnOpenExpenses');
+
+    function refreshAccPL() {
+      var sqlStrAccumulatedPL = "SELECT Month([GLB_DATA_TAR]) AS myMonth, Sum(dbo.DW_GN_GLB.GLB_YTLKARS/1000) as AMT " +
+        "FROM DBO.DW_GN_GLB WHERE (((GLB_BASIC)>'49999999') and ((GLB_BASIC)<'90000000')) GROUP BY dbo.DW_GN_GLB.GLB_DATA_TAR, Month([GLB_DATA_TAR]), Year([GLB_DATA_TAR])" +
+        "HAVING ( ((DBO.DW_GN_GLB.GLB_DATA_TAR) In (SELECT MAX(GLB_DATA_TAR) FROM DBO.DW_GN_GLB GROUP BY MONTH(GLB_DATA_TAR), YEAR(GLB_DATA_TAR)" +
+        ")) AND ((Year([GLB_DATA_TAR]))=" + getId("selectYear").value + ")) ORDER BY Month([GLB_DATA_TAR]);";
+      var sqlStrBudgetMonthly = "SELECT TUTAR, BudgetYear FROM budgetByYear WHERE BudgetYear = " + getId("selectYear").value;
+      getAccPLChartData(mtdBalanceChart, sqlStrAccumulatedPL, sqlStrBudgetMonthly, 'dw_production');
+    }
+
+    function refreshMtdPL() {
+      var sqlStrMtdAllByDk = "SELECT Sum([TUTAR]/1000) AS AMT, MONTH(37254+[ISLEM_TAR_NO]) AS myMonth FROM dbo.DW_HAREKET_PRODUCTION WHERE TRAN_NAME <> 'YSKZ' AND ISLEM_TAR_NO >= " +
+        dateNoStart('selectYear') + " AND ISLEM_TAR_NO <= " + dateNoEnd('selectYear') + " AND (((DKB_HES_NO)>'49999999') and ((DKB_HES_NO)<'90000000')) AND (Not (TRAN_NAME)='QQQQ') GROUP BY MONTH(37254+[ISLEM_TAR_NO]) ORDER BY MONTH(37254+[ISLEM_TAR_NO]);";
+      var sqlStrBudgetMonthly = "SELECT TUTAR, BudgetYear FROM budgetByYear WHERE BudgetYear = " + getId("selectYear").value;
+      // console.log(sqlStrBudgetMonthly)
+      getMonthlyChartData(mtdAllChart, sqlStrMtdAllByDk, sqlStrBudgetMonthly, 'dw_production');
+    }
+
+  </script>
 </body>
 
 </html>
