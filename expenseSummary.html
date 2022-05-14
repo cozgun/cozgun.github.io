@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    div.bottomBorder {
+      padding: 0px;
+      border-style: solid;
+      border-width: 0px 0px 1px 0px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+    div.topBottomBorder {
+      padding: 10px;
+      border-style: solid;
+      border-width: 1px 0px 1px 0px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+    .center {
+      margin: auto;
+      width: 100%;
+      /* border: 3px solid #73AD21; */
+      padding: 10px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    /* div {text-align: center;} */
+    .vertical-center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+
+    li {
+      position: relative;
+      padding-left: 11px;
+      margin: 0 0 3px 0;
+    }
+
+    div.first {
+      background: rgba(226, 162, 226, 0.3);
+      border-radius: 20px;
+      padding: 10px; 
+
+    }
+
+    div.second {
+      background: rgba(226, 162, 226, 0.3);
+      border-radius: 20px;
+  padding: 10px; 
+
+    }
+
+    div.third {
+      background: rgba(226, 162, 226, 0.3);
+      border-radius: 20px;
+  padding: 10px; 
+
+    }
+
+    div.fourth {
+      background: rgba(226, 162, 226, 0.3);
+      border-radius: 20px;
+      padding: 10px; 
+    }
+    div.fifth {
+      background: rgb(241, 11, 11);
+      border-radius: 20px;
+      padding: 10px; 
+    }
+    div.sixth {
+      background: rgb(6, 139, 24);
+      border-radius: 20px;
+      padding: 10px; 
+    }
+
+  </style>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Analysis</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+
+</head>
+<!-- <p id='pdf-path'></p> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <main role="main" class="col-md-12 ml-sm-auto col-lg-12 pt-3 px-4">
+        <div id="main-div">
+          <div class="col-md-12">
+            <div class="center">
+            <h1 id="ExpSumHeader" class="display-6"></h1>
+
+            <div class="container">
+              <!-- <div class="row ">
+                <div class="col-md-3 center">
+                  <div class="second">
+                    <canvas id="canvasActualVsBudget"></canvas>
+                  </div>
+                </div>
+              
+                <div class="col-md-3 auto center">
+                  <div class="second">
+                    <canvas id="canvasStaffActualVsBudget"></canvas>
+                  </div>
+                </div>  
+                <div class="col-md-3 auto center">
+                    <div class="second">
+                      <canvas id="canvasIndActualVsBudget"></canvas>
+                    </div>
+                </div>
+                <div class="col-md-3 auto center">
+                  <div class="first">
+                    <canvas id="canvasDeprActualVsBudget"></canvas>
+                  </div>
+                </div>
+              </div> -->
+
+              <div class="row">
+                <div class="col-md-6 auto center first">
+                  <canvas id="canvasExpCombined"></canvas>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="center">
+                  <!-- <h1 id= "BudVarHeader" class="display-6"></h1> -->
+                  <h3 id= "BudVarHeader" style="text-align: center"></h3>
+                </div>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-xl-6">
+                <h5>Overbudgets</h5>
+                <table id="variances-table" class="table">
+                  <thead style="font-size: 12px">
+                    <tr>
+                      <th scope="col" style="text-align:left">gl no/name</th>
+                      <th scope="col">actual</th>
+                      <th scope="col">budget</th>
+                      <th scope="col">diff.</th>
+                      <!-- <th style="color:black; background-color:darkorange" scope="col">diff.</th> -->
+                      <th scope="col">%</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+              <!-- <div class="col-xl-1"></div> -->
+              <div class="col-xl-6">
+                <h5> Underbudgets</h5>
+                <table id="variances2-table" class="table">
+                  <thead style="font-size: 12px">
+                    <tr>
+                      <th scope="col" style="text-align:left">gl no/name</th>
+                      <th scope="col">budget</th>
+                      <th scope="col">actual</th>
+                      <th scope="col">diff.</th>
+                      <!-- <th style="color:black; background-color:lightgreen" scope="col">diff.</th> -->
+                      <th scope="col">%</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="row ">
+              <div class="center">
+                <h1 class="display-6">Jump to account details</h1>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 auto center">
+                <div class="row">
+
+                  <div class="input-group mb-3 auto center">
+                    <label class="input-group-text" for="myInput">Type something</label>
+                    <input class="form-control" type="text" id="myInput" placeholder="GL name or number"
+                      aria-label="Search">
+                    <button class="btn btn-outline-success" type="button"
+                      onclick="fillSelectWithExpenseAccounts('arrays','myInput')">Search
+                      accounts</button>
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <select class="form-select" id="arrays"></select>
+                    <button class="btn btn-outline-success" id="btnOpenExpenses" type="button">See details</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <br>
+
+
+        </div>
+    </div>
+    </main>
+  </div>
+
+
+  <script>
+  </script>
+</body>
+
+</html>
