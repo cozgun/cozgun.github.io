@@ -1,3 +1,4 @@
+
 const Chart = require('.\chart.js\dist\chart.js');
 //const ChartDataLabels = require('chartjs-plugin-datalabels');
 Chart.register(ChartDataLabels);
