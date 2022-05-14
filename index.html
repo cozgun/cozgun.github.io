@@ -240,7 +240,7 @@
               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <button type="button" style="font-size: 13px" class="btn btn-outline-primary"
 
-                        onclick="window.open(document.URL, 'expenseSummary.html', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');"
+                        onclick="window.open('expenseSummary.html', '_blank', 'location=no,height=570,width=520,scrollbars=yes,status=yes');"
                         
                         >Expense
                   Summary</button>
@@ -379,7 +379,7 @@
     });
 
     function deleteItems() {
-      localStorage.clear();
+      //localStorage.clear();
     }
 
     function fillSelect(values = []) {
@@ -538,7 +538,7 @@ var annualAllChart = new Chart(ctx, {
   type: "bar",
   responsive: true,
   data: {
-    // labels: [2014,2015,2016,2017,2018,2019,2020,2021,2022],
+    labels: [2014,2015,2016,2017,2018,2019,2020,2021,2022],
     datasets: [
       {
         label: "Actual",
@@ -591,13 +591,6 @@ var annualAllChart = new Chart(ctx, {
     },
   },
 });
-
-var barChartData = {
-  labels: ["Actual", "Budget"],
-  datasets: [{
-    backgroundColor: ["blue", "orange"],
-    data: [localStorage.getItem("sessionTotalActual"), localStorage.getItem("sessionTotalBudget")]
-  }]
 
 };
 
