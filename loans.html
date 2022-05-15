@@ -248,7 +248,8 @@ var cashCurrencyChart = new Chart(ctx8, {
       datalabels: {
         color: 'black',
         formatter: (value, context) => {
-          console.log("context.chart.data:" + context.chart.data)
+          console.log("context.chart.data:" + JSON.stringify((context.chart.data))
+          console.log("value:" + value)
           return context.chart.data.labels[context.dataIndex] + ":" + value;
         },
         font: {
