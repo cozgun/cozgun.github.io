@@ -106,8 +106,7 @@
 
   <script type="text/javascript">
 //    const ipcRenderer = require('electron').ipcRenderer;
-    function openExpenseSummary() { ipcRenderer.send("openExpenseSummary") };
-    function openMain() { ipcRenderer.send("openMain") };
+    function openExpenseSummary() { onclick="window.open('expenseSummary.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes') };
     var getId = function (id) { return document.getElementById(id); };
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -127,7 +126,7 @@
 
     const btnclick = document.getElementById('btnOpenExpensesExp');
     btnclick.addEventListener('click', function () {
-      localStorage.setItem("sessionGlAcct", getId("arraysExp").value);
+      localStorage.setItem("sessionGlAcct", "88002104");
       $("dk").value = localStorage.getItem("sessionGlAcct").substring(0, 8);
       loadExpenses('getByDkAndYear')
       getMonthlySums();
@@ -135,7 +134,6 @@
     });
 
     const tasksBody = document.querySelector("#tasks-table > tbody");
-    // document.ready
 
     function getReportMonth() {
       const Dialogs = require("dialogs");
