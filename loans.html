@@ -134,23 +134,24 @@
                         Compare Dates
                   </div>
   
-                  <div class="col-md-3 auto center ">
-                  <div class="first">
-                    <input class="centerText" type="text" id="firstDate" readonly>
-                  </div>
-                </div>
-                  <div class="col-md-3 auto center ">
-                    <div class="first">
-                      <input class="centerText" type="date" id="secondDate" name="trip-start" min="2014-06-30">
-                    </div>
-                  </div>
-                  <div class="col-md-3 auto center ">
-                    <div class="first">
-                      <input class="centerText" type="date" id="thirdDate" name="trip-start" min="2014-06-30">
-                      <button type="button" style="font-size: 12px" class="btn btn-primary" onclick="getLoanData()">Update Graphs</button>
-                    </div>
-                  </div>
-                </div>
+            <div class="col-md-3 auto center ">
+              <div class="first">
+                <input value="(Yesterday)" class="centerText" type="text" id="firstDateMargins" readonly>
+              </div>
+            </div>
+            <div class="col-md-3 auto center ">
+              <div class="first">
+                <input value= "2021-12-31" class="centerText" type="date" id="secondDateMargins" name="trip-start" min="2014-06-30">
+              </div>
+            </div>
+            <div class="col-md-3 auto center ">
+              <div class="first">
+                <input value= "2022-05-14" class="centerText" type="date" id="thirdDateMargins" name="trip-start" min="2014-06-30">
+                <button type="button" style="font-size: 12px" class="btn btn-primary" onclick="getMarginsData()">Update
+                  Graphs</button>
+              </div>
+            </div>
+          </div>
 
                 <div class="row topBottomBorder" >
                   <div class="col-md-1 centerAll " style="color:blue; text-align:center; font-size: 20px; line-height:0.80; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
