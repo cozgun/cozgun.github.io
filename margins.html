@@ -125,11 +125,12 @@
   <title>Margin Analysis</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js"></script>
 
 </head>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src="services/sqlservice.js"></script>
 
 <body>
   <div class="container-fluid">
@@ -165,7 +166,7 @@
           <div class="row topBottomBorder" style="height: 150px">
             <div class="col-md-1 centerAll "
               style="color:blue; text-align:center; font-size: 20px; line-height:0.80; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
-              Average Margins Actual vs Budget (array ler düzeltilecek.  boş kayıtlar sorun yaratıyor.)
+              Average Margins Actual vs Budget
             </div>
 
             <div class="col-md-4 auto center ">
@@ -308,18 +309,430 @@
                 </thead>
                 <tbody></tbody>
               </table>
-
             </div>
           </div>
-
-          
-          
-
         </div>
       </div>
     </main>
   </div>
 
+  <script>
+//  const Chart = require('chart.js');
+//const ChartDataLabels = require('chartjs-plugin-datalabels');
+Chart.register(ChartDataLabels);
+Chart.defaults.font.family = 'Calibri'
+Chart.defaults.font.size = 12
+
+
+var $ = function (id) { return document.getElementById(id); };
+
+function getSqlMonthendsFrom(dt) {
+  let yesterday = new Date()
+  yesterday.setDate(yesterday.getDate() - 1)
+  let finalYear=yesterday.getFullYear()
+  let finalMonth=yesterday.getMonth()
+  let checkYear
+  let checkMonth
+
+  let sqlMonthEnds = []
+  for (let i = 1; i < 37; i++) {
+
+    if (checkYear == finalYear && checkMonth == finalMonth){
+      let sqlMonthEndsText = sqlMonthEnds.toString().replace(/,/gi, "','");
+      
+      // console.log(sqlMonthEndsText)
+      localStorage.setItem("sqlMonthEnds", sqlMonthEndsText)
+      break;
+    }
+    sqlMonthEnds[i-1] = new Date(dt.setMonth(dt.getMonth()+1))
+    sqlMonthEnds[i-1].setDate(sqlMonthEnds[i-1].getDate() - 1) 
+    checkYear = sqlMonthEnds[i-1].getFullYear()
+    checkMonth = sqlMonthEnds[i-1].getMonth()+1
+    // console.log("sqlMonthEnds[i-1]:" + sqlMonthEnds[i-1])
+    sqlMonthEnds[i-1] = formatSqlDate(sqlMonthEnds[i-1])
+  }
+}
+
+
+function sortTable(tableId, indexToSort) {
+    var table, rows, switching, i, x, y, shouldSwitch;
+    table = document.getElementById(tableId);
+    switching = true;
+    /*Make a loop that will continue until
+    no switching has been done:*/
+    while (switching) {
+      //start by saying: no switching is done:
+      switching = false;
+      rows = table.rows;
+      /*Loop through all table rows (except the
+      first, which contains table headers):*/
+      for (i = 1; i < (rows.length - 1); i++) {
+        //start by saying there should be no switching:
+        shouldSwitch = false;
+        /*Get the two elements you want to compare,
+        one from current row and one from the next:*/
+        x = rows[i].getElementsByTagName("TD")[indexToSort];
+        y = rows[i + 1].getElementsByTagName("TD")[indexToSort];
+        //check if the two rows should switch place:
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+      if (shouldSwitch) {
+        /*If a switch has been marked, make the switch
+        and mark that a switch has been done:*/
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+      }
+    }
+  }
+
+  function toTitleCase(str) {
+
+        let upper = true;
+        let newStr = "";
+        for (let i = 0, l = str.length; i < l; i++) {
+          if (str[i] == " ") {
+            upper = true;
+              newStr += " ";
+            continue;
+          }
+          newStr += upper ? str[i].toUpperCase() : str[i].toLowerCase();
+          upper = false;
+        }
+        return newStr;
+  }
+
+  function titleCase(str) {
+    newStr= str.split(' ')
+   .map(w => w[0].toUpperCase() + w.substring(1).toLowerCase())
+   .join(' ');
+
+  }function formatSqlDate(date) {
+    return [
+      date.getFullYear(),
+      padTo2Digits(date.getMonth() + 1),
+      padTo2Digits(date.getDate()),
+    ].join('-');
+  }
+    
+var ctx = document.getElementById("marginsByCurr").getContext("2d");
+var marginsByCurr = new Chart(ctx, {
+  type: 'bar',
+  data: {"labels":["TRY","EUR","USD"],"datasets":[{"label":"Actual","data":[3.79,3.49,2.42],"backgroundColor":"orange"},{"label":"Budget","data":[2.5,2.72,2.26],"backgroundColor":"gainsboro"}]},
+  axisX:{
+    display: false,
+    labelFontSize: 10
+  },
+  options: {
+    // indexAxis: 'y',
+    scales: {
+      xAxes: {
+        display: false
+      },
+      yAxes: {
+        display: false
+      },
+    },
+    plugins: {
+      datalabels: {
+        align: 'center',
+        color: 'black',
+        formatter: (value, context) => {
+        //   return context.chart.data.labels[context.dataIndex].substring(0, 9);
+        // console.log(context.chart.data.datasets[curIndex] )
+        // console.log(value.indexOf())
+        console.log(context.chart.data.datasets[1])
+        // console.log(context.chart.data.datasets[label])
+        return context.chart.data.labels[context.dataIndex] + " \n" + value;
+
+        },
+        font: {
+          size: 13,
+        }
+      },
+      legend: {
+        position:"left",
+        display: true,
+      },
+    },
+    responsive: false,
+  }
+});
+
+var ctx = document.getElementById("marginsByCurr2").getContext("2d");
+var marginsByCurr2 = new Chart(ctx, {
+  type: 'bar',
+  data: {"labels":["TRY","EUR","USD"],"datasets":[{"label":"Actual","data":[3.99,2.88,2.43],"backgroundColor":"orange"},{"label":"Budget","data":[2.4,2.62,2.16],"backgroundColor":"gainsboro"}]},
+  axisX:{
+    display: false,
+    labelFontSize: 10
+  },
+  options: {
+    // indexAxis: 'y',
+    scales: {
+      xAxes: {
+        display: false
+      },
+      yAxes: {
+        display: false
+      },
+    },
+    plugins: {
+      datalabels: {
+        align: 'center',
+        color: 'black',
+        formatter: (value, context) => {
+          return context.chart.data.labels[context.dataIndex] + " \n" + value;
+        },
+        font: {
+          size: 13,
+        }
+      },
+      legend: {
+        display: false,
+      },
+    },
+    responsive: true,
+  }
+});
+
+
+var ctx = document.getElementById("marginsByCurr3").getContext("2d");
+var marginsByCurr3 = new Chart(ctx, {
+  type: 'bar',
+  data: {"labels":["TRY","EUR","USD"],"datasets":[{"label":"Actual","data":[4.09,4.22,3.03],"backgroundColor":"orange"},{"label":"Budget","data":[2.3,2.52,2.06],"backgroundColor":"gainsboro"}]},
+  axisX:{
+    display: false,
+    labelFontSize: 10
+  },
+  options: {
+    // indexAxis: 'y',
+    scales: {
+      xAxes: {
+        display: false
+      },
+      yAxes: {
+        display: false
+      },
+    },
+    plugins: {
+      datalabels: {
+        align: 'center',
+        color: 'black',
+        formatter: (value, context) => {
+          return context.chart.data.labels[context.dataIndex] + " \n" + value;
+          },
+        font: {
+          size: 13,
+        }
+      },
+      legend: {
+        display: false,
+      },
+    },
+    responsive: true,
+  }
+});
+
+
+
+var ctx = document.getElementById("marginAllTrend").getContext("2d");
+var marginAllTrend = new Chart(ctx, {
+  type: 'line',
+  data: {"labels":["2020-12-31T00:00:00.000Z","2021-01-31T00:00:00.000Z","2021-02-28T00:00:00.000Z","2021-03-31T00:00:00.000Z","2021-04-30T00:00:00.000Z","2021-05-31T00:00:00.000Z","2021-06-30T00:00:00.000Z","2021-07-31T00:00:00.000Z","2021-08-31T00:00:00.000Z","2021-09-30T00:00:00.000Z","2021-10-31T00:00:00.000Z","2021-11-30T00:00:00.000Z","2021-12-31T00:00:00.000Z","2022-01-31T00:00:00.000Z","2022-02-28T00:00:00.000Z","2022-03-31T00:00:00.000Z","2022-04-30T00:00:00.000Z"],"datasets":[{"label":"USD","data":[3.03,2.62,2.62,2.51,2.51,2.51,2.51,2.51,2.51,2.51,2.51,2.51,2.43,2.42,2.42,2.42,2.42],"backgroundColor":"blue","fill":false,"borderColor":"blue","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1},{"label":"EUR","data":[4.22,4.23,4.23,4.29,4.53,4.7,4.7,3.08,3.09,3.09,3.07,2.95,2.88,2.91,3.06,3.09,3.31],"backgroundColor":"purple","fill":false,"borderColor":"purple","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1},{"label":"TRY","data":[4.09,4.09,4.09,4.09,4.06,4.06,4.39,4.1,4.1,3.69,null,null,3.99,4.6,4.6,4.43,3.79],"backgroundColor":"gray","fill":false,"borderColor":"gray","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1}]},
+  axisX:{
+    labelFontSize: 10
+  },
+  options: {
+    scales: {
+      x: {
+        grid: {
+          display: false,
+        }, 
+        ticks: {
+             display: false,
+        }
+     },
+  },
+      plugins: {
+        datalabels: {
+          display: false,
+        },
+      legend: {
+        position: 'top',
+        display: true,
+        labels: {
+            fontSize: 10
+        }
+      },
+      title: {
+        display: false,
+        text: "Exchange Rates",
+        font:{
+          size: 15
+        },
+    },
+    },
+    responsive: true,
+  }
+});
+
+var ctx = document.getElementById("cofUSDEUR").getContext("2d");
+var cofUSDEUR = new Chart(ctx, {
+  type: 'line',
+  data: {"labels":["2020-12-31T00:00:00.000Z","2021-01-31T00:00:00.000Z","2021-02-28T00:00:00.000Z","2021-03-31T00:00:00.000Z","2021-04-30T00:00:00.000Z","2021-05-31T00:00:00.000Z","2021-06-30T00:00:00.000Z","2021-07-31T00:00:00.000Z","2021-08-31T00:00:00.000Z","2021-09-30T00:00:00.000Z","2021-10-31T00:00:00.000Z","2021-11-30T00:00:00.000Z","2021-12-31T00:00:00.000Z","2022-01-31T00:00:00.000Z","2022-02-28T00:00:00.000Z","2022-03-31T00:00:00.000Z","2022-04-30T00:00:00.000Z"],"datasets":[{"label":"USD","data":[0.62,0.6425,0.6425,0.641428,0.641428,0.641428,0.641428,0.641428,0.641428,0.641428,0.641428,0.641428,0.618181,0.634076,0.645,0.645,0.645],"backgroundColor":"blue","fill":false,"borderColor":"blue","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1},{"label":"EUR","data":[0.028776,0.028338,0.028338,0.024888,0.019961,0.012352,0.012352,0.016348,0.01441,0.01441,0.013063,0.013226,0.004751,0.004827,0.005894,0.006204,0.008421],"backgroundColor":"purple","fill":false,"borderColor":"purple","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1}]},
+  axisX:{
+    labelFontSize: 10
+  },
+  options: {
+    scales: {
+      x: {
+        grid: {
+          display: false,
+        }, 
+        ticks: {
+             display: false
+        }
+     }
+  },
+      plugins: {
+        datalabels: {
+          display: false,
+        },
+      legend: {
+        position: 'left',
+        display: false,
+        labels: {
+            fontSize: 10
+        }
+      },
+      title: {
+        display: false,
+        text: "Exchange Rates",
+        font:{
+          size: 15
+        },
+    },
+    },
+    responsive: true,
+  }
+});
+
+var ctx = document.getElementById("cofTRY").getContext("2d");
+var cofTRY = new Chart(ctx, {
+  type: 'line',
+  data: {"labels":["2020-12-31T00:00:00.000Z","2021-01-31T00:00:00.000Z","2021-02-28T00:00:00.000Z","2021-03-31T00:00:00.000Z","2021-04-30T00:00:00.000Z","2021-05-31T00:00:00.000Z","2021-06-30T00:00:00.000Z","2021-07-31T00:00:00.000Z","2021-08-31T00:00:00.000Z","2021-09-30T00:00:00.000Z","2021-10-31T00:00:00.000Z","2021-11-30T00:00:00.000Z","2021-12-31T00:00:00.000Z","2022-01-31T00:00:00.000Z","2022-02-28T00:00:00.000Z","2022-03-31T00:00:00.000Z","2022-04-30T00:00:00.000Z"],"datasets":[{"label":"TRY","data":[12.720689,12.831034,12.831034,12.948275,12.97931,12.97931,12.6625,12.2,12.2,12.872713,null,null,14.347457,14.074324,14.074324,14.622448,14.622448],"backgroundColor":"gray","fill":false,"borderColor":"gray","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1}]},
+  axisX:{
+    labelFontSize: 10
+  },
+  options: {
+    scales: {
+      x: {
+        grid: {
+          display: false,
+        },
+         ticks: {
+             display: false
+        }
+     }
+  },
+      plugins: {
+        datalabels: {
+          display: false,
+        },
+      legend: {
+        position: 'left',
+        display: false,
+        labels: {
+            fontSize: 10
+        }
+      },
+    },
+    responsive: true,
+  }
+});
+
+var ctx = document.getElementById("intUSDEUR").getContext("2d");
+var intUSDEUR = new Chart(ctx, {
+  type: 'line',
+  data: {"labels":["2020-12-31T00:00:00.000Z","2021-01-31T00:00:00.000Z","2021-02-28T00:00:00.000Z","2021-03-31T00:00:00.000Z","2021-04-30T00:00:00.000Z","2021-05-31T00:00:00.000Z","2021-06-30T00:00:00.000Z","2021-07-31T00:00:00.000Z","2021-08-31T00:00:00.000Z","2021-09-30T00:00:00.000Z","2021-10-31T00:00:00.000Z","2021-11-30T00:00:00.000Z","2021-12-31T00:00:00.000Z","2022-01-31T00:00:00.000Z","2022-02-28T00:00:00.000Z","2022-03-31T00:00:00.000Z","2022-04-30T00:00:00.000Z"],"datasets":[{"label":"USD","data":[3.65,3.26,3.26,3.15,3.15,3.15,3.15,3.15,3.15,3.15,3.15,3.15,3.05,3.06,3.06,3.06,3.06],"backgroundColor":"blue","fill":false,"borderColor":"blue","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1},{"label":"EUR","data":[4.25,4.25,4.25,4.32,4.55,4.71,4.71,3.1,3.1,3.1,3.08,2.96,2.88,2.92,3.06,3.1,3.32],"backgroundColor":"purple","fill":false,"borderColor":"purple","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1}]},
+  axisX:{
+    labelFontSize: 10
+  },
+  options: {
+    scales: {
+      x: {
+        grid: {
+          display: false,
+        }, 
+        ticks: {
+             display: false
+        }
+     }
+  },
+      plugins: {
+        datalabels: {
+          display: false,
+        },
+      legend: {
+        position: 'left',
+        display: false,
+        labels: {
+            fontSize: 10
+        }
+      },
+      title: {
+        display: false,
+        text: "Exchange Rates",
+        font:{
+          size: 15
+        },
+    },
+    },
+    responsive: true,
+  }
+});
+
+var ctx = document.getElementById("intTRY").getContext("2d");
+var intTRY = new Chart(ctx, {
+  type: 'line',
+  data: {"labels":["2020-12-31T00:00:00.000Z","2021-01-31T00:00:00.000Z","2021-02-28T00:00:00.000Z","2021-03-31T00:00:00.000Z","2021-04-30T00:00:00.000Z","2021-05-31T00:00:00.000Z","2021-06-30T00:00:00.000Z","2021-07-31T00:00:00.000Z","2021-08-31T00:00:00.000Z","2021-09-30T00:00:00.000Z","2021-10-31T00:00:00.000Z","2021-11-30T00:00:00.000Z","2021-12-31T00:00:00.000Z","2022-01-31T00:00:00.000Z","2022-02-28T00:00:00.000Z","2022-03-31T00:00:00.000Z","2022-04-30T00:00:00.000Z"],"datasets":[{"label":"TRY","data":[16.81,16.92,16.92,17.04,17.04,17.04,17.05,16.3,16.3,16.57,null,null,18.33,18.67,18.67,19.06,18.41],"backgroundColor":"gray","fill":false,"borderColor":"gray","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1}]},
+  axisX:{
+    labelFontSize: 10
+  },
+  options: {
+    scales: {
+      x: {
+        grid: {
+          display: false,
+        },
+         ticks: {
+             display: false
+        }
+     }
+  },
+      plugins: {
+        datalabels: {
+          display: false,
+        },
+      legend: {
+        position: 'left',
+        display: false,
+        labels: {
+            fontSize: 10
+        }
+      },
+    },
+    responsive: true,
+  }
+});
+
+  </script>
+
+  
 </body>
 
 </html>
