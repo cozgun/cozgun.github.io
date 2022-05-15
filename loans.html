@@ -226,28 +226,6 @@ Chart.defaults.font.size = 12
 
 var $ = function (id) { return document.getElementById(id); };
 
-let exchRatesArray = [];
-let obj7 = [];
-let LGArray = [];
-let LCArray = [];
-let AcceptanceArray = [];
-obj7 = JSON.parse(localStorage.getItem("nonCashLoans"))
-obj7.forEach(x => {
-  switch (x.lineItem) {
-    case "L/G":
-      LGArray.push(x.myAmt)
-      break;
-    case "L/C":
-      LCArray.push(x.myAmt)
-      break;
-    case "Acceptances":
-      AcceptanceArray.push(x.myAmt)
-      break;
-
-  }
-});
-
-
 var ctx8 = document.getElementById("cashCurrencyChart").getContext("2d");
 var cashCurrencyChart = new Chart(ctx8, {
   type: 'pie',
