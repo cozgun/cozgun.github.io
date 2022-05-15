@@ -324,8 +324,59 @@ Chart.defaults.font.family = 'Calibri'
 Chart.defaults.font.size = 12
 
 
-var $ = function (id) { return document.getElementById(id); };
+    var $ = function (id) { return document.getElementById(id); };
+    var getId = function (id) { return document.getElementById(id); };
 
+    document.addEventListener("DOMContentLoaded", () => {
+    });
+
+    const customerMarginsBody = document.querySelector("#marginsByCust-table> tbody");
+    const customerMarginsBody2 = document.querySelector("#marginsByCust2-table> tbody");
+    const customerMarginsBody3 = document.querySelector("#marginsByCust3-table> tbody");
+
+    function populateMargins(json, tableBody) {
+      while (tableBody.firstChild) {
+        tableBody.removeChild(tableBody.firstChild);
+      }
+      json.forEach((row) => {
+        const cells = Object.values(row);
+        const tr = document.createElement("tr");
+        tableBody.appendChild(tr);
+        cells.forEach((cell) => {
+          const td = document.createElement("td");
+          if (cells.indexOf(cell) == 0 || cells.indexOf(cell) == 5) {
+            return;
+            // td.style.textAlign = "left";
+          }
+          if (cells.indexOf(cell) == 3) {
+            td.textContent = "%" + cell;
+            td.style.textAlign = "right";
+            td.style.backgroundColor = "Orange"
+          }
+
+          if (cells.indexOf(cell) == 4) {
+            td.textContent = "%" + cell;
+            td.style.textAlign = "right";
+          }
+          if (cells.indexOf(cell) == 1) {
+            td.textContent = toTitleCase(cell.toString().substring(0, 16));
+            td.style.textAlign = "left";
+          }
+          else {
+            td.textContent = cell;
+          }
+          // if (cells.indexOf(cell) == 3) {
+          //   td.style.backgroundColor = "DarkOrange";
+          //   td.style.color = "black";
+          // }
+          tr.appendChild(td);
+        });
+        tr.style.height = "15px"
+      });
+
+    }
+    
+    
 function getSqlMonthendsFrom(dt) {
   let yesterday = new Date()
   yesterday.setDate(yesterday.getDate() - 1)
@@ -729,6 +780,14 @@ var intTRY = new Chart(ctx, {
     responsive: true,
   }
 });
+    
+let obj53 = [{"MUST_NO":1,"FIRMA_ADI":"Özgün Kaynak Suları","DVZ_KOD":"TRY","avgMargin":4.9,"avgIntRate":17.9,"avgCOF":13,"RATING":"Z10"},{"MUST_NO":22,"FIRMA_ADI":"ÖZGÜN TİCARET LİMİTED ŞİRKETİ","DVZ_KOD":"TRY","avgMargin":4.75,"avgIntRate":17.75,"avgCOF":13,"RATING":"Z9"},{"MUST_NO":30,"FIRMA_ADI":"ÖZGÜN SUCUK ÜRÜNLERİ A.Ş.","DVZ_KOD":"TRY","avgMargin":3.61,"avgIntRate":17.37,"avgCOF":13.763157,"RATING":"Z3"},{"MUST_NO":4,"FIRMA_ADI":"ÖZGÜN ŞEKERLEME LTD.","DVZ_KOD":"EUR","avgMargin":3.49,"avgIntRate":3.5,"avgCOF":0.01,"RATING":"Z19"},{"MUST_NO":14,"FIRMA_ADI":"Özgün Gıda Sanayi Anonim Şirketi","DVZ_KOD":"USD","avgMargin":2.42,"avgIntRate":3.06,"avgCOF":0.645,"RATING":"Z4"},{"MUST_NO":12,"FIRMA_ADI":"ÖZGÜN KOLONYA ANONİM ŞİRKETİ","DVZ_KOD":"TRY","avgMargin":2,"avgIntRate":21.5,"avgCOF":19.5,"RATING":"Z11"}]
+let obj54 = [{"MUST_NO":1,"FIRMA_ADI":"Özgün2 Kaynak Suları","DVZ_KOD":"TRY","avgMargin":4.9,"avgIntRate":27.9,"avgCOF":13,"RATING":"Z10"},{"MUST_NO":22,"FIRMA_ADI":"ÖZGÜN2 TİCARET LİMİTED ŞİRKETİ","DVZ_KOD":"TRY","avgMargin":4.75,"avgIntRate":17.75,"avgCOF":13,"RATING":"Z9"},{"MUST_NO":30,"FIRMA_ADI":"ÖZGÜN SUCUK ÜRÜNLERİ A.Ş.","DVZ_KOD":"TRY","avgMargin":3.61,"avgIntRate":14.37,"avgCOF":13.763157,"RATING":"Z3"},{"MUST_NO":4,"FIRMA_ADI":"ÖZGÜN ŞEKERLEME LTD.","DVZ_KOD":"EUR","avgMargin":3.49,"avgIntRate":3.5,"avgCOF":0.01,"RATING":"Z19"},{"MUST_NO":14,"FIRMA_ADI":"Gıda Sanayi Anonim Şirketi","DVZ_KOD":"USD","avgMargin":2.42,"avgIntRate":3.06,"avgCOF":0.645,"RATING":"Z4"},{"MUST_NO":12,"FIRMA_ADI":"ÖZGÜN KOLONYA ANONİM ŞİRKETİ","DVZ_KOD":"TRY","avgMargin":2,"avgIntRate":21.5,"avgCOF":19.5,"RATING":"Z11"}]
+let obj55 = [{"MUST_NO":1,"FIRMA_ADI":"Özgün3 Kaynak Suları","DVZ_KOD":"TRY","avgMargin":4.9,"avgIntRate":7.9,"avgCOF":13,"RATING":"Z10"},{"MUST_NO":22,"FIRMA_ADI":"ÖZGÜN3 TİCARET LİMİTED ŞİRKETİ","DVZ_KOD":"TRY","avgMargin":4.75,"avgIntRate":17.75,"avgCOF":13,"RATING":"Z9"},{"MUST_NO":30,"FIRMA_ADI":"ÖZGÜN SUCUK ÜRÜNLERİ A.Ş.","DVZ_KOD":"TRY","avgMargin":3.61,"avgIntRate":27.37,"avgCOF":13.763157,"RATING":"Z3"},{"MUST_NO":4,"FIRMA_ADI":"ÖZGÜN ŞEKERLEME LTD.","DVZ_KOD":"EUR","avgMargin":3.49,"avgIntRate":3.5,"avgCOF":0.01,"RATING":"Z19"},{"MUST_NO":14,"FIRMA_ADI":"Özgün Sanayi Anonim Şirketi","DVZ_KOD":"USD","avgMargin":2.42,"avgIntRate":3.06,"avgCOF":0.645,"RATING":"Z4"}]
+    
+    populateMargins(obj53, customerMarginsBody)
+    populateMargins(obj54, customerMarginsBody2)
+    populateMargins(obj55, customerMarginsBody3)
 
   </script>
 
