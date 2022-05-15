@@ -221,7 +221,7 @@
   </div>
 
 <script type="text/javascript">
-console.log("version: 1204")
+console.log("version: 1210")
 Chart.register(ChartDataLabels);
 Chart.defaults.font.family = 'Calibri'
 Chart.defaults.font.size = 12
@@ -265,15 +265,7 @@ var cashCurrencyChart = new Chart(ctx8, {
 var ctx = document.getElementById("top5cashChart").getContext("2d");
 var top5cashChart = new Chart(ctx, {
   type: 'bar',
-  data: {
-    // labels: top5cashLabel, 
-    datasets: [
-      {
-        data: {"labels":["Şölen Çikolata Gıda","SÜTAŞ SÜT ÜRÜNLERİ A","ÜLKER BİSKÜVİ","COCA COLA İÇECEK","ANADOLU EFES BİRACIL"],"datasets":[{"data":[463,190,180,150,100]}]}  //{"labels":["Özgün Şenyuva İnşaat","Özgün Şenyuva Turizm","Süt Özgün Şenyuva Et","Özgün Şenyuva Bilişim","Özgün Şenyuva Kuyumculuk"],"datasets":[{"data":[463,190,180,150,100]}]}, 
-        backgroundColor: ["orange"],
-      },
-    ],
-  },
+  data: {"labels":["Şölen Çikolata Gıda","SÜTAŞ SÜT ÜRÜNLERİ A","ÜLKER BİSKÜVİ","COCA COLA İÇECEK","ANADOLU EFES BİRACIL"],"datasets":[{"data":[463,190,180,150,100]}]}  //{"labels":["Özgün Şenyuva İnşaat","Özgün Şenyuva Turizm","Süt Özgün Şenyuva Et","Özgün Şenyuva Bilişim","Özgün Şenyuva Kuyumculuk"],"datasets":[{"data":[463,190,180,150,100]}]}, 
   options: {
     indexAxis: 'y',
     // Elements options apply to all of the options unless overridden in a dataset
