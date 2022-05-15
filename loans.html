@@ -141,12 +141,12 @@
             </div>
             <div class="col-md-3 auto center ">
               <div class="first">
-                <input value= "2021-12-31" class="centerText" type="date" id="secondDateMargins" name="trip-start" min="2014-06-30">
+                <input value= "2022-04-30" class="centerText" type="date" id="secondDateMargins" name="trip-start" min="2014-06-30">
               </div>
             </div>
             <div class="col-md-3 auto center ">
               <div class="first">
-                <input value= "2022-05-14" class="centerText" type="date" id="thirdDateMargins" name="trip-start" min="2014-06-30">
+                <input value= "2021-12-31" class="centerText" type="date" id="thirdDateMargins" name="trip-start" min="2014-06-30">
                 <button type="button" style="font-size: 12px" class="btn btn-primary" onclick="getMarginsData()">Update
                   Graphs</button>
               </div>
@@ -506,7 +506,7 @@ var cashVarianceChart1 = new Chart(ctx, {
       title: {
         display: true,
         // text: varianceTextOne,
-        // text: "Variances between " + document.getElementById('firstDate').value + " and " + document.getElementById('secondDate').value,
+        text: "Variances between yesterday and 30.04.2022",
         font: {
           size: 14
         },
@@ -562,7 +562,7 @@ var cashVarianceChart2 = new Chart(ctx, {
     plugins: {
       title: {
         display: true,
-        text: "Variances between date 2 and date 3",
+        text: "Variances between 30.04.2022 and 31.12.2021",
         font: {
           size: 14
         },
