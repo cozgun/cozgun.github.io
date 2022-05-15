@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    li {
+      position: relative;
+      padding-left: 11px;
+      margin: 0 0 3px 0;
+    }
+  </style>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GL Account Details</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+
+      <main role="main" class="col-md-12 ml-sm-auto col-lg-12 pt-3 px-4">
+        <div id="main-div">
+          <div class="center">
+            <h1 class="display-5">Income / expense details</h1>
+          </div>
+
+          <div class="row g-2">
+            <div class="col-sm-1">
+              <input type="text" class="form-control" style="font-size: 14px; background-color: orange"" maxlength="8"
+                id="dk" placeholder="type GL" />
+            </div>
+            <div class="col-1">
+              <input type="number" class="form-control" style="font-size: 14px; background-color: orange"" id= "year"
+                maxlength="4" placeholder="type year" />
+            </div>
+            <div class="col-auto">
+              <button type="button" style="font-size: 14px" class="btn btn-primary"
+                onclick="loadExpenses('getByDkAndYear');getMonthlySums(); getAnnualSums();">List entries</button>
+            </div>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" id="entryStatus" style="font-size: 14px; background-color: gold"
+                value="Expense Monitoring Tool" />
+            </div>
+
+            <div class="col-sm-6">
+              <div class="input-group mb-3 auto-center">
+                <label style="font-size: 14px; width:120px" class="input-group-text" for="myInput">Search
+                  another</label>
+                <input style="font-size: 14px; width:140px" type="text" id="myInputExp" placeholder="GL name or number"
+                  aria-label="Search">
+                <button style="font-size: 14px" class="btn btn-secondary" type="button"
+                  onclick="fillSelectWithExpenseAccounts('arraysExp','myInputExp')">Go</button>
+                <select style="font-size: 14px; width:300px" class="form-select" id="arraysExp"></select>
+                <button style="font-size: 14px" class="btn btn-secondary" id="btnOpenExpensesExp" type="button">See
+                  details</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <br>
+
+        <div class="row">
+          <div class="col-sm-9">
+            <table id="tasks-table" class="table table-striped">
+              <thead style="font-size: 12px">
+                <tr>
+                  <th scope="col">gl no</th>
+                  <th scope="col">date</th>
+                  <th scope="col">batch</th>
+                  <th scope="col">gl desc.</th>
+                  <th scope="col">curr</th>
+                  <th scope="col">amount</th>
+                  <th scope="col">narrative</th>
+                  <th scope="col">tran</th>
+                  <th scope="col">cost c.</th>
+                  <th scope="col">actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <div class="col-sm-3">
+            <canvas id="canvasMonthly"></canvas>
+            <canvas id="canvasAnnual"></canvas>
+            <br>
+            <div id="chartNotUpdated" class="text-center" style="background-color: yellow; font-size: 24px">
+            </div>
+          </div>
+
+        </div>
+    </div>
+    </main>
+  </div>
+
+
+  <script type="text/javascript">
+//    const ipcRenderer = require('electron').ipcRenderer;
+    function openExpenseSummary() { ipcRenderer.send("openExpenseSummary") };
+    function openMain() { ipcRenderer.send("openMain") };
+    var getId = function (id) { return document.getElementById(id); };
+
+    document.addEventListener("DOMContentLoaded", () => {
+//      getExpenseParameters()
+    });
+
+    function getMonthlySums() {
+      if ($('dk').value.length !== 8) {
+        getId("chartNotUpdated").innerText = "Charts will be updated when a 8 digit account listed"
+        return;
+      }
+      getId("chartNotUpdated").innerText = ""
+      var sqlStrMtdPLByDk = "SELECT Sum(iif(LEFT([DKB_HES_NO],1)='8' or LEFT([DKB_HES_NO],1)='6',[TUTAR]/-1000,[TUTAR]/1000)) AS AMT, MONTH(37254+[ISLEM_TAR_NO]) AS myMonth FROM dbo.DW_HAREKET_PRODUCTION WHERE TRAN_NAME <> 'YSKZ' AND ISLEM_TAR_NO >= " + dateNoStart('year') + " AND ISLEM_TAR_NO <= " + dateNoEnd('year') + " AND (Not (TRAN_NAME)='QQQQ') AND (((DKB_HES_NO) LIKE '" + getId('dk').value + "%" + "')) GROUP BY MONTH(37254+[ISLEM_TAR_NO]) ORDER BY MONTH(37254+[ISLEM_TAR_NO]);";
+      var sqlStrBudgetMonthly = "SELECT TUTAR, BudgetYear FROM budgetByDk WHERE DKB_HES_NO LIKE '" + $('dk').value + "%" + "' AND BudgetYear = " + $('year').value;
+      getMonthlyChartData(myChart, sqlStrMtdPLByDk, sqlStrBudgetMonthly, 'dw_production')
+    }
+
+    const btnclick = document.getElementById('btnOpenExpensesExp');
+    btnclick.addEventListener('click', function () {
+      localStorage.setItem("sessionGlAcct", getId("arraysExp").value);
+      $("dk").value = localStorage.getItem("sessionGlAcct").substring(0, 8);
+      loadExpenses('getByDkAndYear')
+      getMonthlySums();
+      getAnnualSums();
+    });
+
+    const tasksBody = document.querySelector("#tasks-table > tbody");
+    // document.ready
+
+    function getReportMonth() {
+      const Dialogs = require("dialogs");
+      const dialogs = Dialogs();
+      var currentYear = new Date().toJSON().slice(0, 4);
+      var currentMonth = new Date().toJSON().slice(5, 7);
+
+      dialogs.prompt(
+        "Please enter the month in yyyymm format",
+        currentYear + currentMonth,
+        (donem) => {
+          var reportMonth = donem;
+          loadTasks("monthly", reportMonth);
+        }
+      );
+    }
+
+
+    function loadExpenses(sqlCriteria, getReportYear = null) {
+      var mySql;
+      if (sqlCriteria == "getByDkAndYear") {
+        getId("entryStatus").value = "GL #" + getId("dk").value + " listed";
+        mySql = "SELECT DKB_HES_NO, format(CAST((ISLEM_TAR_NO + 37254) as datetime),'MM-dd-yyyy') AS myVALOR, YBP_MUH_REF, KISA_AD, DVZ_KOD, FORMAT(TUTAR, 'N2'), ACIKL, TRAN_NAME, DEPARTMAN_KODU FROM dbo.DW_HAREKET_PRODUCTION WHERE DKB_HES_NO LIKE '" +
+          getId("dk").value + "%" + "' AND ISLEM_TAR_NO >= " + dateNoStart('year') + " AND ISLEM_TAR_NO <= " + dateNoEnd('year') + ";";
+
+      } else {
+        mySql = "SELECT DKB_HES_NO,format(CAST((ISLEM_TAR_NO + 37254) as datetime),'MM-dd-yyyy') AS myVALOR, YBP_MUH_REF, KISA_AD, DVZ_KOD,FORMAT(TUTAR, 'N2'), ACIKL, TRAN_NAME, DEPARTMAN_KODU FROM dbo.DW_HAREKET_PRODUCTION " + sqlCriteria;
+      }
+
+      return new Promise((resolve, reject) => {
+        // console.log("Promise started")
+        connectToServer()
+          .then((connection) => {
+            // console.log("connection:" + connection)
+            // console.log(mySql);
+            return readFromDb(connection, mySql);
+          })
+          .then((data) => {
+            // .then(products => resolve(products))
+            const json = JSON.parse(JSON.stringify(data));
+            //console.log("json:" + json);
+            populateExpenses(json);
+          })
+          .catch((err) => reject(err));
+      });
+      function populateExpenses(json) {
+        // to clear existing table rows
+        while (tasksBody.firstChild) {
+          tasksBody.removeChild(tasksBody.firstChild);
+        }
+        //populate table
+        json.forEach((row) => {
+          const cells = Object.values(row);
+          const tr = document.createElement("tr");
+          tasksBody.appendChild(tr);
+          cells.forEach((cell) => {
+            const td = document.createElement("td");
+            if (cells.indexOf(cell) == 5) {
+              td.style.textAlign = "right";
+            }
+            td.textContent = cell;
+            tr.appendChild(td);
+          });
+          let btn = document.createElement("button");
+          btn.className = "btn btn-info btn-sm";
+          btn.type = "submit";
+          btn.style.fontSize = "12px";
+          btn.style.backgroundColor = "gold";
+          if (
+            getId("entryStatus").value.substring(0, 5) == "Batch") {
+            btn.innerHTML = "List GL";
+            btn.addEventListener("click", function () {
+              getId("entryStatus").value = "GL #" + row.DKB_HES_NO + " listed";
+              loadExpenses("WHERE DKB_HES_NO = '" + row.DKB_HES_NO + "' AND ISLEM_TAR_NO >= " + dateNoStart('year') + " AND ISLEM_TAR_NO <= " + dateNoEnd('year') + ";");
+              getId("dk").value = row.DKB_HES_NO;
+              getAnnualSums();
+              getMonthlySums();
+            });
+          } else {
+            btn.innerHTML = "Go to batch";
+            btn.addEventListener("click", function () {
+              getId("entryStatus").value = "Batch #" + row.YBP_MUH_REF + " of " + row.myVALOR + " listed";
+              loadExpenses("WHERE format(CAST((ISLEM_TAR_NO + 37254) as datetime),'MM-dd-yyyy') = '" + row.myVALOR + "' AND YBP_MUH_REF ='" + row.YBP_MUH_REF + "';");
+            });
+          }
+          tr.appendChild(btn);
+        });
+        getId("tasks-table").style.fontSize = "12px";
+      }
+    }    
+    
+    const Chart =  require('chart.js');
+var $ = function (id) { return document.getElementById(id); };
+
+var ctx = document.getElementById("canvasMonthly").getContext("2d");
+var myChart = new Chart(ctx, {
+  // this.barchart = new Chart('canvas', {
+  type: "bar",
+  responsive: true,
+  data: {
+    labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+    datasets: [
+      {
+        label: "Actual",
+        data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        borderColor: "#3cba9f",
+        backgroundColor: [
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+        ],
+        fill: true,
+      },
+
+    ],
+  },
+  options: {
+    plugins: {
+      title: {
+          display: true,
+          text: "Monthly Trends of GL",
+          fontSize: 18
+      }
+  },
+    events: ["mousemove", "mouseout", "click", "touchstart", "touchmove", "touchend"],
+    legend: {
+      display: true,
+    },
+    scales: {
+      xAxes: [
+        {
+          display: true,
+          ticks: {
+            fontSize: 10,
+          },
+        },
+      ],
+      yAxes: [
+        {
+          display: false,
+          ticks: {
+            fontSize: 10,
+          },
+        },
+      ],
+    },
+  },
+});
+
+var ctx = document.getElementById("canvasAnnual").getContext("2d");
+var annualChart = new Chart(ctx, {
+  type: "bar",
+  responsive: true,
+  data: {
+    labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+    datasets: [
+      {
+        label: "Actual",
+        data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        borderColor: "#3cba9f",
+        backgroundColor: [
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+        ],
+        fill: true,
+      },
+    ],
+  },
+  options: {
+    plugins: {
+      title: {
+        text: "Annual Trends of GL",
+          display: true,
+          fontSize: 18
+      }
+  },
+
+  events: ["mousemove", "mouseout", "click", "touchstart", "touchmove", "touchend"],
+    legend: {
+      display: true,
+    },
+    scales: {
+      xAxes: [
+        {
+          display: true,
+          ticks: {
+            fontSize: 10,
+          },
+        },
+      ],
+      yAxes: [
+        {
+          display: false,
+          ticks: {
+            fontSize: 10,
+          },
+        },
+      ],
+    },
+  },
+});
+
+    
+  </script>
+
+</body>
+
+</html>
