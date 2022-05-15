@@ -251,62 +251,11 @@ obj7.forEach(x => {
   }
 });
 
-//krediler için varyans verelim .
-//sql şifresi için kontrol yapılacak.  aksi durumda hatalı şifreyle çok deneme olacağı için hesap kitlenecek.
-
-
-// let obj8 = [];
-// let nonCashCurrObject = [];
-// let nonCashCurrArray = [];
-// let nonCashCurrLabelArray = [];
-// let cashCurrArray = [];
-// let cashCurrLabelArray = [];
-
-// obj8 = JSON.parse(localStorage.getItem("currencyComposition"))
-// console.log("obj8:" + obj8)
-// console.log("obj8-stringify:" + JSON.stringify(obj8))
-// obj8.forEach(x => {
-//   switch (x.lineItem) {
-//     case "Loans":
-//       cashCurrArray.push(x.myAmt)
-//       cashCurrLabelArray.push(x.GLB_DVZ_A)
-//       break;
-//     case "Non-cash Loans":
-//       nonCashCurrArray.push(x.myAmt)
-//       nonCashCurrLabelArray.push(x.GLB_DVZ_A)
-//       break;
-//   }
-// });
-
-// nonCashCurrObject = JSON.parse(localStorage.getItem("nonCashCurrencyComposition"))
-// console.log("nonCashCurrObject:" + nonCashCurrObject)
-// console.log("JSON.stringify-nonCashCurrObject:" + JSON.stringify(nonCashCurrObject))
-// var nonCashCurrencyChartData = {
-//   labels: nonCashCurrLabelArray, 
-//   datasets: [
-//     {
-//       data: nonCashCurrArray, 
-//       backgroundColor: ["magenta","lightblue", "lime", "orange","yellow"],
-//     },
-//   ],
-// };
-
-
-
-// var cashCurrencyChartData = {
-//   labels: cashCurrLabelArray, 
-//   datasets: [
-//     {
-//       data: cashCurrArray, 
-//       backgroundColor: ["magenta","lightblue", "lime", "orange","yellow"],
-//     },
-//   ],
-// };
 
 var ctx8 = document.getElementById("cashCurrencyChart").getContext("2d");
 var cashCurrencyChart = new Chart(ctx8, {
   type: 'pie',
-  // data: cashCurrencyChartData,
+  data: {"labels":["EUR","TRY","USD"],"datasets":[{"data":[180,490,463],"backgroundColor":["magenta","lightblue","lime","orange","yellow"]}]},
   options: {
     plugins: {
       title: {
@@ -334,24 +283,6 @@ var cashCurrencyChart = new Chart(ctx8, {
   },
 });
 
-// let obj9 = [];
-// let top5cash = [];
-// let top5nonCash = [];
-// let top5cashLabel = [];
-// let top5nonCashLabel = [];
-// obj9 = JSON.parse(localStorage.getItem("topLoans"))
-// console.log("obj9:" + obj9)
-// obj9.forEach(x => {
-//   top5cashLabel.push(x.KISA_ADI2)
-//   top5cash.push(x.Amt)
-// });
-
-// obj10= JSON.parse(localStorage.getItem("topNonCashLoans"))
-// console.log("obj10:" + obj10)
-// obj10.forEach(x => {
-//   top5nonCashLabel.push(x.KISA_ADI2)
-//   top5nonCash.push(x.Amt)
-// });
 
 var ctx = document.getElementById("top5cashChart").getContext("2d");
 var top5cashChart = new Chart(ctx, {
@@ -360,7 +291,7 @@ var top5cashChart = new Chart(ctx, {
     // labels: top5cashLabel, 
     datasets: [
       {
-        // data: top5cash, 
+        data: {"labels":["Özgün Şenyuva İnşaat","Özgün Şenyuva Turizm","Süt Özgün Şenyuva Et","Özgün Şenyuva Bilişim","Özgün Şenyuva Kuyumculuk"],"datasets":[{"data":[463,190,180,150,100]}]}, 
         backgroundColor: ["orange"],
       },
     ],
@@ -409,54 +340,10 @@ var top5cashChart = new Chart(ctx, {
 });
 
 
-// //Second Date Graphs
-
-// let obj21 = [];
-// let nonCashCurrArray2 = [];
-// let nonCashCurrLabelArray2 = [];
-// let cashCurrArray2 = [];
-// let cashCurrLabelArray2 = [];
-
-// obj21 = JSON.parse(localStorage.getItem("currencyCompositionSecondDate"))
-// obj21.forEach(x => {
-//   switch (x.lineItem) {
-//     case "Loans":
-//       cashCurrArray2.push(x.myAmt)
-//       cashCurrLabelArray2.push(x.GLB_DVZ_A)
-//       break;
-//     case "Non-cash Loans":
-//       nonCashCurrArray2.push(x.myAmt)
-//       nonCashCurrLabelArray2.push(x.GLB_DVZ_A)
-//       break;
-//   }
-// });
-
-// var nonCashCurrencyChartData2 = {
-//   labels: nonCashCurrLabelArray2, 
-//   datasets: [
-//     {
-//       data: nonCashCurrArray2, 
-//       backgroundColor: ["magenta","lightblue", "lime", "orange","yellow"],
-//     },
-//   ],
-// };
-
-
-
-// var cashCurrencyChartData2 = {
-//   labels: cashCurrLabelArray2, 
-//   datasets: [
-//     {
-//       data: cashCurrArray2, 
-//       backgroundColor: ["magenta","lightblue", "lime", "orange","yellow"],
-//     },
-//   ],
-// };
-
 var ctx8 = document.getElementById("cashCurrencyChart2").getContext("2d");
 var cashCurrencyChart2 = new Chart(ctx8, {
   type: 'pie',
-  // data: cashCurrencyChartData2,
+  data: {"labels":["EUR","TRY","USD"],"datasets":[{"data":[208,490,444],"backgroundColor":["magenta","lightblue","lime","orange","yellow"]}]},
   options: {
     plugins: {
       title: {
@@ -484,23 +371,6 @@ var cashCurrencyChart2 = new Chart(ctx8, {
   },
 });
 
-// let obj22 = [];
-// let top5cash2 = [];
-// let top5nonCash2 = [];
-// let top5cashLabel2 = [];
-// let top5nonCashLabel2 = [];
-// obj22 = JSON.parse(localStorage.getItem("topLoansSecondDate"))
-// obj22.forEach(x => {
-//   top5cashLabel2.push(x.KISA_ADI2)
-//   top5cash2.push(x.Amt)
-// });
-
-// obj23= JSON.parse(localStorage.getItem("topNonCashLoansSecondDate"))
-// obj23.forEach(x => {
-//   top5nonCashLabel2.push(x.KISA_ADI2)
-//   top5nonCash2.push(x.Amt)
-// });
-
 var ctx = document.getElementById("top5cashChart2").getContext("2d");
 var top5cashChart2 = new Chart(ctx, {
   type: 'bar',
@@ -508,7 +378,7 @@ var top5cashChart2 = new Chart(ctx, {
     // labels: top5cashLabel2, 
     datasets: [
       {
-        // data: top5cash2, 
+        data: {"labels":["Özgün Gıda","Özgün Bilgisayar","Özgün İletişim","Özgün Sucukları","Özgün Şenyuva Pazarlama"],"datasets":[{"data":[444,190,175,150,100]}]}, 
         backgroundColor: ["orange"],
       },
     ],
@@ -559,52 +429,10 @@ var top5cashChart2 = new Chart(ctx, {
 
 //Third Date Graphs
 
-// let obj31 = [];
-// let nonCashCurrArray3 = [];
-// let nonCashCurrLabelArray3 = [];
-// let cashCurrArray3 = [];
-// let cashCurrLabelArray3 = [];
-
-// obj31 = JSON.parse(localStorage.getItem("currencyCompositionThirdDate"))
-// obj31.forEach(x => {
-//   switch (x.lineItem) {
-//     case "Loans":
-//       cashCurrArray3.push(x.myAmt)
-//       cashCurrLabelArray3.push(x.GLB_DVZ_A)
-//       break;
-//     case "Non-cash Loans":
-//       nonCashCurrArray3.push(x.myAmt)
-//       nonCashCurrLabelArray3.push(x.GLB_DVZ_A)
-//       break;
-//   }
-// });
-
-// var nonCashCurrencyChartData3 = {
-//   labels: nonCashCurrLabelArray3, 
-//   datasets: [
-//     {
-//       data: nonCashCurrArray3, 
-//       backgroundColor: ["magenta","lightblue", "lime", "orange","yellow"],
-//     },
-//   ],
-// };
-
-
-
-// var cashCurrencyChartData3 = {
-//   labels: cashCurrLabelArray3, 
-//   datasets: [
-//     {
-//       data: cashCurrArray3, 
-//       backgroundColor: ["magenta","lightblue", "lime", "orange","yellow"],
-//     },
-//   ],
-// };
-
 var ctx8 = document.getElementById("cashCurrencyChart3").getContext("2d");
 var cashCurrencyChart3 = new Chart(ctx8, {
   type: 'pie',
-  // data: cashCurrencyChartData3,
+  data: {"labels":["EUR","TRY","USD"],"datasets":[{"data":[356,590,440],"backgroundColor":["magenta","lightblue","lime","orange","yellow"]}]},
   options: {
     plugins: {
       title: {
@@ -632,22 +460,6 @@ var cashCurrencyChart3 = new Chart(ctx8, {
   },
 });
 
-// let obj32 = [];
-// let top5cash3 = [];
-// let top5nonCash3 = [];
-// let top5cashLabel3 = [];
-// let top5nonCashLabel3 = [];
-// obj32 = JSON.parse(localStorage.getItem("topLoansThirdDate"))
-// obj32.forEach(x => {
-//   top5cashLabel3.push(x.KISA_ADI2)
-//   top5cash3.push(x.Amt)
-// });
-
-// obj33= JSON.parse(localStorage.getItem("topNonCashLoansThirdDate"))
-// obj33.forEach(x => {
-//   top5nonCashLabel3.push(x.KISA_ADI2)
-//   top5nonCash3.push(x.Amt)
-// });
 
 var ctx = document.getElementById("top5cashChart3").getContext("2d");
 var top5cashChart3 = new Chart(ctx, {
@@ -656,7 +468,7 @@ var top5cashChart3 = new Chart(ctx, {
     // labels: top5cashLabel3, 
     datasets: [
       {
-        // data: top5cash3, 
+        data: {"labels":["Özgün Çikolata","Özgün Yoğurt","Özgün Bira","Özgün Yazılım","Özgün Mimarlık"],"datasets":[{"data":[400,314,300,169,100]}]}, 
         // backgroundColor: ["orange"],
       },
     ],
@@ -711,7 +523,7 @@ var cashVarianceChart1 = new Chart(ctx, {
     // labels: top5cashLabel2, 
     datasets: [
       {
-        // data: top5cash2, 
+        data: {"labels":["Özgün Tahin/EUR/-8.9","Özgün Pekmez Üret./TRY/50","Özgün Sebzecilik/USD/-3","Özgün Müteahhitlik/TRY/-300","Özgün Medya/TRY/150","Özgün Spor A.Ş./EUR/-1.4"],"datasets":[{"data":[-138.5,50,-44.4,-300,150,-21.9]}]}, 
         // backgroundColor: barColor(),
       },
     ],
@@ -776,7 +588,8 @@ var cashVarianceChart2 = new Chart(ctx, {
     // labels: top5cashLabel2, 
     datasets: [
       {
-        // data: top5cash2, 
+        data: {"labels":["Özgün Tahin/EUR/-8.9","Özgün Pekmez Üret./TRY/50","Özgün Sebzecilik/USD/-3","Özgün Müteahhitlik/TRY/-300","Özgün Medya/TRY/150","Özgün Spor A.Ş./EUR/-1.4","Özgün Bozacılık/EUR/-18.9","Özgün Tekstil/TRY/250","Özgün Meyve/USD/-4"],"datasets":[{"data":[-138.5,50,-44.4,-300,150,-21.9,-300,150,-21.9]}]}, 
+, 
         // backgroundColor: barColor(),
       },
     ],
