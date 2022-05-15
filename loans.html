@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    .centerAll {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    .center {
+      text-align: center;
+      margin: auto;
+      width: 100%;
+      /* border: 3px solid #73AD21; */
+      padding: 10px;
+    }
+
+    .centerText {
+      text-align: center
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    /* div {text-align: center;} */
+    .vertical-center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+    
+
+    li {
+      position: relative;
+      padding-left: 11px;
+      margin: 0 0 3px 0;
+    }
+
+    div.firstColumn {
+      padding: 0px;
+      border-style: solid;
+      border-width: 0px 0px 0px 1px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: darkblue;
+    }
+
+    div.topBottomBorder {
+      padding: 10px;
+      border-style: solid;
+      border-width: 1px 0px 1px 0px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    div.first {
+      padding: 0px;
+      /* border-style: solid;
+      border-width: 0px 0px 1px 0px; */
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      /* border-color: lightgray; */
+      /* background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      /* width: 200px;
+  height: 150px;   */
+    }
+
+    canvas.first {
+      /* background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 10px;
+    }
+
+
+    div.second {
+      /* background: rgba(255, 255, 0, 0.2);
+      background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 0px;
+    }
+
+    div.third {
+      /* background: rgba(255, 255, 0, 0.1);
+      background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 0px;
+    }
+
+    div.height {
+      height: 150px;
+    }
+
+    div.fourth {
+      /* background: rgba(255, 255, 0, 0.05);
+      background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 0px;
+    }
+  </style>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loan Analysis</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+
+</head>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="services/sqlservice.js"></script>
+
+<body>
+  <div class="container-fluid">
+      <main role="main" class="col-md-12 pull-left">
+        <div id="main-div" class="col-md-12 pull-left">
+          <h1 class="display-5">Loan Analysis</h1>
+          <div class="container">
+                <div class="row topBottomBorder">
+                  <div class="col-md-1 centerAll " style="color:blue; text-align:center; font-size: 20px; line-height:0.80; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+                        Compare Dates
+                  </div>
+  
+                  <div class="col-md-3 auto center ">
+                  <div class="first">
+                    <input class="centerText" type="text" id="firstDate" readonly>
+                  </div>
+                </div>
+                  <div class="col-md-3 auto center ">
+                    <div class="first">
+                      <input class="centerText" type="date" id="secondDate" name="trip-start" min="2014-06-30">
+                    </div>
+                  </div>
+                  <div class="col-md-3 auto center ">
+                    <div class="first">
+                      <input class="centerText" type="date" id="thirdDate" name="trip-start" min="2014-06-30">
+                      <button type="button" style="font-size: 12px" class="btn btn-primary" onclick="getLoanData()">Update Graphs</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row topBottomBorder" >
+                  <div class="col-md-1 centerAll " style="color:blue; text-align:center; font-size: 20px; line-height:0.80; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+                        Cash Loans Currency Composition
+                  </div>
+
+                  <div class="col-md-3 auto center ">
+                    <div class="first centerAll" >
+                      <canvas id="cashCurrencyChart" width="200" height="200"></canvas>
+                    </div>
+                  </div>
+                  <div class="col-md-3 auto center">
+                    <div class="first centerAll">
+                      <canvas id="cashCurrencyChart2" width="200" height="200"></canvas>
+                    </div>
+                  </div>
+                  <div class="col-md-3 auto center">
+                    <div class="first centerAll">
+                      <canvas id="cashCurrencyChart3" width="200" height="200"></canvas>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row topBottomBorder">
+                  <div class="col-md-1 centerAll " style="color:blue; text-align:center; font-size: 20px; line-height:0.80; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+                        Top 5 Loan Exposures
+                  </div>
+
+                  <div class="col-md-3 auto center ">
+                    <div class="first">
+                      <canvas id="top5cashChart"></canvas>
+                    </div>
+                  </div>
+                  <div class="col-md-3 auto center">
+                    <div class="first">
+                      <canvas id="top5cashChart2"></canvas>
+                    </div>
+                  </div>
+                  <div class="col-md-3 auto center">
+                    <div class="first">
+                      <canvas id="top5cashChart3"></canvas>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row topBottomBorder">
+                  <div class="col-md-1 centerAll " style="color:blue; text-align:center; font-size: 20px; line-height:0.80; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+                        Variances by customer
+                  </div>
+
+                  <div class="col-md-5 auto center ">
+                    <div class="first">
+                      <canvas id="cashVarianceChart1"></canvas>
+                    </div>
+                  </div>
+                  <div class="col-md-5 auto center">
+                    <div class="first">
+                      <canvas id="cashVarianceChart2"></canvas>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          <script src="barChartLoans.js"></script>
+
+  </main>
+  </div>
+
+<script type="text/javascript">
+
+  const Chart = require('chart.js');
+const ChartDataLabels = require('chartjs-plugin-datalabels');
+Chart.register(ChartDataLabels);
+Chart.defaults.font.family = 'Calibri'
+Chart.defaults.font.size = 12
+
+var $ = function (id) { return document.getElementById(id); };
+
+let exchRatesArray = [];
+let obj7 = [];
+let LGArray = [];
+let LCArray = [];
+let AcceptanceArray = [];
+obj7 = JSON.parse(localStorage.getItem("nonCashLoans"))
+obj7.forEach(x => {
+  switch (x.lineItem) {
+    case "L/G":
+      LGArray.push(x.myAmt)
+      break;
+    case "L/C":
+      LCArray.push(x.myAmt)
+      break;
+    case "Acceptances":
+      AcceptanceArray.push(x.myAmt)
+      break;
+
+  }
+});
+
+//krediler için varyans verelim .
+//sql şifresi için kontrol yapılacak.  aksi durumda hatalı şifreyle çok deneme olacağı için hesap kitlenecek.
+
+
+// let obj8 = [];
+// let nonCashCurrObject = [];
+// let nonCashCurrArray = [];
+// let nonCashCurrLabelArray = [];
+// let cashCurrArray = [];
+// let cashCurrLabelArray = [];
+
+// obj8 = JSON.parse(localStorage.getItem("currencyComposition"))
+// console.log("obj8:" + obj8)
+// console.log("obj8-stringify:" + JSON.stringify(obj8))
+// obj8.forEach(x => {
+//   switch (x.lineItem) {
+//     case "Loans":
+//       cashCurrArray.push(x.myAmt)
+//       cashCurrLabelArray.push(x.GLB_DVZ_A)
+//       break;
+//     case "Non-cash Loans":
+//       nonCashCurrArray.push(x.myAmt)
+//       nonCashCurrLabelArray.push(x.GLB_DVZ_A)
+//       break;
+//   }
+// });
+
+// nonCashCurrObject = JSON.parse(localStorage.getItem("nonCashCurrencyComposition"))
+// console.log("nonCashCurrObject:" + nonCashCurrObject)
+// console.log("JSON.stringify-nonCashCurrObject:" + JSON.stringify(nonCashCurrObject))
+// var nonCashCurrencyChartData = {
+//   labels: nonCashCurrLabelArray, 
+//   datasets: [
+//     {
+//       data: nonCashCurrArray, 
+//       backgroundColor: ["magenta","lightblue", "lime", "orange","yellow"],
+//     },
+//   ],
+// };
+
+
+
+// var cashCurrencyChartData = {
+//   labels: cashCurrLabelArray, 
+//   datasets: [
+//     {
+//       data: cashCurrArray, 
+//       backgroundColor: ["magenta","lightblue", "lime", "orange","yellow"],
+//     },
+//   ],
+// };
+
+var ctx8 = document.getElementById("cashCurrencyChart").getContext("2d");
+var cashCurrencyChart = new Chart(ctx8, {
+  type: 'pie',
+  // data: cashCurrencyChartData,
+  options: {
+    plugins: {
+      title: {
+        display: false,
+        text: "Cash loans currency composition",
+        font: {
+          size: 14
+        },
+      },
+      legend: {
+        position: 'left',
+        display: false,
+      },
+      datalabels: {
+        color: 'black',
+        formatter: (value, context) => {
+          return context.chart.data.labels[context.dataIndex] + ":" + value;
+        },
+        font: {
+          size: 12,
+        }
+      }
+    },
+    responsive: false,
+  },
+});
+
+// let obj9 = [];
+// let top5cash = [];
+// let top5nonCash = [];
+// let top5cashLabel = [];
+// let top5nonCashLabel = [];
+// obj9 = JSON.parse(localStorage.getItem("topLoans"))
+// console.log("obj9:" + obj9)
+// obj9.forEach(x => {
+//   top5cashLabel.push(x.KISA_ADI2)
+//   top5cash.push(x.Amt)
+// });
+
+// obj10= JSON.parse(localStorage.getItem("topNonCashLoans"))
+// console.log("obj10:" + obj10)
+// obj10.forEach(x => {
+//   top5nonCashLabel.push(x.KISA_ADI2)
+//   top5nonCash.push(x.Amt)
+// });
+
+var ctx = document.getElementById("top5cashChart").getContext("2d");
+var top5cashChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    // labels: top5cashLabel, 
+    datasets: [
+      {
+        // data: top5cash, 
+        backgroundColor: ["orange"],
+      },
+    ],
+  },
+  options: {
+    indexAxis: 'y',
+    // Elements options apply to all of the options unless overridden in a dataset
+    elements: {
+      bar: {
+        borderWidth: 0,
+        backgroundColor: 'lime'
+      }
+    },
+    scales: {
+      xAxes: {
+        display: false
+      },
+      yAxes: {
+        display: false
+      },
+    },
+    plugins: {
+      title: {
+        display: false,
+        text: "Top 5 loan exposures",
+        font: {
+          size: 14
+        },
+      },
+      legend: {
+        display: false,
+      },
+      datalabels: {
+        align: 'end',
+        color: 'black',
+        formatter: (value, context) => {
+          return context.chart.data.labels[context.dataIndex].substring(0, 9);
+        },
+        font: {
+          size: 12,
+        }
+      }
+    },
+    responsive: true,
+  },
+});
+
+
+// //Second Date Graphs
+
+// let obj21 = [];
+// let nonCashCurrArray2 = [];
+// let nonCashCurrLabelArray2 = [];
+// let cashCurrArray2 = [];
+// let cashCurrLabelArray2 = [];
+
+// obj21 = JSON.parse(localStorage.getItem("currencyCompositionSecondDate"))
+// obj21.forEach(x => {
+//   switch (x.lineItem) {
+//     case "Loans":
+//       cashCurrArray2.push(x.myAmt)
+//       cashCurrLabelArray2.push(x.GLB_DVZ_A)
+//       break;
+//     case "Non-cash Loans":
+//       nonCashCurrArray2.push(x.myAmt)
+//       nonCashCurrLabelArray2.push(x.GLB_DVZ_A)
+//       break;
+//   }
+// });
+
+// var nonCashCurrencyChartData2 = {
+//   labels: nonCashCurrLabelArray2, 
+//   datasets: [
+//     {
+//       data: nonCashCurrArray2, 
+//       backgroundColor: ["magenta","lightblue", "lime", "orange","yellow"],
+//     },
+//   ],
+// };
+
+
+
+// var cashCurrencyChartData2 = {
+//   labels: cashCurrLabelArray2, 
+//   datasets: [
+//     {
+//       data: cashCurrArray2, 
+//       backgroundColor: ["magenta","lightblue", "lime", "orange","yellow"],
+//     },
+//   ],
+// };
+
+var ctx8 = document.getElementById("cashCurrencyChart2").getContext("2d");
+var cashCurrencyChart2 = new Chart(ctx8, {
+  type: 'pie',
+  // data: cashCurrencyChartData2,
+  options: {
+    plugins: {
+      title: {
+        display: false,
+        text: "Cash loans currency composition",
+        font: {
+          size: 14
+        },
+      },
+      legend: {
+        position: 'left',
+        display: false,
+      },
+      datalabels: {
+        color: 'black',
+        formatter: (value, context) => {
+          return context.chart.data.labels[context.dataIndex] + ":" + value;
+        },
+        font: {
+          size: 12,
+        }
+      }
+    },
+    responsive: false,
+  },
+});
+
+// let obj22 = [];
+// let top5cash2 = [];
+// let top5nonCash2 = [];
+// let top5cashLabel2 = [];
+// let top5nonCashLabel2 = [];
+// obj22 = JSON.parse(localStorage.getItem("topLoansSecondDate"))
+// obj22.forEach(x => {
+//   top5cashLabel2.push(x.KISA_ADI2)
+//   top5cash2.push(x.Amt)
+// });
+
+// obj23= JSON.parse(localStorage.getItem("topNonCashLoansSecondDate"))
+// obj23.forEach(x => {
+//   top5nonCashLabel2.push(x.KISA_ADI2)
+//   top5nonCash2.push(x.Amt)
+// });
+
+var ctx = document.getElementById("top5cashChart2").getContext("2d");
+var top5cashChart2 = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    // labels: top5cashLabel2, 
+    datasets: [
+      {
+        // data: top5cash2, 
+        backgroundColor: ["orange"],
+      },
+    ],
+  },
+  options: {
+    indexAxis: 'y',
+    // Elements options apply to all of the options unless overridden in a dataset
+    elements: {
+      bar: {
+        borderWidth: 0,
+        backgroundColor: 'lime'
+      }
+    },
+    scales: {
+      xAxes: {
+        display: false
+      },
+      yAxes: {
+        display: false
+      },
+    },
+    plugins: {
+      title: {
+        display: false,
+        text: "Top 5 loan exposures",
+        font: {
+          size: 14
+        },
+      },
+      legend: {
+        display: false,
+      },
+      datalabels: {
+        align: 'end',
+        color: 'black',
+        formatter: (value, context) => {
+          return context.chart.data.labels[context.dataIndex].substring(0, 9);
+        },
+        font: {
+          size: 12,
+        }
+      }
+    },
+    responsive: true,
+  },
+});
+
+
+//Third Date Graphs
+
+// let obj31 = [];
+// let nonCashCurrArray3 = [];
+// let nonCashCurrLabelArray3 = [];
+// let cashCurrArray3 = [];
+// let cashCurrLabelArray3 = [];
+
+// obj31 = JSON.parse(localStorage.getItem("currencyCompositionThirdDate"))
+// obj31.forEach(x => {
+//   switch (x.lineItem) {
+//     case "Loans":
+//       cashCurrArray3.push(x.myAmt)
+//       cashCurrLabelArray3.push(x.GLB_DVZ_A)
+//       break;
+//     case "Non-cash Loans":
+//       nonCashCurrArray3.push(x.myAmt)
+//       nonCashCurrLabelArray3.push(x.GLB_DVZ_A)
+//       break;
+//   }
+// });
+
+// var nonCashCurrencyChartData3 = {
+//   labels: nonCashCurrLabelArray3, 
+//   datasets: [
+//     {
+//       data: nonCashCurrArray3, 
+//       backgroundColor: ["magenta","lightblue", "lime", "orange","yellow"],
+//     },
+//   ],
+// };
+
+
+
+// var cashCurrencyChartData3 = {
+//   labels: cashCurrLabelArray3, 
+//   datasets: [
+//     {
+//       data: cashCurrArray3, 
+//       backgroundColor: ["magenta","lightblue", "lime", "orange","yellow"],
+//     },
+//   ],
+// };
+
+var ctx8 = document.getElementById("cashCurrencyChart3").getContext("2d");
+var cashCurrencyChart3 = new Chart(ctx8, {
+  type: 'pie',
+  // data: cashCurrencyChartData3,
+  options: {
+    plugins: {
+      title: {
+        display: false,
+        text: "Cash loans currency composition",
+        font: {
+          size: 14
+        },
+      },
+      legend: {
+        position: 'left',
+        display: false,
+      },
+      datalabels: {
+        color: 'black',
+        formatter: (value, context) => {
+          return context.chart.data.labels[context.dataIndex] + ":" + value;
+        },
+        font: {
+          size: 12,
+        }
+      }
+    },
+    responsive: false,
+  },
+});
+
+// let obj32 = [];
+// let top5cash3 = [];
+// let top5nonCash3 = [];
+// let top5cashLabel3 = [];
+// let top5nonCashLabel3 = [];
+// obj32 = JSON.parse(localStorage.getItem("topLoansThirdDate"))
+// obj32.forEach(x => {
+//   top5cashLabel3.push(x.KISA_ADI2)
+//   top5cash3.push(x.Amt)
+// });
+
+// obj33= JSON.parse(localStorage.getItem("topNonCashLoansThirdDate"))
+// obj33.forEach(x => {
+//   top5nonCashLabel3.push(x.KISA_ADI2)
+//   top5nonCash3.push(x.Amt)
+// });
+
+var ctx = document.getElementById("top5cashChart3").getContext("2d");
+var top5cashChart3 = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    // labels: top5cashLabel3, 
+    datasets: [
+      {
+        // data: top5cash3, 
+        // backgroundColor: ["orange"],
+      },
+    ],
+  },
+  options: {
+    indexAxis: 'y',
+    // Elements options apply to all of the options unless overridden in a dataset
+    elements: {
+      bar: {
+        borderWidth: 0,
+        backgroundColor: 'lime' //barColor(),
+      }
+    },
+    scales: {
+      xAxes: {
+        display: false
+      },
+      yAxes: {
+        display: false
+      },
+    },
+    plugins: {
+      title: {
+        display: false,
+        text: "Top 5 loan exposures",
+        font: {
+          size: 14
+        },
+      },
+      legend: {
+        display: false,
+      },
+      datalabels: {
+        align: 'end',
+        color: 'black',
+        formatter: (value, context) => {
+          return context.chart.data.labels[context.dataIndex].substring(0, 9);
+        },
+        font: {
+          size: 12,
+        }
+      }
+    },
+    responsive: true,
+  },
+});
+
+var ctx = document.getElementById("cashVarianceChart1").getContext("2d");
+var cashVarianceChart1 = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    // labels: top5cashLabel2, 
+    datasets: [
+      {
+        // data: top5cash2, 
+        // backgroundColor: barColor(),
+      },
+    ],
+  },
+  options: {
+    indexAxis: 'y',
+    // Elements options apply to all of the options unless overridden in a dataset
+    elements: {
+      bar: {
+        backgroundColor: barColor(),
+        borderWidth: 0,
+      }
+    },
+    scales: {
+      xAxes: {
+        //display: false,
+        grid: {
+          color: (context) => {
+            const zeroLine = context.tick.value;
+            // const gridColor = zeroLine === 0 ? '#666' : '#ccc';
+            const gridColor = zeroLine === 0 ? '#666' : '';
+            return gridColor
+          }
+        }
+      },
+      yAxes: {
+        display: false
+      },
+    },
+    plugins: {
+      title: {
+        display: true,
+        // text: varianceTextOne,
+        // text: "Variances between " + document.getElementById('firstDate').value + " and " + document.getElementById('secondDate').value,
+        font: {
+          size: 14
+        },
+      },
+      legend: {
+        display: false,
+      },
+      datalabels: {
+        align: 'start',
+        color: 'black',
+        formatter: (value, context) => {
+          // return context.chart.data.labels[context.dataIndex].substring(0,8);
+          return context.chart.data.labels[context.dataIndex];
+        },
+        font: {
+          size: 12,
+        }
+      }
+    },
+    responsive: true,
+  },
+});
+
+var ctx = document.getElementById("cashVarianceChart2").getContext("2d");
+var cashVarianceChart2 = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    // labels: top5cashLabel2, 
+    datasets: [
+      {
+        // data: top5cash2, 
+        // backgroundColor: barColor(),
+      },
+    ],
+  },
+  options: {
+    indexAxis: 'y',
+    // Elements options apply to all of the options unless overridden in a dataset
+    elements: {
+      bar: {
+        backgroundColor: barColor(),
+        borderWidth: 0,
+      }
+    },
+    scales: {
+      xAxes: {
+        //display: false,
+        grid: {
+          color: (context) => {
+            const zeroLine = context.tick.value;
+            // const gridColor = zeroLine === 0 ? '#666' : '#ccc';
+            const gridColor = zeroLine === 0 ? '#666' : '';
+            return gridColor
+          }
+        }
+      },
+      yAxes: {
+        display: false
+      },
+    },
+    plugins: {
+      title: {
+        display: true,
+        text: "Variances between date 2 and date 3",
+        font: {
+          size: 14
+        },
+      },
+      legend: {
+        display: false,
+      },
+      datalabels: {
+        align: 'start',
+        color: 'black',
+        formatter: (value, context) => {
+          // return context.chart.data.labels[context.dataIndex].substring(0,8);
+          return context.chart.data.labels[context.dataIndex];
+        },
+        font: {
+          size: 12,
+        }
+      }
+    },
+    responsive: true,
+  },
+});
+
+
+function barColor() {
+  return (ctx) => {
+    const standard = 0;
+    const myAmt = ctx.raw;
+    // const color = myAmt > standard ? 'rgba (255,26, 104, 0.2)' : 'rgba (75,192, 192, 0.2)'
+    const color = myAmt > standard ? 'yellowgreen' : 'Tomato'
+    return color
+  }
+}
+
+  
+  
+  
+  </script>
+</body>
+
+</html>
