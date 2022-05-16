@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    .no-border {
+      border: 0;
+      box-shadow: none;
+      /* You may want to include this as bootstrap applies these styles too */
+    }
+
+    .divHeader {
+      padding-top: 10px;
+      color: black;
+      text-align: left;
+      font-size: 22px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      border-style: solid;
+      border-width: 1px 0px 0px 0px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    .centerAll {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .center {
+      text-align: center;
+      margin: auto;
+      width: 100%;
+      /* border: 3px solid #73AD21; */
+      padding: 10px;
+    }
+
+    .centerText {
+      text-align: center
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    .bigFigure {
+      color: lightgray;
+      text-align: center;
+      font-size: 40px;
+      line-height: 0.8;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    }
+
+    .bigFigureText {
+      color: gray;
+      text-align: center;
+      font-size: 15px;
+      line-height: 0.80;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    }
+
+    /* div {text-align: center;} */
+    .vertical-center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+
+
+    li {
+      position: relative;
+      padding-left: 11px;
+      margin: 0 0 3px 0;
+    }
+
+    div.firstColumn {
+      padding: 0px;
+      border-style: solid;
+      border-width: 0px 0px 0px 1px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: darkblue;
+    }
+
+    div.topBottomBorder {
+      padding: 10px;
+      border-style: solid;
+      border-width: 1px 0px 1px 0px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    div.topBorder {
+      padding: 10px;
+      border-style: solid;
+      border-width: 1px 0px 0px 0px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    div.bottomBorder {
+      /* padding: 10px; */
+      border-style: solid;
+      border-width: 0px 0px 1px 0px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    div.first {
+      padding: 0px;
+      /* border-style: solid;
+      border-width: 0px 0px 1px 0px; */
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      /* border-color: lightgray; */
+      /* background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      /* width: 200px;
+  height: 150px;   */
+    }
+
+    canvas.first {
+      /* background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 10px;
+    }
+
+
+    div.second {
+      /* background: rgba(255, 255, 0, 0.2);
+      background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 0px;
+    }
+
+    div.third {
+      /* background: rgba(255, 255, 0, 0.1);
+      background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 0px;
+    }
+
+    div.height {
+      height: 150px;
+    }
+
+    div.heightAsChartTitle {
+      height: 10;
+      text-align: center
+    }
+
+    div.fourth {
+      /* background: rgba(255, 255, 0, 0.05);
+      background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 0px;
+    }
+  </style>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+
+</head>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<body>
+  <div class="container-fluid">
+    <main role="main" class="col-md-12 pull-left">
+      <div id="main-div" class="col-md-12 pull-left">
+        <!-- <h1 class="display-5">Landing-new</h1> -->
+        <div class="container">
+          <div class="row">
+
+            <div class="col-md-2 auto center ">
+              <div class="first">
+                <p class="bigFigure" id="finalPLAmt">7.9m
+                </p>
+                <p class="bigFigureText" id="finalPLText">TRY YTD p&l as of 13.05.2022
+                </p>
+              </div>
+            </div>
+            <div class="col-md-2 auto center ">
+              <div class="first">
+                <p class="bigFigure" id="avgMargin">%4.44</p>
+                <p class="bigFigureText" id="avgMarginText">Average margin on loans outstanding</p>
+              </div>
+            </div>
+
+            <div class="col-md-2 auto center ">
+              <div class="first">
+                <p class="bigFigure">X Sum</p>
+                <p class="bigFigureText">Another text</p>
+              </div>
+            </div>
+
+            <div class="col-md-2 auto center ">
+              <div class="first">
+                <p class="bigFigure">X Sum</p>
+                <p class="bigFigureText">Another text</p>
+              </div>
+            </div>
+            <div class="col-md-2 auto center ">
+              <div class="first">
+                <p class="bigFigure">X Sum</p>
+                <p class="bigFigureText">Another text</p>
+              </div>
+            </div>
+            <div class="col-md-2 auto center ">
+              <div class="first">
+                <p class="bigFigure">X Sum</p>
+                <p class="bigFigureText">Another text</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-3 auto"
+              style="color:gray; text-align:left; font-size: 32px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+              Finance Dashboard
+            </div>
+
+            <div class="col-md-9 auto center">
+
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="button" style="font-size: 13px" class="btn btn-outline-primary"
+
+                        onclick="window.open('expenseSummary.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes');"
+                        
+                        >Expense
+                  Summary</button>
+                <button type="button" style="font-size: 13px" class="btn btn-outline-primary"
+                  onclick="openExpense()">Expense GL
+                  Details</button>
+                <button type="button" style="font-size: 13px" class="btn btn-outline-primary" onclick="window.open('loans.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes');">
+                  Loan Analysis</button>
+                <button type="button" style="font-size: 13px" class="btn btn-outline-primary"
+                                          onclick="window.open('loansNoncash.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes');">
+                  Non-cash Loan Analysis</button>
+                <button type="button" style="font-size: 13px" class="btn btn-outline-primary"
+                   onclick="window.open('margins.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes');">
+                  Margin
+                  Analysis</button>
+                <button type="button" id="btnOpenLoans" style="font-size: 13px" class="btn btn-outline-primary"
+                  onclick="deleteItems()">Clear local storage</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+          <div class="divHeader">
+            <label for="selectYear">P&L Trends of year </label>
+            <select id="selectYear" aria-label="Select year" onchange="refreshMtdPL(); refreshAccPL();">
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+              <option value="2020">2020</option>
+              <option value="2019">2019</option>
+              <option value="2018">2018</option>
+              <option value="2017">2017</option>
+              <option value="2016">2016</option>
+              <option value="2015">2015</option>
+            </select>
+          </div>
+        </div>
+
+          <div class="row ">
+            <div class="col-md-4 heightAsChartTitle">
+              Current Year ('000 TRY')
+            </div>
+            <div class="col-md-4 heightAsChartTitle">
+              Current Year MTD ('000 TRY')
+            </div>
+            <div class="col-md-4 heightAsChartTitle ">
+              P&L by Years ('000 TRY')
+            </div>
+          </div>
+
+          <div class="row ">
+            <div class="col-md-4 auto center ">
+              <div class="first centerAll">
+                <canvas id="canvasMonthendBalance"></canvas>
+                <!-- <canvas id="cashCurrencyChart" width="200" height="200"></canvas> -->
+              </div>
+            </div>
+            <div class="col-md-4 auto center">
+              <div class="first centerAll">
+                <canvas id="canvasMtdAll"></canvas>
+                <!-- <canvas id="cashCurrencyChart2" width="200" height="200"></canvas> -->
+              </div>
+            </div>
+            <div class="col-md-4 auto center">
+              <div class="first centerAll">
+                <canvas id="canvasAnnualAll"></canvas>
+                <!-- <canvas id="cashCurrencyChart3" width="200" height="200"></canvas> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="row divHeader">Monthly and Annual Trends of Balancesheet:
+          </div>
+
+          <div class="row ">
+            <div class="col-md-4 heightAsChartTitle">
+              Exchange Rates
+            </div>
+            <div class="col-md-4 heightAsChartTitle">
+              Cash Loans
+            </div>
+            <div class="col-md-4 heightAsChartTitle ">
+              Non-cash Loans
+            </div>
+          </div>
+
+          <div class="row ">
+            <div class="col-md-4 auto center ">
+              <div class="first">
+                <canvas id="exchangeRates"></canvas>
+              </div>
+            </div>
+            <div class="col-md-4 auto center">
+              <div class="first">
+                <canvas id="loansChart"></canvas>
+              </div>
+            </div>
+            <div class="col-md-4 auto center">
+              <div class="first">
+                <canvas id="nonCashLoansChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="row ">
+            <div class="col-md-4 auto center ">
+              <div class="first">
+                <canvas id="exchangeRatesAnnual"></canvas>
+              </div>
+            </div>
+            <div class="col-md-4 auto center">
+              <div class="first">
+                <canvas id="loansChartAnnual"></canvas>
+              </div>
+            </div>
+            <div class="col-md-4 auto center">
+              <div class="first">
+                <canvas id="nonCashLoansChartAnnual"></canvas>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="text/javascript">
+    function openExpenseSummary() { ipcRenderer.send("openExpenseSummary") };
+    function openExpense() { ipcRenderer.send("openExpense") };
+    function openMain() { ipcRenderer.send("openMain") };
+    function openLoans() { ipcRenderer.send("openLoans") };
+    function openNoncashLoans() { ipcRenderer.send("openNoncashLoans") };
+    function openMargins() { ipcRenderer.send("openMargins") };
+    var getId = function (id) { return document.getElementById(id); };
+    //getParameters()
+    document.addEventListener("DOMContentLoaded", () => {
+
+    });
+
+    function deleteItems() {
+      //localStorage.clear();
+    }
+
+    function fillSelect(values = []) {
+      // burası vakit olduğunda güncellenebilir.  türkçe karakterler için sadece girilen değere değil, olası benzer karakterlere de bakıp sonuçları array a ekleyebiliriz.
+      var dropdown = getId("arrays");
+      dropdown.options.length = 0;
+      var searchResults = GLList.filter(word => word.includes(getId("myInput").value.toUpperCase()));
+      // console.log("searchResults:" + searchResults)
+
+      for (var i = 0; i < searchResults.length; ++i) {
+        // console.log("dropdown.length:" + dropdown.length)
+        dropdown[dropdown.length] = new Option(searchResults[i], searchResults[i]);
+      }
+    }
+
+    
+    ////////////////////////////////////////////////
+    ////////////////////////////////////////////////
+    
+    
+//const Chart = require('.\chart.js\dist\chart.js');
+//const ChartDataLabels = require('.\chartjs-plugin-datalabels\dist\chartjs-plugin-datalabels.js');
+//Chart.register(ChartDataLabels);
+Chart.defaults.font.family = 'Calibri'
+Chart.defaults.font.size = 12
+// console.log(Chart.defaults.scales)
+Chart.defaults.scale.grid.display = false
+
+var $ = function (id) { return document.getElementById(id); };
+
+var ctx = document.getElementById("canvasMonthendBalance").getContext("2d")
+var mtdBalanceChart = new Chart(ctx, {
+  type: "line",
+  responsive: true,
+  data: {
+    labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+    datasets: [
+          {
+      label: "Budget",
+      type: "line",
+      backgroundColor: "orange",
+      borderColor: "orange",
+      borderWidth: 1,
+      data: [1000, 2000,3000,4000,5000,6000,7000,8000,9000,10000,11000,12000]
+    },
+    {
+      label: "Actual",
+      backgroundColor: "blue",
+      data: [1100,2582,3885,5175,6230,0,0,0,0,0,0,0]
+    }
+
+    ],
+  },
+  options: {
+    plugins: {
+      datalabels: {
+        display: false,
+      },
+      title: {
+        display: false,
+        text: "P&L Trend" + " ('000 TRY)",
+        font: {
+          size: 15
+        },
+      },
+      legend: {
+        display: false,
+      },
+
+    },
+    events: ["mousemove", "mouseout", "click", "touchstart", "touchmove", "touchend"],
+    scales: {
+      xAxes: [
+        {
+          display: true,
+          ticks: {
+            fontSize: 20,
+          },
+        },
+      ],
+      yAxes: [
+        {
+          display: false,
+          ticks: {
+            fontSize: 20,
+          },
+        },
+      ],
+    },
+  },
+});
+
+var ctx = document.getElementById("canvasMtdAll").getContext("2d");
+var mtdAllChart = new Chart(ctx, {
+  type: "bar",
+  responsive: true,
+  data: {
+    labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+    datasets: [
+    {
+      label: "Budget",
+      type: "line",
+      backgroundColor: "orange",
+      borderColor: "orange",
+      borderWidth: 1,
+      data: [1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000]
+    },
+    {
+      label: "Actual",
+      backgroundColor: "blue",
+      data: [1100,1482,1303,1290,1055,0,0,0,0,0,0,0]
+    }
+
+    ],
+  },
+  options: {
+    plugins: {
+      datalabels: {
+        display: false,
+      },
+      title: {
+        display: false,
+        text: $('selectYear').value + " MTD P&L" + " ('000 TRY)",
+        font: {
+          size: 15
+        },
+      }
+    },
+    events: ["mousemove", "mouseout", "click", "touchstart", "touchmove", "touchend"],
+    legend: {
+      display: true,
+    },
+    scales: {
+      xAxes: [
+        {
+          display: true,
+          ticks: {
+            fontSize: 10,
+          },
+        },
+      ],
+      yAxes: [
+        {
+          display: false,
+          ticks: {
+            fontSize: 10,
+          },
+        },
+      ],
+    },
+  },
+});
+
+var ctx = document.getElementById("canvasAnnualAll").getContext("2d");
+var annualAllChart = new Chart(ctx, {
+  type: "bar",
+  responsive: true,
+  data: {
+    labels: [2014,2015,2016,2017,2018,2019,2020,2021,2022],
+    datasets: [
+      {
+        label: "Actual",
+        data: [1917,2799,4078,6472,6813,13546,7710,13571,4710],
+        backgroundColor: "Blue",
+      },
+          {
+      label: "Budget",
+      backgroundColor: "orange",
+      data: [1500,1700,2500,4300,7500,11950,9000,10000,16000]
+    }
+    ],
+  },
+  options: {
+    plugins: {
+      datalabels: {
+        display: false,
+      },
+      title: {
+        text: "P&L by years ('000 TRY)",
+        display: false,
+        font: {
+          size: 15
+        },
+      },
+      legend: {
+        display: false,
+      },
+
+    },
+
+    events: ["mousemove", "mouseout", "click", "touchstart", "touchmove", "touchend"],
+    scales: {
+      xAxes: [
+        {
+          display: true,
+          ticks: {
+            fontSize: 10,
+          },
+        },
+      ],
+      yAxes: [
+        {
+          display: false,
+          ticks: {
+            fontSize: 10,
+          },
+        },
+      ],
+    },
+  },
+});
+
+
+let obj = [];
+let exchRatesArray = [];
+
+
+var ctx = document.getElementById("exchangeRates").getContext("2d");
+var exchangeRatesChart = new Chart(ctx, {
+  type: 'line',
+  data: {"labels":["21-5","21-6","21-7","21-8","21-9","21-10","21-11","21-12","22-1","22-2","22-3","22-4"],"datasets":[{"label":"USD","data":[8.499,8.6803,8.4139,8.3043,8.8785,9.4813,12.9387,13.329,13.4015,13.8286,14.6371,14.7852],"backgroundColor":"blue","borderColor":"blue","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1},{"label":"EUR","data":[10.3629,10.3249,10.0084,9.8228,10.2933,10.998,14.6798,15.0867,14.9676,15.4724,16.2855,15.6139],"backgroundColor":"purple","borderColor":"purple","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1}]},
+  axisX: {
+    labelFontSize: 10
+  },
+  options: {
+
+    scales: {
+    },
+    plugins: {
+      datalabels: {
+        display: false,
+      },
+      legend: {
+        position: 'top',
+        display: true,
+        labels: {
+          fontSize: 10
+        }
+      },
+      title: {
+        display: false,
+        text: "Exchange Rates",
+        font: {
+          size: 15
+        },
+      },
+    },
+    responsive: true,
+  }
+});
+
+var ctx = document.getElementById("exchangeRatesAnnual").getContext("2d");
+var exchangeRatesAnnualChart =  new Chart(ctx, {
+  type: 'line',
+  data: {"labels":["15-12","16-12","17-12","18-12","19-12","20-12","21-12","22-4"],"datasets":[{"label":"USD","data":[2.9181,3.5192,3.7719,5.281,5.94,7.4194,13.329,14.7852],"backgroundColor":"blue","borderColor":"blue","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1},{"label":"EUR","data":[3.1838,3.7099,4.5155,6.0422,6.6621,9.1164,15.0867,15.6139],"backgroundColor":"purple","borderColor":"purple","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1}]},
+  axisX: {
+    labelFontSize: 10
+  },
+  options: {
+
+    scales: {
+    },
+    plugins: {
+      datalabels: {
+        display: false,
+      },
+      legend: {
+        position: 'top',
+        display: false,
+        labels: {
+          fontSize: 10
+        }
+      },
+      title: {
+        display: false,
+        text: "Exchange Rates",
+        font: {
+          size: 15
+        },
+      },
+    },
+    responsive: true,
+  }
+});
+
+
+var ctx = document.getElementById("loansChart").getContext("2d");
+var loanChart = new Chart(ctx, {
+  type: 'bar',
+  data: {"labels":["21-5","21-6","21-7","21-8","21-9","21-10","21-11","21-12","22-1","22-2","22-3","22-4"],"datasets":[{"label":"FX Loans","data":[756,761,586,574,608,658,820,795,768,709,733,651],"backgroundColor":"blue"},{"label":"TRY Loans","data":[290,240,220,220,261,0,0,590,740,740,490,490],"backgroundColor":"lightblue"},{"label":"Banks","data":[936,964,1034,999,976,1295,1278,677,552,558,846,842],"backgroundColor":"orange"},{"label":"Reserves","data":[130,125,86,84,85,91,125,122,114,110,106,86],"backgroundColor":"gray"}]},
+  axisX: {
+    labelFontSize: 10
+  },
+  options: {
+    plugins: {
+      datalabels: {
+        display: false,
+      },
+      legend: {
+        position: 'top',
+        display: true,
+        labels: {
+          fontSize: 8
+        }
+      },
+      title: {
+        display: false,
+        text: "Assets",
+        font: {
+          size: 15
+        },
+      },
+    },
+    responsive: true,
+    scales: {
+      x: {
+        ticks: {
+          display: true,        
+          font: {
+            size: 11
+          },
+        },
+        stacked: true,
+      },
+      y: {
+        stacked: true,
+        ticks: {
+          display: false
+        },
+      }
+    }
+  }
+});
+
+var ctx = document.getElementById("loansChartAnnual").getContext("2d");
+var loansChartAnnual = new Chart(ctx, {
+  type: 'bar',
+  data: {"labels":["15-12","16-12","17-12","18-12","19-12","20-12","21-12","22-4"],"datasets":[{"label":"FX Loans","data":[121,350,450,747,538,561,795,651],"backgroundColor":"blue"},{"label":"TRY Loans","data":[1,0,621,647,217,290,590,490],"backgroundColor":"lightblue"},{"label":"Banks","data":[723,0,239,265,842,850,677,842],"backgroundColor":"orange"},{"label":"Reserves","data":[9,0,75,132,91,102,122,86],"backgroundColor":"gray"}]},
+  axisX: {
+    labelFontSize: 10
+  },
+  options: {
+    plugins: {
+      datalabels: {
+        display: false,
+      },
+      legend: {
+        position: 'top',
+        display: false,
+        labels: {
+          fontSize: 8
+        }
+      },
+      title: {
+        display: false,
+        text: "Assets",
+        font: {
+          size: 15
+        },
+      },
+    },
+    responsive: true,
+    scales: {
+      x: {
+        ticks: {
+          display: true,
+          font: {
+            size: 11
+          },
+        },
+        stacked: true,
+      },
+      y: {
+        stacked: true,        
+        ticks: {
+          display: false
+        },
+      }
+    }
+  }
+});
+
+
+
+var ctx = document.getElementById("nonCashLoansChart").getContext("2d");
+var nonCashLoanChart = new Chart(ctx, {
+  type: 'bar',
+  data: {"labels":["21-5","21-6","21-7","21-8","21-9","21-10","21-11","21-12","22-1","22-2","22-3","22-4"],"datasets":[{"label":"L/G","data":[100,178,108,110,178,177,157,100,199,134,122,154],"backgroundColor":"blue"},{"label":"L/C","data":[200,247,303,292,375,231,318,300,338,285,336,266],"backgroundColor":"lightblue"},{"label":"Acceptances","data":[50,56,95,90,62,52,91,61,52,94,65,62],"backgroundColor":"orange"}]},
+  axisX: {
+    labelFontSize: 10
+  },
+  options: {
+    plugins: {
+      datalabels: {
+        display: false,
+      },
+      legend: {
+        position: 'top',
+        display: true,
+        labels: {
+          fontSize: 8
+        }
+      },
+      title: {
+        display: false,
+        text: "Non-cash Loans",
+        font: {
+          size: 15
+        },
+      },
+    },
+    responsive: true,
+    scales: {
+      x: {
+        ticks: {
+          display: true,
+          font: {
+            size: 11
+          },
+        },
+        stacked: true,
+        grid: {
+          display: false
+        }
+      },
+      y: {
+        stacked: true,
+        ticks: {
+          display: false
+        },
+      }
+    }
+  }
+});
+
+var ctx = document.getElementById("nonCashLoansChartAnnual").getContext("2d");
+var nonCashLoansChartAnnual = new Chart(ctx, {
+  type: 'bar',
+  data: {"labels":["15-12","16-12","17-12","18-12","19-12","20-12","21-12","22-4"],"datasets":[{"label":"L/G","data":[70,122,94,104,94,111,95,132,116,104,107,89],"backgroundColor":"blue"},{"label":"L/C","data":[140,251,231,255,212,181,169,169,257,239,223,219],"backgroundColor":"lightblue"},{"label":"Acceptances","data":[30,32,44,60,37,39,34,60,56,30,34,55],"backgroundColor":"orange"}]},
+  axisX: {
+    labelFontSize: 10
+  },
+  options: {
+    plugins: {
+      datalabels: {
+        display: false,
+      },
+      legend: {
+        position: 'top',
+        display: false,
+        labels: {
+          fontSize: 8
+        }
+      },
+      title: {
+        display: false,
+        text: "Non-cash Loans",
+        font: {
+          size: 15
+        },
+      },
+    },
+    responsive: true,
+    scales: {
+      x: {
+        ticks: {
+          display: true,
+          font: {
+            size: 11
+          },
+        },
+        stacked: true,
+        grid: {
+          display: false
+        }
+      },
+      y: {
+        stacked: true,
+        ticks: {
+          display: false
+        },
+        // grid: {
+        //   display: false
+        // }
+      }
+    }
+  }
+});
+    
+</script>
+</body>
+
+</html>
