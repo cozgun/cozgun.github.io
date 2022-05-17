@@ -165,17 +165,14 @@
           btn.innerHTML = "List GL";
           btn.addEventListener("click", function () {
             getId("entryStatus").value = "GL #" + row.DKB_HES_NO + " listed";
-            loadExpenses("WHERE DKB_HES_NO = '" + row.DKB_HES_NO + "' AND ISLEM_TAR_NO >= " + dateNoStart('year') + " AND ISLEM_TAR_NO <= " + dateNoEnd('year') + ";");
-            getId("dk").value = row.DKB_HES_NO;
-            getAnnualSums();
-            getMonthlySums();
+            loadExpenses('getByDkAndYear');
           });
         }
         else {
           btn.innerHTML = "Go to batch";
           btn.addEventListener("click", function () {
             getId("entryStatus").value = "Batch #" + row.YBP_MUH_REF + " of " + row.myVALOR + " listed";
-            loadExpenses("WHERE format(CAST((ISLEM_TAR_NO + 37254) as datetime),'MM-dd-yyyy') = '" + row.myVALOR + "' AND YBP_MUH_REF ='" + row.YBP_MUH_REF + "';");
+            populateExpenses2();
           });
         }
         tr.appendChild(btn);
@@ -183,6 +180,51 @@
       getId("tasks-table").style.fontSize = "12px";
     }
     
+    
+      function populateExpenses2(){
+      let json = [{"DKB_HES_NO":38001200,"myVALOR":"12-31-2021","YBP_MUH_REF":1000,"KISA_AD":"ÖDENECEK KDV","DVZ_KOD":"TRY","":"1,000.00","ACIKL":"123456 nolu fatura bedeli","TRAN_NAME":"DRCR","DEPARTMAN_KODU":""},{"DKB_HES_NO":39080000,"myVALOR":"12-31-2021","YBP_MUH_REF":1049,"KISA_AD":"SATICILARA BORÇLAR","DVZ_KOD":"TRY","":"1,000.00","ACIKL":"123456 nolu fatura bedeli","TRAN_NAME":"DRCR","DEPARTMAN_KODU":""},{"DKB_HES_NO":88005200,"myVALOR":"12-31-2021","YBP_MUH_REF":1049,"KISA_AD":"TELEFON GİDERLERİ","DVZ_KOD":"TRY","":"-1,000.00","ACIKL":"123456 nolu fatura bedeli","TRAN_NAME":"DRCR","DEPARTMAN_KODU":"9999"}]
+      // to clear existing table rows
+      while (tasksBody.firstChild) {
+        tasksBody.removeChild(tasksBody.firstChild);
+      }
+      //populate table
+      json.forEach((row) => {
+        const cells = Object.values(row);
+        const tr = document.createElement("tr");
+        tasksBody.appendChild(tr);
+        cells.forEach((cell) => {
+          const td = document.createElement("td");
+          if (cells.indexOf(cell) == 5) {
+            td.style.textAlign = "right";
+          }
+          td.textContent = cell;
+          tr.appendChild(td);
+        });
+        let btn = document.createElement("button");
+        btn.className = "btn btn-info btn-sm";
+        btn.type = "submit";
+        btn.style.fontSize = "12px";
+        btn.style.backgroundColor = "gold";
+        if (
+          getId("entryStatus").value.substring(0, 5) == "Batch") {
+          btn.innerHTML = "List GL";
+          btn.addEventListener("click", function () {
+            getId("entryStatus").value = "GL #" + row.DKB_HES_NO + " listed";
+            loadExpenses('getByDkAndYear');
+          });
+        }
+        else {
+          btn.innerHTML = "Go to batch";
+          btn.addEventListener("click", function () {
+            getId("entryStatus").value = "Batch #" + row.YBP_MUH_REF + " of " + row.myVALOR + " listed";
+            populateExpenses2();
+          });
+        }
+        tr.appendChild(btn);
+      });
+      getId("tasks-table").style.fontSize = "12px";
+    }
+
 
     var $ = function (id) { return document.getElementById(id); };
 
