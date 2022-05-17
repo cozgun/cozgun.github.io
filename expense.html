@@ -213,6 +213,7 @@
           btn.addEventListener("click", function () {
             getId("entryStatus").value = "GL #" + row.DKB_HES_NO + " listed";
             loadExpenses('getByDkAndYear');
+            populateExpenses();
           });
         }
         else {
