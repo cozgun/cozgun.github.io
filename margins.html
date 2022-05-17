@@ -473,7 +473,7 @@ function sortTable(tableId, indexToSort) {
 var ctx = document.getElementById("marginsByCurr").getContext("2d");
 var marginsByCurr = new Chart(ctx, {
   type: 'bar',
-  data: {"labels":["TRY","EUR","USD"],"datasets":[{"label":"Actual","data":[3.79,3.49,2.42],"backgroundColor":"orange"},{"label":"Budget","data":[2.5,2.72,2.26],"backgroundColor":"gainsboro"}]},
+  data: {"labels":["TRY","EUR","USD"],"datasets":[{"label":"Actual","data":[4,3,2],"backgroundColor":"orange"},{"label":"Budget","data":[4.5,3.5,2.5],"backgroundColor":"gainsboro"}]},
   axisX:{
     display: false,
     labelFontSize: 10
@@ -517,7 +517,7 @@ var marginsByCurr = new Chart(ctx, {
 var ctx = document.getElementById("marginsByCurr2").getContext("2d");
 var marginsByCurr2 = new Chart(ctx, {
   type: 'bar',
-  data: {"labels":["TRY","EUR","USD"],"datasets":[{"label":"Actual","data":[3.99,2.88,2.43],"backgroundColor":"orange"},{"label":"Budget","data":[2.4,2.62,2.16],"backgroundColor":"gainsboro"}]},
+  data: {"labels":["TRY","EUR","USD"],"datasets":[{"label":"Actual","data":[4,3,2],"backgroundColor":"orange"},{"label":"Budget","data":[4.5,3.5,2.5],"backgroundColor":"gainsboro"}]},
   axisX:{
     display: false,
     labelFontSize: 10
@@ -555,7 +555,7 @@ var marginsByCurr2 = new Chart(ctx, {
 var ctx = document.getElementById("marginsByCurr3").getContext("2d");
 var marginsByCurr3 = new Chart(ctx, {
   type: 'bar',
-  data: {"labels":["TRY","EUR","USD"],"datasets":[{"label":"Actual","data":[4.09,4.22,3.03],"backgroundColor":"orange"},{"label":"Budget","data":[2.3,2.52,2.06],"backgroundColor":"gainsboro"}]},
+  data: {"labels":["TRY","EUR","USD"],"datasets":[{"label":"Actual","data":[4,3,2],"backgroundColor":"orange"},{"label":"Budget","data":[4.5,3.5,2.5],"backgroundColor":"gainsboro"}]},
   axisX:{
     display: false,
     labelFontSize: 10
@@ -594,7 +594,7 @@ var marginsByCurr3 = new Chart(ctx, {
 var ctx = document.getElementById("marginAllTrend").getContext("2d");
 var marginAllTrend = new Chart(ctx, {
   type: 'line',
-  data: {"labels":["2020-12-31T00:00:00.000Z","2021-01-31T00:00:00.000Z","2021-02-28T00:00:00.000Z","2021-03-31T00:00:00.000Z","2021-04-30T00:00:00.000Z","2021-05-31T00:00:00.000Z","2021-06-30T00:00:00.000Z","2021-07-31T00:00:00.000Z","2021-08-31T00:00:00.000Z","2021-09-30T00:00:00.000Z","2021-10-31T00:00:00.000Z","2021-11-30T00:00:00.000Z","2021-12-31T00:00:00.000Z","2022-01-31T00:00:00.000Z","2022-02-28T00:00:00.000Z","2022-03-31T00:00:00.000Z","2022-04-30T00:00:00.000Z"],"datasets":[{"label":"USD","data":[3.03,2.62,2.62,2.51,2.51,2.51,2.51,2.51,2.51,2.51,2.51,2.51,2.43,2.42,2.42,2.42,2.42],"backgroundColor":"blue","fill":false,"borderColor":"blue","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1},{"label":"EUR","data":[4.22,4.23,4.23,4.29,4.53,4.7,4.7,3.08,3.09,3.09,3.07,2.95,2.88,2.91,3.06,3.09,3.31],"backgroundColor":"purple","fill":false,"borderColor":"purple","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1},{"label":"TRY","data":[4.09,4.09,4.09,4.09,4.06,4.06,4.39,4.1,4.1,3.69,null,null,3.99,4.6,4.6,4.43,3.79],"backgroundColor":"gray","fill":false,"borderColor":"gray","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1}]},
+  data: {"labels":["2020-12-31T00:00:00.000Z","2021-01-31T00:00:00.000Z","2021-02-28T00:00:00.000Z","2021-03-31T00:00:00.000Z","2021-04-30T00:00:00.000Z","2021-05-31T00:00:00.000Z","2021-06-30T00:00:00.000Z","2021-07-31T00:00:00.000Z","2021-08-31T00:00:00.000Z","2021-09-30T00:00:00.000Z","2021-10-31T00:00:00.000Z","2021-11-30T00:00:00.000Z","2021-12-31T00:00:00.000Z","2022-01-31T00:00:00.000Z","2022-02-28T00:00:00.000Z","2022-03-31T00:00:00.000Z","2022-04-30T00:00:00.000Z"],"datasets":[{"label":"USD","data":[3.6,4.6,5.6,4.5,4.5,3.5,3.5,4.5,2.5,2.5,3.5,2.5,3,4,5,6,7],"backgroundColor":"blue","fill":false,"borderColor":"blue","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1},{"label":"EUR","data":[4,4,4,4,5,5,5,3,3,3,3,3,5,5,4,3,3],"backgroundColor":"purple","fill":false,"borderColor":"purple","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1},{"label":"TRY","data":[3.6,4.6,5.6,4.5,4.5,3.5,3.5,4.5,2.5,2.5,3.5,2.5,3,4,5,6,7],"backgroundColor":"gray","fill":false,"borderColor":"gray","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1}]},
   axisX:{
     labelFontSize: 10
   },
@@ -635,7 +635,7 @@ var marginAllTrend = new Chart(ctx, {
 var ctx = document.getElementById("cofUSDEUR").getContext("2d");
 var cofUSDEUR = new Chart(ctx, {
   type: 'line',
-  data: {"labels":["2020-12-31T00:00:00.000Z","2021-01-31T00:00:00.000Z","2021-02-28T00:00:00.000Z","2021-03-31T00:00:00.000Z","2021-04-30T00:00:00.000Z","2021-05-31T00:00:00.000Z","2021-06-30T00:00:00.000Z","2021-07-31T00:00:00.000Z","2021-08-31T00:00:00.000Z","2021-09-30T00:00:00.000Z","2021-10-31T00:00:00.000Z","2021-11-30T00:00:00.000Z","2021-12-31T00:00:00.000Z","2022-01-31T00:00:00.000Z","2022-02-28T00:00:00.000Z","2022-03-31T00:00:00.000Z","2022-04-30T00:00:00.000Z"],"datasets":[{"label":"USD","data":[0.62,0.6425,0.6425,0.641428,0.641428,0.641428,0.641428,0.641428,0.641428,0.641428,0.641428,0.641428,0.618181,0.634076,0.645,0.645,0.645],"backgroundColor":"blue","fill":false,"borderColor":"blue","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1},{"label":"EUR","data":[0.028776,0.028338,0.028338,0.024888,0.019961,0.012352,0.012352,0.016348,0.01441,0.01441,0.013063,0.013226,0.004751,0.004827,0.005894,0.006204,0.008421],"backgroundColor":"purple","fill":false,"borderColor":"purple","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1}]},
+  data: {"labels":["2020-12-31T00:00:00.000Z","2021-01-31T00:00:00.000Z","2021-02-28T00:00:00.000Z","2021-03-31T00:00:00.000Z","2021-04-30T00:00:00.000Z","2021-05-31T00:00:00.000Z","2021-06-30T00:00:00.000Z","2021-07-31T00:00:00.000Z","2021-08-31T00:00:00.000Z","2021-09-30T00:00:00.000Z","2021-10-31T00:00:00.000Z","2021-11-30T00:00:00.000Z","2021-12-31T00:00:00.000Z","2022-01-31T00:00:00.000Z","2022-02-28T00:00:00.000Z","2022-03-31T00:00:00.000Z","2022-04-30T00:00:00.000Z"],"datasets":[{"label":"USD","data":[0.6,0.6,0.6,0.7,0.7,0.8,0.9,0.6,0.7,0.8,0.6,0.8,0.7,0.6,0.7,0.6,0.6],"backgroundColor":"blue","fill":false,"borderColor":"blue","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1},{"label":"EUR","data":[0.03,0.03,0.04,0.03,0.03,0.04,0.03,0.03,0.04,0.03,0.03,0.04,0.03,0.03,0.04,0.02,0.04],"backgroundColor":"purple","fill":false,"borderColor":"purple","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1}]},
   axisX:{
     labelFontSize: 10
   },
@@ -676,7 +676,7 @@ var cofUSDEUR = new Chart(ctx, {
 var ctx = document.getElementById("cofTRY").getContext("2d");
 var cofTRY = new Chart(ctx, {
   type: 'line',
-  data: {"labels":["2020-12-31T00:00:00.000Z","2021-01-31T00:00:00.000Z","2021-02-28T00:00:00.000Z","2021-03-31T00:00:00.000Z","2021-04-30T00:00:00.000Z","2021-05-31T00:00:00.000Z","2021-06-30T00:00:00.000Z","2021-07-31T00:00:00.000Z","2021-08-31T00:00:00.000Z","2021-09-30T00:00:00.000Z","2021-10-31T00:00:00.000Z","2021-11-30T00:00:00.000Z","2021-12-31T00:00:00.000Z","2022-01-31T00:00:00.000Z","2022-02-28T00:00:00.000Z","2022-03-31T00:00:00.000Z","2022-04-30T00:00:00.000Z"],"datasets":[{"label":"TRY","data":[12.720689,12.831034,12.831034,12.948275,12.97931,12.97931,12.6625,12.2,12.2,12.872713,null,null,14.347457,14.074324,14.074324,14.622448,14.622448],"backgroundColor":"gray","fill":false,"borderColor":"gray","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1}]},
+  data: {"labels":["2020-12-31T00:00:00.000Z","2021-01-31T00:00:00.000Z","2021-02-28T00:00:00.000Z","2021-03-31T00:00:00.000Z","2021-04-30T00:00:00.000Z","2021-05-31T00:00:00.000Z","2021-06-30T00:00:00.000Z","2021-07-31T00:00:00.000Z","2021-08-31T00:00:00.000Z","2021-09-30T00:00:00.000Z","2021-10-31T00:00:00.000Z","2021-11-30T00:00:00.000Z","2021-12-31T00:00:00.000Z","2022-01-31T00:00:00.000Z","2022-02-28T00:00:00.000Z","2022-03-31T00:00:00.000Z","2022-04-30T00:00:00.000Z"],"datasets":[{"label":"TRY","data":[18,19,20,18,19,20,18,19,20,18,19,20,18,19,20,18,19],"backgroundColor":"gray","fill":false,"borderColor":"gray","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1}]},
   axisX:{
     labelFontSize: 10
   },
@@ -710,7 +710,7 @@ var cofTRY = new Chart(ctx, {
 var ctx = document.getElementById("intUSDEUR").getContext("2d");
 var intUSDEUR = new Chart(ctx, {
   type: 'line',
-  data: {"labels":["2020-12-31T00:00:00.000Z","2021-01-31T00:00:00.000Z","2021-02-28T00:00:00.000Z","2021-03-31T00:00:00.000Z","2021-04-30T00:00:00.000Z","2021-05-31T00:00:00.000Z","2021-06-30T00:00:00.000Z","2021-07-31T00:00:00.000Z","2021-08-31T00:00:00.000Z","2021-09-30T00:00:00.000Z","2021-10-31T00:00:00.000Z","2021-11-30T00:00:00.000Z","2021-12-31T00:00:00.000Z","2022-01-31T00:00:00.000Z","2022-02-28T00:00:00.000Z","2022-03-31T00:00:00.000Z","2022-04-30T00:00:00.000Z"],"datasets":[{"label":"USD","data":[3.65,3.26,3.26,3.15,3.15,3.15,3.15,3.15,3.15,3.15,3.15,3.15,3.05,3.06,3.06,3.06,3.06],"backgroundColor":"blue","fill":false,"borderColor":"blue","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1},{"label":"EUR","data":[4.25,4.25,4.25,4.32,4.55,4.71,4.71,3.1,3.1,3.1,3.08,2.96,2.88,2.92,3.06,3.1,3.32],"backgroundColor":"purple","fill":false,"borderColor":"purple","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1}]},
+  data: {"labels":["2020-12-31T00:00:00.000Z","2021-01-31T00:00:00.000Z","2021-02-28T00:00:00.000Z","2021-03-31T00:00:00.000Z","2021-04-30T00:00:00.000Z","2021-05-31T00:00:00.000Z","2021-06-30T00:00:00.000Z","2021-07-31T00:00:00.000Z","2021-08-31T00:00:00.000Z","2021-09-30T00:00:00.000Z","2021-10-31T00:00:00.000Z","2021-11-30T00:00:00.000Z","2021-12-31T00:00:00.000Z","2022-01-31T00:00:00.000Z","2022-02-28T00:00:00.000Z","2022-03-31T00:00:00.000Z","2022-04-30T00:00:00.000Z"],"datasets":[{"label":"USD","data":[3,4,5,3,4,5,3,4,5,3,4,5,3,4,5,3,4],"backgroundColor":"blue","fill":false,"borderColor":"blue","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1},{"label":"EUR","data":[5,3,4,5,3,4,5,3,4,5,3,4,5,3,4,5,2],"backgroundColor":"purple","fill":false,"borderColor":"purple","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1}]},
   axisX:{
     labelFontSize: 10
   },
@@ -751,7 +751,7 @@ var intUSDEUR = new Chart(ctx, {
 var ctx = document.getElementById("intTRY").getContext("2d");
 var intTRY = new Chart(ctx, {
   type: 'line',
-  data: {"labels":["2020-12-31T00:00:00.000Z","2021-01-31T00:00:00.000Z","2021-02-28T00:00:00.000Z","2021-03-31T00:00:00.000Z","2021-04-30T00:00:00.000Z","2021-05-31T00:00:00.000Z","2021-06-30T00:00:00.000Z","2021-07-31T00:00:00.000Z","2021-08-31T00:00:00.000Z","2021-09-30T00:00:00.000Z","2021-10-31T00:00:00.000Z","2021-11-30T00:00:00.000Z","2021-12-31T00:00:00.000Z","2022-01-31T00:00:00.000Z","2022-02-28T00:00:00.000Z","2022-03-31T00:00:00.000Z","2022-04-30T00:00:00.000Z"],"datasets":[{"label":"TRY","data":[16.81,16.92,16.92,17.04,17.04,17.04,17.05,16.3,16.3,16.57,null,null,18.33,18.67,18.67,19.06,18.41],"backgroundColor":"gray","fill":false,"borderColor":"gray","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1}]},
+  data: {"labels":["2020-12-31T00:00:00.000Z","2021-01-31T00:00:00.000Z","2021-02-28T00:00:00.000Z","2021-03-31T00:00:00.000Z","2021-04-30T00:00:00.000Z","2021-05-31T00:00:00.000Z","2021-06-30T00:00:00.000Z","2021-07-31T00:00:00.000Z","2021-08-31T00:00:00.000Z","2021-09-30T00:00:00.000Z","2021-10-31T00:00:00.000Z","2021-11-30T00:00:00.000Z","2021-12-31T00:00:00.000Z","2022-01-31T00:00:00.000Z","2022-02-28T00:00:00.000Z","2022-03-31T00:00:00.000Z","2022-04-30T00:00:00.000Z"],"datasets":[{"label":"TRY","data":[20,22,24,20,22,24,20,22,24,20,22,24,20,22,24,20,22],"backgroundColor":"gray","fill":false,"borderColor":"gray","borderWidth":1,"tension":0.1,"pointRadius":2,"pointHoverRadius":1}]},
   axisX:{
     labelFontSize: 10
   },
@@ -782,9 +782,9 @@ var intTRY = new Chart(ctx, {
   }
 });
     
-let obj53 = [{"MUST_NO":1,"FIRMA_ADI":"Özgün Kaynak Suları","DVZ_KOD":"TRY","avgMargin":4.9,"avgIntRate":17.9,"avgCOF":13,"RATING":"Z10"},{"MUST_NO":22,"FIRMA_ADI":"ÖZGÜN TİCARET LİMİTED ŞİRKETİ","DVZ_KOD":"TRY","avgMargin":4.75,"avgIntRate":17.75,"avgCOF":13,"RATING":"Z9"},{"MUST_NO":30,"FIRMA_ADI":"ÖZGÜN SUCUK ÜRÜNLERİ A.Ş.","DVZ_KOD":"TRY","avgMargin":3.61,"avgIntRate":17.37,"avgCOF":13.763157,"RATING":"Z3"},{"MUST_NO":4,"FIRMA_ADI":"ÖZGÜN ŞEKERLEME LTD.","DVZ_KOD":"EUR","avgMargin":3.49,"avgIntRate":3.5,"avgCOF":0.01,"RATING":"Z19"},{"MUST_NO":14,"FIRMA_ADI":"Özgün Gıda Sanayi Anonim Şirketi","DVZ_KOD":"USD","avgMargin":2.42,"avgIntRate":3.06,"avgCOF":0.645,"RATING":"Z4"},{"MUST_NO":12,"FIRMA_ADI":"ÖZGÜN KOLONYA ANONİM ŞİRKETİ","DVZ_KOD":"TRY","avgMargin":2,"avgIntRate":21.5,"avgCOF":19.5,"RATING":"Z11"}]
-let obj54 = [{"MUST_NO":1,"FIRMA_ADI":"Özgün2 Kaynak Suları","DVZ_KOD":"TRY","avgMargin":4.9,"avgIntRate":27.9,"avgCOF":13,"RATING":"Z10"},{"MUST_NO":22,"FIRMA_ADI":"ÖZGÜN2 TİCARET LİMİTED ŞİRKETİ","DVZ_KOD":"TRY","avgMargin":4.75,"avgIntRate":17.75,"avgCOF":13,"RATING":"Z9"},{"MUST_NO":30,"FIRMA_ADI":"ÖZGÜN SUCUK ÜRÜNLERİ A.Ş.","DVZ_KOD":"TRY","avgMargin":3.61,"avgIntRate":14.37,"avgCOF":13.763157,"RATING":"Z3"},{"MUST_NO":4,"FIRMA_ADI":"ÖZGÜN ŞEKERLEME LTD.","DVZ_KOD":"EUR","avgMargin":3.49,"avgIntRate":3.5,"avgCOF":0.01,"RATING":"Z19"},{"MUST_NO":14,"FIRMA_ADI":"Gıda Sanayi Anonim Şirketi","DVZ_KOD":"USD","avgMargin":2.42,"avgIntRate":3.06,"avgCOF":0.645,"RATING":"Z4"},{"MUST_NO":12,"FIRMA_ADI":"ÖZGÜN KOLONYA ANONİM ŞİRKETİ","DVZ_KOD":"TRY","avgMargin":2,"avgIntRate":21.5,"avgCOF":19.5,"RATING":"Z11"}]
-let obj55 = [{"MUST_NO":1,"FIRMA_ADI":"Özgün3 Kaynak Suları","DVZ_KOD":"TRY","avgMargin":4.9,"avgIntRate":7.9,"avgCOF":13,"RATING":"Z10"},{"MUST_NO":22,"FIRMA_ADI":"ÖZGÜN3 TİCARET LİMİTED ŞİRKETİ","DVZ_KOD":"TRY","avgMargin":4.75,"avgIntRate":17.75,"avgCOF":13,"RATING":"Z9"},{"MUST_NO":30,"FIRMA_ADI":"ÖZGÜN SUCUK ÜRÜNLERİ A.Ş.","DVZ_KOD":"TRY","avgMargin":3.61,"avgIntRate":27.37,"avgCOF":13.763157,"RATING":"Z3"},{"MUST_NO":4,"FIRMA_ADI":"ÖZGÜN ŞEKERLEME LTD.","DVZ_KOD":"EUR","avgMargin":3.49,"avgIntRate":3.5,"avgCOF":0.01,"RATING":"Z19"},{"MUST_NO":14,"FIRMA_ADI":"Özgün Sanayi Anonim Şirketi","DVZ_KOD":"USD","avgMargin":2.42,"avgIntRate":3.06,"avgCOF":0.645,"RATING":"Z4"}]
+let obj53 = [{"MUST_NO":1,"FIRMA_ADI":"Özgün Kaynak Suları","DVZ_KOD":"TRY","avgMargin":5,"avgIntRate":21,"avgCOF":13,"RATING":"Z10"},{"MUST_NO":22,"FIRMA_ADI":"ÖZGÜN TİCARET LİMİTED ŞİRKETİ","DVZ_KOD":"TRY","avgMargin":6,"avgIntRate":20,"avgCOF":13,"RATING":"Z9"},{"MUST_NO":30,"FIRMA_ADI":"ÖZGÜN SUCUK ÜRÜNLERİ A.Ş.","DVZ_KOD":"TRY","avgMargin":4,"avgIntRate":23,"avgCOF":13,"RATING":"Z3"},{"MUST_NO":4,"FIRMA_ADI":"ÖZGÜN ŞEKERLEME LTD.","DVZ_KOD":"EUR","avgMargin":4,"avgIntRate":5,"avgCOF":0.04,"RATING":"Z19"},{"MUST_NO":14,"FIRMA_ADI":"Özgün Gıda Sanayi Anonim Şirketi","DVZ_KOD":"USD","avgMargin":2,"avgIntRate":3,"avgCOF":0.6,"RATING":"Z4"},{"MUST_NO":12,"FIRMA_ADI":"ÖZGÜN KOLONYA ANONİM ŞİRKETİ","DVZ_KOD":"TRY","avgMargin":2,"avgIntRate":21,"avgCOF":19,"RATING":"Z11"}]
+let obj54 = [{"MUST_NO":1,"FIRMA_ADI":"Özgün2 Kaynak Suları","DVZ_KOD":"TRY","avgMargin":4,"avgIntRate":29,"avgCOF":13,"RATING":"Z10"},{"MUST_NO":22,"FIRMA_ADI":"ÖZGÜN2 TİCARET LİMİTED ŞİRKETİ","DVZ_KOD":"TRY","avgMargin":4,"avgIntRate":19,"avgCOF":13,"RATING":"Z9"},{"MUST_NO":30,"FIRMA_ADI":"ÖZGÜN SUCUK ÜRÜNLERİ A.Ş.","DVZ_KOD":"TRY","avgMargin":4,"avgIntRate":14.37,"avgCOF":13.763157,"RATING":"Z3"},{"MUST_NO":4,"FIRMA_ADI":"ÖZGÜN ŞEKERLEME LTD.","DVZ_KOD":"EUR","avgMargin":3.49,"avgIntRate":6,"avgCOF":0.01,"RATING":"Z19"},{"MUST_NO":14,"FIRMA_ADI":"Gıda Sanayi Anonim Şirketi","DVZ_KOD":"USD","avgMargin":2.42,"avgIntRate":7,"avgCOF":0.6,"RATING":"Z4"},{"MUST_NO":12,"FIRMA_ADI":"ÖZGÜN KOLONYA ANONİM ŞİRKETİ","DVZ_KOD":"TRY","avgMargin":2,"avgIntRate":24,"avgCOF":19,"RATING":"Z11"}]
+let obj55 = [{"MUST_NO":1,"FIRMA_ADI":"Özgün3 Kaynak Suları","DVZ_KOD":"TRY","avgMargin":4,"avgIntRate":7,"avgCOF":13,"RATING":"Z10"},{"MUST_NO":22,"FIRMA_ADI":"ÖZGÜN3 TİCARET LİMİTED ŞİRKETİ","DVZ_KOD":"TRY","avgMargin":6,"avgIntRate":19,"avgCOF":13,"RATING":"Z9"},{"MUST_NO":30,"FIRMA_ADI":"ÖZGÜN SUCUK ÜRÜNLERİ A.Ş.","DVZ_KOD":"TRY","avgMargin":5,"avgIntRate":27,"avgCOF":16,"RATING":"Z3"},{"MUST_NO":4,"FIRMA_ADI":"ÖZGÜN ŞEKERLEME LTD.","DVZ_KOD":"EUR","avgMargin":6,"avgIntRate":4,"avgCOF":0.01,"RATING":"Z19"},{"MUST_NO":14,"FIRMA_ADI":"Özgün Sanayi Anonim Şirketi","DVZ_KOD":"USD","avgMargin":4,"avgIntRate":6,"avgCOF":0.6,"RATING":"Z4"}]
     
     populateMargins(obj53, customerMarginsBody)
     populateMargins(obj54, customerMarginsBody2)
