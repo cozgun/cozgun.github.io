@@ -35,11 +35,11 @@
 
           <div class="row g-2">
             <div class="col-sm-1">
-              <input type="text" class="form-control" style="font-size: 14px; background-color: orange"" maxlength="8"
+              <input type="text" value="88005200" class="form-control" style="font-size: 14px; background-color: orange"" maxlength="8"
                 id="dk" placeholder="type GL" />
             </div>
             <div class="col-1">
-              <input type="number" class="form-control" style="font-size: 14px; background-color: orange"" id= "year"
+              <input value=2022 type="number" class="form-control" style="font-size: 14px; background-color: orange"" id= "year"
                 maxlength="4" placeholder="type year" />
             </div>
             <div class="col-auto">
@@ -106,27 +106,16 @@
 
   <script type="text/javascript">
 //    const ipcRenderer = require('electron').ipcRenderer;
-    function openExpenseSummary() { onclick="window.open('expenseSummary.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes') };
+//    function openExpenseSummary() { onclick="window.open('expenseSummary.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes') };
     var getId = function (id) { return document.getElementById(id); };
 
     document.addEventListener("DOMContentLoaded", () => {
 //      getExpenseParameters()
     });
 
-    function getMonthlySums() {
-      if ($('dk').value.length !== 8) {
-        getId("chartNotUpdated").innerText = "Charts will be updated when a 8 digit account listed"
-        return;
-      }
-      getId("chartNotUpdated").innerText = ""
-      var sqlStrMtdPLByDk = "SELECT Sum(iif(LEFT([DKB_HES_NO],1)='8' or LEFT([DKB_HES_NO],1)='6',[TUTAR]/-1000,[TUTAR]/1000)) AS AMT, MONTH(37254+[ISLEM_TAR_NO]) AS myMonth FROM dbo.DW_HAREKET_PRODUCTION WHERE TRAN_NAME <> 'YSKZ' AND ISLEM_TAR_NO >= " + dateNoStart('year') + " AND ISLEM_TAR_NO <= " + dateNoEnd('year') + " AND (Not (TRAN_NAME)='QQQQ') AND (((DKB_HES_NO) LIKE '" + getId('dk').value + "%" + "')) GROUP BY MONTH(37254+[ISLEM_TAR_NO]) ORDER BY MONTH(37254+[ISLEM_TAR_NO]);";
-      var sqlStrBudgetMonthly = "SELECT TUTAR, BudgetYear FROM budgetByDk WHERE DKB_HES_NO LIKE '" + $('dk').value + "%" + "' AND BudgetYear = " + $('year').value;
-      getMonthlyChartData(myChart, sqlStrMtdPLByDk, sqlStrBudgetMonthly, 'dw_production')
-    }
-
     const btnclick = document.getElementById('btnOpenExpensesExp');
     btnclick.addEventListener('click', function () {
-      localStorage.setItem("sessionGlAcct", "88002104");
+      localStorage.setItem("sessionGlAcct", "88005200");
       $("dk").value = localStorage.getItem("sessionGlAcct").substring(0, 8);
       loadExpenses('getByDkAndYear')
       getMonthlySums();
@@ -134,23 +123,6 @@
     });
 
     const tasksBody = document.querySelector("#tasks-table > tbody");
-
-    function getReportMonth() {
-      const Dialogs = require("dialogs");
-      const dialogs = Dialogs();
-      var currentYear = new Date().toJSON().slice(0, 4);
-      var currentMonth = new Date().toJSON().slice(5, 7);
-
-      dialogs.prompt(
-        "Please enter the month in yyyymm format",
-        currentYear + currentMonth,
-        (donem) => {
-          var reportMonth = donem;
-          loadTasks("monthly", reportMonth);
-        }
-      );
-    }
-
 
     function loadExpenses(sqlCriteria, getReportYear = null) {
       var mySql;
@@ -225,7 +197,6 @@
       }
     }    
     
-    const Chart =  require('chart.js');
 var $ = function (id) { return document.getElementById(id); };
 
 var ctx = document.getElementById("canvasMonthly").getContext("2d");
@@ -238,7 +209,7 @@ var myChart = new Chart(ctx, {
     datasets: [
       {
         label: "Actual",
-        data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        data: [20,29, 36, 44, 0, 0, 0, 0, 0, 0, 0, 0],
         borderColor: "#3cba9f",
         backgroundColor: [
           "Blue",
@@ -296,11 +267,11 @@ var annualChart = new Chart(ctx, {
   type: "bar",
   responsive: true,
   data: {
-    labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+    labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022"],
     datasets: [
       {
         label: "Actual",
-        data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        data: [41, 50, 64, 75, 81, 99, 95, 100, 44],
         borderColor: "#3cba9f",
         backgroundColor: [
           "Blue",
@@ -352,6 +323,17 @@ var annualChart = new Chart(ctx, {
     },
   },
 });
+                                   
+let GLList = ["88001000//MENKULLER BAKIM ONARIM GİDERLERİ","88001100//GAYRİMENKULLER BAKIM ONARIM GİDERLERİ","88001200//KİRALANAN BİNALAR BAKIM ONARIM GİDERLERİ","88001900//DİĞER BAKIM VE ONARIM GİDERLERİ","88002000//HİZMET ARABALARI GİDERLERİ","88002100//GENEL TAŞIMA ARACI GİDERLERİ","88003000//MENKULLER SİGORTA GİDERLERİ","88003100//GAYRİMENKULLER SİGORTA GİDERLERİ","88003200//GRUP SİGORTASI GİDERLERİ","88003900//DİĞER SİGORTA GİDERLERİ","88004000//ISITMA GİDERLERİ","88004100//AYDINLATMA GİDERLERİ","88004200//SU GİDERLERİ","88005000//POSTA GİDERLERİ","88005100//TELGRAF GİDERLERİ","88005200//TELEFON GİDERLERİ","88005300//TELEKS GİDERLERİ","88005400//VERİ HATTI GİDERLERİ","88005500//ON-LINE BİLGİ GİDERLERİ","88005900//DİĞER HABERLEŞME GİDERLERİ","88006000//GAZETE, DERGİ VE KİTAP GİDERLERİ","88006100//MATBUA GİDERLERİ","88006200//KIRTASİYE GİDERLERİ","88006300//FOTOKOPİ GİDERLERİ","88006400//KREDİ KARTLARI","88006500//ÇEK KARNESİ","88006600//HİSSE SENETLERİ","88006700//DİĞER","88007000//TELEVİZYON YOLUYLA YAPILAN REKLAM VE İLAN GİDERLERİ","88007100//DİĞER YOLLARLA YAPILAN REKLÂM GİDERLERİ","88007200//DİĞER YOLLARLA YAPILAN İLAN GİDERLERİ","88200000//İŞTİRAKLER, BAĞLI ORTAKLIKLAR VE DİĞER ORTAKLIKLAR SATIŞINDAN ZARARLAR","88200100//GAYRİMENKUL SATIŞINDAN ZARARLAR","88200200//MENKUL SATIŞINDAN ZARARLAR","88200900//DİĞER AKTİFLERİMİZİN SATIŞINDAN ZARARLAR"]    
+                                  
+function fillSelectWithExpenseAccounts(myDropDown, mySearchText) {
+  var dropdown = getId(myDropDown);
+  dropdown.options.length = 0;
+  var searchResults = GLList.filter(word => word.includes(getId(mySearchText).value.toUpperCase()));
+  for (var i = 0; i < searchResults.length; ++i) {
+    dropdown[dropdown.length] = new Option(searchResults[i], searchResults[i]);
+  }
+}
 
     
   </script>
