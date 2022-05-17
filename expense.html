@@ -212,21 +212,11 @@ var myChart = new Chart(ctx, {
       },
       {
         label: "Budget",
+      type: "line",
+      backgroundColor: "orange",
+      borderColor: "orange",
+      borderWidth: 1,
         data: [30,30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30],
-        borderColor: "#3cba9f",
-        backgroundColor: [
-          "Blue",
-          "Blue",
-          "Blue",
-          "Blue",
-          "Blue",
-          "Blue",
-          "Blue",
-          "Blue",
-          "Blue",
-          "Blue",
-          "Blue",
-        ],
         fill: true,
       },
     ],
@@ -235,7 +225,7 @@ var myChart = new Chart(ctx, {
     plugins: {
       title: {
           display: true,
-          text: "Monthly Trends of GL",
+          text: "Monthly Trends of GL 88005200",
           fontSize: 18
       }
   },
@@ -300,7 +290,7 @@ var annualChart = new Chart(ctx, {
   options: {
     plugins: {
       title: {
-        text: "Annual Trends of GL",
+        text: "Annual Trends of GL 88005200",
           display: true,
           fontSize: 18
       }
