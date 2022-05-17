@@ -110,6 +110,8 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       //      getExpenseParameters()
+      loadExpenses('getByDkAndYear')
+      populateExpenses()
 
     });
 
@@ -118,8 +120,7 @@
       localStorage.setItem("sessionGlAcct", "88005200");
       $("dk").value = localStorage.getItem("sessionGlAcct").substring(0, 8);
       loadExpenses('getByDkAndYear')
-      getMonthlySums();
-      getAnnualSums();
+      populateExpenses()
     });
 
     const tasksBody = document.querySelector("#tasks-table > tbody");
