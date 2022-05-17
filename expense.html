@@ -44,7 +44,7 @@
             </div>
             <div class="col-auto">
               <button type="button" style="font-size: 14px" class="btn btn-primary"
-                onclick="loadExpenses('getByDkAndYear');getMonthlySums(); getAnnualSums();">List entries</button>
+                onclick="populateExpenses();">List entries</button>
             </div>
             <div class="col-sm-2">
               <input type="text" class="form-control" id="entryStatus" style="font-size: 14px; background-color: gold"
@@ -129,7 +129,7 @@
       var mySql;
       if (sqlCriteria == "getByDkAndYear") {
         getId("entryStatus").value = "GL #" + getId("dk").value + " listed";
-          getId("dk").value + "%" + "' AND ISLEM_TAR_NO >= " + dateNoStart('year') + " AND ISLEM_TAR_NO <= " + dateNoEnd('year') + ";";
+//          getId("dk").value + "%" + "' AND ISLEM_TAR_NO >= " + dateNoStart('year') + " AND ISLEM_TAR_NO <= " + dateNoEnd('year') + ";";
 
       } else {
       }
