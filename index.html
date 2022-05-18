@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+
+<head>
+  <style>
+    .centerAll {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .center {
+      text-align: center;
+      margin: auto;
+      width: 100%;
+      /* border: 3px solid #73AD21; */
+      padding: 10px;
+    }
+
+    .centerText {
+      text-align: center
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    /* div {text-align: center;} */
+    .vertical-center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+
+
+    li {
+      position: relative;
+      padding-left: 11px;
+      margin: 0 0 3px 0;
+    }
+
+    div.firstColumn {
+      padding: 0px;
+      border-style: solid;
+      border-width: 0px 0px 0px 1px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: darkblue;
+    }
+
+    div.topBottomBorder {
+      padding: 10px;
+      border-style: solid;
+      border-width: 1px 0px 1px 0px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    div.first {
+      padding: 0px;
+      /* border-style: solid;
+      border-width: 0px 0px 1px 0px; */
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      /* border-color: lightgray; */
+      /* background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      /* width: 200px;
+  height: 150px;   */
+    }
+
+    canvas.first {
+      /* background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 10px;
+    }
+
+
+    div.second {
+      /* background: rgba(255, 255, 0, 0.2);
+      background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 0px;
+    }
+
+    div.third {
+      /* background: rgba(255, 255, 0, 0.1);
+      background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 0px;
+    }
+
+    div.height {
+      height: 150px;
+    }
+
+    div.fourth {
+      /* background: rgba(255, 255, 0, 0.05);
+      background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 0px;
+    }
+
+    /* .avatar {
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+} */
+
+    @import url(https://fonts.googleapis.com/css?family=Merriweather:300,300italic,400,400italic,700,700italic);
+    @import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+    body {
+      padding-top: 20px;
+      padding-bottom: 40px;
+      font-family: 'Merriweather', Georgia, Times;
+      font-size: 16px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+      font-family: 'Merriweather', Georgia, Times;
+      font-weight: 700;
+    }
+
+    blockquote p {
+      font-size: 16px;
+      line-height: 1.6em;
+    }
+
+    /* Masthead */
+    .header,
+    .footer,
+    .header h3 {
+      font-family: 'Montserrat', Helvetica, sans-serif;
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+
+    /* Navigation */
+    h3.text-muted a {
+      text-decoration: none;
+      color: #999999;
+    }
+
+    h3.text-muted a:hover {
+      text-decoration: none;
+      color: #0088cc;
+    }
+
+    img.avatar {
+      margin-bottom: 30px;
+    }
+
+    /* Custom container */
+    .container>hr {
+      margin: 30px 0;
+    }
+
+    .container>hr.footer {
+      margin-bottom: 15px;
+    }
+
+    /* E-Mail */
+    .obfuscate {
+      unicode-bidi: bidi-override;
+      direction: rtl;
+    }
+
+    /* Jumbotron */
+    .jumbotron {
+      margin: 80px 0;
+    }
+
+    .jumbotron h1 {
+      font-size: 72px;
+      line-height: 1;
+    }
+
+    .jumbotron .btn {
+      font-size: 21px;
+      padding: 14px 24px;
+    }
+
+    .marketing p {
+      line-height: 25px;
+    }
+
+    .marketing p.lead {
+      line-height: 30px;
+    }
+
+    /* Notes */
+    .notelist {
+      width: 600px;
+      margin: 0 auto;
+    }
+
+    ul.listnotes {
+      margin: 0 auto;
+    }
+
+    ul.listnotes li {
+      line-height: 30px;
+    }
+
+    /* Note */
+    .note,
+    .contact,
+    .about,
+    .error,
+    .swatches {
+      width: 90%;
+      margin: 0 auto;
+      line-height: 26px;
+    }
+
+    .note h2.date,
+    .note p.date,
+    .swatch-log h2.date {
+      font-size: 20px;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    /* Swatches */
+    .swatch-log h2.date {
+      margin-bottom: 30px;
+    }
+
+    .swatch-log {
+      margin: 30px auto 70px;
+      height: 140px;
+    }
+
+    ul.swatch {
+      list-style: none;
+      margin: 0 auto;
+      padding: 0;
+      height: 50px;
+    }
+
+    ul.swatch li {
+      text-transform: uppercase;
+      display: inline;
+      float: left;
+      height: 80px;
+      width: 75px;
+      text-indent: -9999px;
+      font-size: 14px;
+      text-align: center;
+      font-family: 'Montserrat', Helvetica, sans-serif;
+      background-image: url(/img/glass.png);
+      background-repeat: repeat-x;
+      background-position: 0 50%;
+    }
+
+    ul.swatch li:hover {
+      height: 75px;
+      width: 75px;
+      vertical-align: middle;
+      text-indent: 0;
+    }
+
+    /* 
+ul.swatch li:last-child { webkit-border-top-right-radius: 9px; -webkit-border-bottom-right-radius: 9px; -moz-border-radius-topright: 9px; -moz-border-radius-bottomright: 9px; border-top-right-radius: 9px; border-bottom-right-radius: 9px; }
+ul.swatch li:first-child { webkit-border-top-left-radius: 9px; -webkit-border-bottom-left-radius: 9px; -moz-border-radius-topleft: 9px; -moz-border-radius-bottomleft: 9px; border-top-left-radius: 9px; border-bottom-left-radius: 9px; }
+*/
+    .swatch-log p {
+      font-size: 14px;
+      clear: left;
+      margin-top: 10px;
+      font-family: 'Montserrat', Helvetica, sans-serif;
+      text-transform: uppercase;
+    }
+
+    .clear {
+      clear: both;
+      height: 20px;
+    }
+
+    .notes,
+    .contact,
+    .about,
+    .cv,
+    .error,
+    .swatches {
+      margin-bottom: 30px;
+    }
+
+    /* Contact */
+    iframe {
+      font-family: 'Merriweather', Georgia, Times;
+      font-size: 16px;
+    }
+
+    /* About */
+    .about ul.list-unstyled li {
+      line-height: 30px;
+      text-indent: -30px;
+      margin-left: 30px;
+    }
+
+    /* Guides */
+    .guide {
+      width: 90%;
+      margin: 0 auto 60px auto;
+      line-height: 26px;
+    }
+
+    .guide .title {
+      padding: 100px 30px 0px;
+      width: 100%;
+      height: 60%;
+      margin-bottom: 40px;
+      background: #d5d5d5;
+      color: #428bca;
+    }
+
+    .guide .title h1 {
+      font-size: 46px;
+      color: #181818;
+    }
+
+    .guide p {
+      margin: 0 0 1em;
+    }
+
+    .guide img {
+      border: solid 1px #d5d5d5;
+      border-radius: 4px;
+      margin: 40px auto;
+      display: block;
+    }
+
+    .guide .notes {
+      font-size: 12px;
+    }
+
+    .guide .notes h2 {
+      font-size: 14px;
+    }
+
+    /* Code */
+    pre.prettyprint {
+      padding: 10px !important;
+      margin: 40px;
+      font-size: 12px;
+    }
+
+    .step {
+      border-radius: 50%;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      background: #4679BD;
+      color: #FFF;
+      float: left;
+      text-align: center;
+      font-size: 24px;
+      padding-top: 5.5px;
+      margin: 5px 15px 0px 0px;
+      font-family: 'Montserrat', Helvetica, sans-serif;
+    }
+
+    /* This part is used on project page  */
+
+    a img {
+      display: inline-block;
+      border: 2px solid #444;
+      border-radius: 10px;
+      padding: 3px;
+      transition: 0.2s;
+    }
+
+    a:hover img {
+      box-shadow: 0 0 2px 1px rgba (0, 140, 186, 0.5);
+      border-radius: 30px;
+      border: 3px solid #aaa;
+    }
+
+    /* This part is from http://orderedlist.com/minimal/stylesheets/styles.css*/
+
+    github_link {
+      width: 270px;
+      float: left;
+      /*position:fixed;*/
+      -webkit-font-smoothing: subpixel-antialiased;
+    }
+
+    github_link ul {
+      list-style: none;
+      height: 40px;
+      padding: 0;
+      background: #f4f4f4;
+      border-radius: 5px;
+      border: 1px solid #e0e0e0;
+      width: 270px;
+    }
+
+    github_link li {
+      width: 89px;
+      float: left;
+      border-right: 1px solid #e0e0e0;
+      height: 38px;
+    }
+
+    github_link li:first-child a {
+      border-radius: 5px 0 0 5px;
+    }
+
+    github_link li:last-child a {
+      border-radius: 0 5px 5px 0;
+    }
+
+    github_link ul a {
+      line-height: 1;
+      font-size: 11px;
+      color: #999;
+      display: block;
+      text-align: center;
+      padding-top: 6px;
+      height: 34px;
+    }
+
+    github_link ul a:hover {
+      color: #999;
+    }
+
+    github_link ul a strong {
+      font-size: 14px;
+      display: block;
+      color: #222;
+    }
+
+    small {
+      font-size: 11px;
+    }
+  </style>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Özgün Senyuva</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+</head>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<html>
+
+<body>
+  <div class="container">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Ozgun Senyuva</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <form class="d-flex">
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page"
+                  href="https://www.linkedin.com/in/ozgun-senyuva-98a2195/">Linkedin Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="mailto:ozgun.senyuva@gmail.com">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </form>
+      </div>
+    </nav>
+    <br>
+    <h5>Hi, I'm Özgün Senyuva. I'm a finance professional and a software engineering amateur.</h5>
+    <h6>On this site I will be sharing information on my studies. You can reach me and <a
+        href="mailto:ozgun.senyuva@gmail.com">share your
+        thoughts </a> if you like.
+    </h6>
+    <br>
+
+    <div class="row topBottomBorder">
+      <div class="col-md-3 auto center ">
+        <div class="first">
+          <a href="dashboard.html#"><img src="./images/dash.jpg" class="card-img-top" alt="..."></a>
+        </div>
+      </div>
+
+      <!-- <div class="col-md-3 centerAll " style="color:blue; text-align:center; font-size: 20px; line-height:0.80; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  "> -->
+      <div class="col-md-3">
+        <div class="card-body">
+          <h4 class="card-title">Finance Dashboard</h4>
+          <h6>Always online & ready to use ALCO / Exec. Committee presentations. </h6>
+          <h6>Do not bother your team with excel graphs need refreshing before every committee meeting.</h6>
+          <h6>Just installing the app will be enough to let them see the latest results any time.</h6>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card-body">
+          <h5>Advantages:</h5>
+          <h6>Save time: No need to get data from systems, giving it to excel, refreshing graphs and pasting it to
+            powerpoint slides. </h6>
+          <h6>Your graphs will be ready as you open the app. Not just for one date but any date you want.</h6>
+          <h6>See loans variances by customer between two dates via a couple clicks.</h6>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card-body">
+          <h5>Technical details:</h5>
+          <h6>Plug ang play. Ready to run on banks using Intervision. Using Javascript & Electron Framework</h6>
+          <h6>Desktop app on client side. No server/IIS needed.</h6>
+          <a href="dashboard.html#" class="btn btn-primary">click to see demo</a>
+        </div>
+      </div>
+
+      <div class="row topBottomBorder">
+        <div class="col-md-3 auto center ">
+          <div class="first">
+            <h6 class="card-title">Screenshot will be here soon.</h6>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card-body">
+            <h4 class="card-title">Deadline Followup & Reminder Tool</h4>
+            <h6>Concerned about missing important deadlines ? Not anymore !</h6>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card-body">
+            <h6>Every morning lets you and your team know of what needs to be done on that day in an e-mail. In another
+              e-mail it sends the tasks should be done in five days ahead.</h6>
+            <h6>If anyone in team misses a date, other team members will be awake of this and things can be sorted out
+              before deadline without any incidents. </h6>
+            <h6>Tool will be sending morning e-mails until someone in team opens the app marks the job done. </h6>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card-body">
+            <h6>Another functionality is making sure of tasks (where required) are checked by four eyes. After one team
+              member marks the job as done, tool expects another team member to control and marked it as "checked". Tool
+              keep sending morning e-mails until four eyes check completed. </h6>
+            <h6>Four eyes check records can be retrived later in report format for audit purposes. </h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="row topBottomBorder">
+        <div class="col-md-3 auto center ">
+          <div class="first">
+            <h6 class="card-title">Screenshot will be here soon.</h6>
+          </div>
+        </div>
+
+        <!-- <div class="col-md-3 centerAll " style="color:blue; text-align:center; font-size: 20px; line-height:0.80; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  "> -->
+        <div class="col-md-3">
+          <div class="card-body">
+            <h4 class="card-title">Add-in: Smart Outlook Assistant - SOA</h4>
+            <h6>Need to send same e-mail everyday/week/month ? </h6>
+            <h6>Have files to check at a specific time of day? </h6>
+            <h6>Then I can be your assistant.</h6>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card-body">
+            <h5>Advantages:</h5>
+            <h6>You do not need to think about the recurring e-mail messages you need to send daily/weekly/monthly. SOA
+              will take care of them as long as your Outlook remains open. </h6>
+            <h6>By doing so, SOA will save you time and minimize the risk of missing an e-mail.</h6>
+            <h6></h6>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card-body">
+            <h6>But my favorite usage of SOA is this: Everyday I need to open & check many files which includes
+              validation results, report submission proofs or automated system outputs. These need to be done in
+              specific times of day and should not be missed. SOA checks the relevant directories for me at these
+              specific times and sends e-mail to me and my teammates with attachment or in other case with a warning
+              like -attachment not found-. </h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="row topBottomBorder">
+        <div class="col-md-3 auto center ">
+          <div class="first">
+            <h6 class="card-title">Screenshot will be here soon.</h6>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card-body">
+            <h4 class="card-title">Web service communicator</h4>
+            <h6>An electron desktop app to send data to APIs in JSON format and show the http results.</h6>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card-body">
+            <h6>Can be used for test purposes. Also can be used for production enviroments after some enhancements for
+              storing outgoing and incoming data into databases.</h6>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card-body">
+            <h6>Screeshots will follow.</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
