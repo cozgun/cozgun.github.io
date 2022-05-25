@@ -21,8 +21,11 @@
     <div class="input-group mb-3" style="width: 1200px">
       <label class="input-group-text" for="urlSelectFromConfig">Listeden kayıtlı bir URL seçin</label>
       <select class="form-select" id="urlSelectFromConfig"
-        title="Yeni girişleri bu dosyada düzenleyebilirsiniz: C:\Users\[userName]\AppData\Roaming\electron-store-nodejs\Config\Config.json"
-        onchange="fillValues()">
+        title="Yeni girişleri bu dosyada düzenleyebilirsiniz: C:\Users\[userName]\AppData\Roaming\electron-store-nodejs\Config\Config.json">
+          <option selected>your first entry URI:https://enter.your.address.here</option>
+  <option value="your second entry URI:https://enter.your.second.address.here">your second entry URI:https://enter.your.second.address.here</option>
+  <option value="2">Two</option>
+  <option value="3">Three</option>
       </select>
       <button class="btn btn-outline-secondary" type="button" id="btnOpenConfig">Yeni URL Kaydedin</button>
     </div>
@@ -116,37 +119,18 @@
         document.getElementById("jsonResult").innerHTML = "response:" + xhttp.responseText + "   status:" + xhttp.statusText;
       };
       xhttp.open("POST", url, true);
-      xhttp.setRequestHeader("Authorization", "Basic " + b64EncodeUnicode(user & ":" & pass))
-
+      xhttp.setRequestHeader("Authorization", "Basic " + b64EncodeUnicode(user + ":" + pass))
       xhttp.setRequestHeader("Content-Type", "application/json")
       var jsonText = document.getElementById("jsonInput").value
       xhttp.send(jsonText)
-      console.log("decoded:" + b64EncodeUnicode(user & ":" & pass))
     }
 
 
     function b64EncodeUnicode(str) {
       return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function (match, p1) {
         return String.fromCharCode('0x' + p1);
-         console.log("String.fromCharCode('0x' + p1);" + String.fromCharCode('0x' + p1))
       }));
     }
-
-    function fillSelectWithConfigFile(selectId) {
-
-      const Store = require('electron-store');
-      const store = new Store();
-      store.set('listOfUrl', ["your first entry URI:https://enter.your.address.here", "your second entry URI:https://enter.your.second.address.here"]);
-      
-      var dropdown = document.getElementById(selectId);
-      dropdown.options.length = 0;
-      var searchResults = store.get('listOfUrl');
-      for (var i = 0; i < searchResults.length; ++i) {
-        dropdown[dropdown.length] = new Option(searchResults[i], searchResults[i]);
-      }
-      fillValues()
-    }
-
 
     const btnclick = document.getElementById('btnOpenConfig');
     btnclick.addEventListener('click', function () {
