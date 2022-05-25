@@ -14,58 +14,57 @@
 <body>
   <div class="container">
     <br>
-    <h2 style="color:gray">Web servis raporlama aracı</h2>
+    <h2 style="color:gray">Web service post requester</h2>
     <br>
 
-    <h5 style="color:darkblue;">1. adım: Bağlantı bilgilerini girin</h5>
+    <h5 style="color:darkblue;">1. step: Enter connection parameters</h5>
     <div class="input-group mb-3" style="width: 1200px">
-      <label class="input-group-text" for="urlSelectFromConfig">Listeden kayıtlı bir URL seçin</label>
+      <label class="input-group-text" for="urlSelectFromConfig">Choose one URL from list</label>
       <select class="form-select" id="urlSelectFromConfig"
-        title="Yeni girişleri bu dosyada düzenleyebilirsiniz: C:\Users\[userName]\AppData\Roaming\electron-store-nodejs\Config\Config.json">
+        title="You can manage new entries in this file: C:\Users\[userName]\AppData\Roaming\electron-store-nodejs\Config\Config.json">
           <option selected>your first entry URI:https://enter.your.address.here</option>
   <option value="your second entry URI:https://enter.your.second.address.here">your second entry URI:https://enter.your.second.address.here</option>
   <option value="2">Two</option>
   <option value="3">Three</option>
       </select>
-      <button class="btn btn-outline-secondary" type="button" id="btnOpenConfig">Yeni URL Kaydedin</button>
+      <button class="btn btn-outline-secondary" type="button" id="btnOpenConfig">Save a new URL</button>
     </div>
 
     <div class="input-group mb-3" style="width: 1200px">
-      <label class="input-group-text" for="manualURL">ya da yeni bir URL girin</label>
+      <label class="input-group-text" for="manualURL">or manually enter a new URL</label>
         <input id="manualURL" type="text" aria-label="URL" placeholder="URL" class="form-control">
     </div>
 
     <div class="input-group mb-3" style="width: 1200px">
-      <label class="input-group-text" for="manualPass">decoded şifre metni</label>
+      <label class="input-group-text" for="manualPass">decoded http basic auth.password</label>
       <input id="manualPass" type="text" aria-label="password" placeholder="HTTP Basic Authentication" class="form-control">
-      <label class="input-group-text" for="manualPass">ya da kullanıcı ve şifre girin</label>
-      <input id="manualUser2" type="text" aria-label="user" placeholder="kullanıcı" class="form-control">
-      <input id="manualPass2" type="text" aria-label="password" placeholder="şifre" class="form-control">
+      <label class="input-group-text" for="manualPass">or enter user ID and password</label>
+      <input id="manualUser2" type="text" aria-label="user" placeholder="user" class="form-control">
+      <input id="manualPass2" type="text" aria-label="password" placeholder="password" class="form-control">
     </div>
 
 
     <br>
     <br>
     <div class="form-floating">
-      <h5 style="color:darkblue;">2. adım: JSON bilgilerini buraya yapıştırın ve gönderin</h5>
+      <h5 style="color:darkblue;">2. step: paste your JSON and submit</h5>
     </div>
-    <textarea class="form-control" placeholder="JSON bilgilerini buraya yapıştırın" id="jsonInput"
+    <textarea class="form-control" placeholder="paste your JSON here" id="jsonInput"
       style="height: 200px; width: 1200px; font-size: 10pt">[]</textarea>
     <br>
     <div>
-      <button type="button" class="btn btn-primary" onclick="postSelected()">Gönder</button>
+      <button type="button" class="btn btn-primary" onclick="postSelected()">Submit</button>
     </div>
     <br>
     <br>
     <div class="form-floating">
-      <h5 style="color:darkblue;">3. adım: Web servis cevaplarını burada görün</h5>
-      <textarea class="form-control" placeholder="Web servis cevapları burada görünecek" id="jsonResult"
+      <h5 style="color:darkblue;">3. step: See responded results of web service </h5>
+      <textarea class="form-control" placeholder="Your web service requests will be seen here" id="jsonResult"
         style="height: 100px; width: 1200px; font-size: 10pt"></textarea>
     </div>
     <br>
     <div>
-      <button type="button" class="btn btn-outline-info btn-sm" onclick="evdsTest()" style="float: right;">EVDS test
-        verisi al</button>
+      <button type="button" class="btn btn-outline-info btn-sm" onclick="evdsTest()" style="float: right;">make a get request for testing</button>
     </div>
   </div>
 
