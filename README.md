@@ -15,7 +15,6 @@
 
 #### Your graphs will be ready as you open the app. Not just for a specific date but any date you want.
 
-#### See loans variances by customers between two dates via a couple clicks.
 
 
 ## Technical details:
