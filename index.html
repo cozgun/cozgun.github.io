@@ -13,7 +13,7 @@
       margin: auto;
       width: 100%;
       /* border: 3px solid #73AD21; */
-      padding: 10px;
+      padding: 5px;
     }
 
     .centerText {
@@ -24,9 +24,17 @@
       text-align: center;
     }
     
-    p {
-      font-size: 13px
+    ul {
+      font-size: 12px
     }
+
+    p {
+      font-size: 12px
+    }
+    p.font14 {
+      font-size: 14px
+    }
+
 
     /* div {text-align: center;} */
     .vertical-center {
@@ -53,7 +61,7 @@
     }
 
     div.topBottomBorder {
-      padding: 10px;
+      padding: 5px;
       border-style: solid;
       border-width: 1px 0px 1px 0px;
       /* 25px top, 10px right, 4px bottom and 35px left */
@@ -497,69 +505,67 @@ ul.swatch li:first-child { webkit-border-top-left-radius: 9px; -webkit-border-bo
       <div class="col-md-3">
         <div class="card-body">
           <h4 class="card-title">Finance Dashboard</h4>
-          <h6>Always online & ready to use ALCO/EXCO like committee presentations. </h6>
-          <h6>Do not bother your team with excel graphs need refreshing before every meeting.</h6>
-          <h6>Installing the app onto related parties' computers will be enough to let them see the latest results any time they want.</h6>
+          <h6 style="font-size:15px">Always online & ready to use ALCO/EXCO like committee presentations. </h6>
+            <h6 style="font-size:15px">Do not bother your team with excel graphs need refreshing before every meeting.</h6>
+              <h6 style="font-size:15px">Installing the app onto related parties' computers will be enough to let them see the latest results any time they want.</h6>
         </div>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-6">
         <div class="card-body">
-          <h5>Advantages:</h5>
-          <p>Save time: No need to get data from systems, giving it to excel, refreshing graphs and pasting it to
-            powerpoint slides. </p>
-          <p>Your graphs will be ready as you open the app. Not just for a specific date but any date you want.</p>
-          <p>See loans variances by customers between two dates via a couple clicks.</p>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card-body">
-          <h5>Technical details:</h5>
-          <p>Plug ang play. Ready to run on banks using Intervision. Using Javascript & Electron Framework</p>
-          <p>Desktop app on client side. No server/IIS needed.</p>
-          <a href="dashboard.html#" class="btn btn-primary">click to see demo</a>
+          <h6>Advantages:</h6>
+          <ul>
+          <li>Save time: No need to get data from systems, giving it to excel, refreshing graphs and pasting it to
+            powerpoint slides. </li>
+          <li>Your graphs will be ready as you open the app. Not just for a specific date but any date you want.</li>
+          <li>See loans variances by customers between two dates via a couple clicks.</li>
+          </ul>
+          <h6>Technical details:</h6>
+          <ul>
+          <li>Plug ang play. Ready to run on banks using Intervision. Using Javascript & Electron Framework</li>
+          <li>Desktop app on client side. No server/IIS needed.</li>
+          <li><a href="dashboard.html#" style="font-size:12px" class="btn btn-sm btn-primary">click to see demo</a></li>
+          </ul>
         </div>
       </div>
 
       <div class="row topBottomBorder">
         <div class="col-md-3 auto center ">
           <div class="first">
-            <h6 class="card-title">Screenshot will be here soon.</h6>
+            <h6 class="card-title"></h6>
           </div>
         </div>
 
         <div class="col-md-3">
           <div class="card-body">
             <h4 class="card-title">Deadline Followup & Reminder Tool</h4>
-            <h6>Concerned about missing important deadlines ? Not anymore !</h6>
+            <h6 style="font-size:15px">Concerned about missing important deadlines ? Not anymore !</h6>
           </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-6">
           <div class="card-body">
-            <p>Every morning tool lets you and your team know of what needs to be done on that day in an e-mail. In another
-              e-mail it sends the tasks should be done in five days ahead.</p>
-            <p>If anyone in team misses a date, other team members will be awake of this and things can be sorted out
-              before deadline without any incidents. </p>
-            <p>Tool will be sending morning e-mails until someone in team opens the app marks the job done. </p>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="card-body">
-            <p>Another functionality is making sure of tasks (where required) are checked by four eyes. After one team
+            <ul>
+            <li>Every morning tool lets you and your team know of what needs to be done on that day in an e-mail. In another
+              e-mail it sends the tasks should be done in five days ahead.</li>
+              <li>
+              If anyone in team misses a date, other team members will be awake of this and things can be sorted out
+              before deadline without any incidents.</li>
+              <li>Tool will be sending morning e-mails until someone in team opens the app marks the job done.</li>
+            <li>Another functionality is making sure of tasks (where required) are checked by four eyes. After one team
               member marks the job as done, tool expects another team member to control and marked it as "checked". Tool
-              keep sending morning e-mails until four eyes check completed. </p>
-            <p>Four eyes check records can be retrived later in report format for audit purposes. </p>
+              keep sending morning e-mails until four eyes check completed.</li>
+              <li>Four eyes check records can be retrived later in report format for audit purposes. </li>
+            </ul>
           </div>
         </div>
+
       </div>
 
       <div class="row topBottomBorder">
         <div class="col-md-3 auto center ">
           <div class="first">
-            <h6 class="card-title">Screenshot will be here soon.</h6>
+            <h6 class="card-title"></h6>
           </div>
         </div>
 
@@ -567,31 +573,28 @@ ul.swatch li:first-child { webkit-border-top-left-radius: 9px; -webkit-border-bo
         <div class="col-md-3">
           <div class="card-body">
             <h4 class="card-title">Add-in: Smart Outlook Assistant - SOA</h4>
-            <h6>Need to send same e-mail everyday/week/month ? </h6>
-            <h6>Have files to check at a specific time of day? </h6>
-            <h6>Then I can be your assistant.</h6>
+            <h6 style="font-size:15px">Need to send same e-mail everyday/week/month ? </h6>
+            <h6 style="font-size:15px">Have files to check at a specific time of day? </h6>
+            <h6 style="font-size:15px">Then I can be your assistant.</h6>
           </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-6">
           <div class="card-body">
-            <h5>Advantages:</h5>
-            <p>You do not need to think about the recurring e-mail messages you need to send daily/weekly/monthly. SOA
-              will take care of them as long as your Outlook remains open. </p>
-            <p>By doing so, SOA will save you time and minimize the risk of missing an e-mail.</p>
-            <p></p>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="card-body">
-            <p>But my favorite usage of SOA is this: Everyday I need to open & check many files which includes
+            <h6>Advantages:</h6>
+            <ul>
+            <li>You do not need to think about the recurring e-mail messages you need to send daily/weekly/monthly. SOA
+              will take care of them as long as your Outlook remains open. </li>
+            <li>By doing so, SOA will save you time and minimize the risk of missing an e-mail.</li>
+            <li>But my favorite usage of SOA is this: Everyday I need to open & check many files which includes
               validation results, report submission proofs or automated system outputs. These need to be done in
               specific times of day and should not be missed. SOA checks the relevant directories for me at these
               specific times and sends e-mail to me and my teammates with attachment or in other case with a warning
-              like -attachment not found-. </p>
+              like -attachment not found-. </li>
+          </ul>
           </div>
         </div>
+
       </div>
 
       <div class="row topBottomBorder">
@@ -604,29 +607,23 @@ ul.swatch li:first-child { webkit-border-top-left-radius: 9px; -webkit-border-bo
         <div class="col-md-3">
           <div class="card-body">
             <h4 class="card-title">Web service communicator</h4>
-            <h6>An electron desktop app to send data (make post requests with data in JSON format) to APIs and show results.</h6>
+            <h6  style="font-size:15px">An electron desktop app to send data (make post requests with data in JSON format) to APIs and show results.</h6>
           </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-6">
           <div class="card-body">
-            <p>Can be used for test purposes. Also can be used for production enviroments after some enhancements for
-              storing outgoing and incoming data into databases.</p>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="card-body">
-            <github_link>
-            <h6>View the Project on GitHub</h6>
-              <ul>
-                <li><a href="dashboard.html#">See <strong>Demo</strong></a></li>
-                <li></li>
-                <li><a href="https://github.com/cozgun/webServicePostRequest">Fork On <strong>GitHub</strong></a></li>
+            <ul>
+            <li>Can be used for test purposes. </li>
+              <li>Also can be used for production enviroments after some enhancements for
+              storing outgoing and incoming data into databases.</li>
+              <li><a href="webService.html#" style="font-size:12px" class="btn btn-sm btn-primary">see demo page</a></li>
+              <li><a href="https://github.com/cozgun/webServicePostRequest" style="font-size:12px" class="btn btn-sm btn-primary">fork on GitHub</a></li>
+                </ul>
               </ul>
-              </github_link>
           </div>
         </div>
+
       </div>
     </div>
   </div>
