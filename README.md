@@ -31,4 +31,5 @@
 #### To see demo: https://cozgun.github.io/dashboard.html#
 
 
-![dash](https://user-images.githubusercontent.com/59412630/170360600-8aa003a7-b897-478f-ba1a-6c5ccaea79de.JPG)
+![dash2](https://user-images.githubusercontent.com/59412630/170441581-0a4af112-ad3e-4424-92ac-6af9a0accbad.JPG)
+
