@@ -3,12 +3,11 @@
 
 <head>
   <style>
-     canvas{
-      padding: 0px 15px 0px 15px;
-    }
+
     .no-border {
       border: 0;
       box-shadow: none;
+      /* You may want to include this as bootstrap applies these styles too */
     }
 
     .divHeader {
@@ -21,6 +20,21 @@
       border-width: 1px 0px 0px 0px;
       /* 25px top, 10px right, 4px bottom and 35px left */
       border-color: lightgray;
+    }
+
+    .divHeaderNoBorder {
+      color: black;
+      text-align: left;
+      font-size: 22px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    .divMainHeader {
+      color: black;
+      background-color: white;
+      text-align: center;
+      font-size: 50px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
 
     .centerAll {
@@ -47,22 +61,230 @@
 
     p {
       text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .divPageSize {
+      height: 100vh;
+      position: relative;
+
+      /* vh stands for view-port height, 1vh is 1% of screen height */
+      /* background-color: yellow; */
+    }
+
+    .divSquare {
+      width: 300px;
+      height: 150px;
+      /* background-color: lightgray; */
+      font-size: 200%;
+      text-align: center;
+      display: table-cell;
+      vertical-align: middle;
+      color: white;
+      padding: 5px;
+      /* border-radius: 20px; */
+      /* border-style: solid;
+      border-width: 0px 0px 1px 0px; */
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    .divSquareMaxi {
+      width: 400px;
+      height: 400px;
+      /* background-color: lightgray; */
+      font-size: 200%;
+      text-align: center;
+      display: table-cell;
+      /* vertical-align: middle; */
+      color: white;
+      padding: 5px;
+      border-radius: 5px;
+      border-style: solid;
+      border-width: 1px 1px 1px 1px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    .divSquareMaxi600_400 {
+      width: 600px;
+      height: 400px;
+      /* background-color: lightgray; */
+      font-size: 200%;
+      text-align: center;
+      display: table-cell;
+      /* vertical-align: middle; */
+      color: white;
+      padding: 5px;
+      border-radius: 5px;
+      border-style: solid;
+      border-width: 1px 1px 1px 1px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    .divSquareMaxi400_300 {
+      width: 400px;
+      height: 350px;
+      /* background-color: lightgray; */
+      font-size: 200%;
+      text-align: center;
+      display: table-cell;
+      /* vertical-align: middle; */
+      color: white;
+      padding: 5px;
+      border-radius: 5px;
+      border-style: solid;
+      border-width: 1px 1px 1px 1px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    .divSquareMaxi2 {
+      width: 800px;
+      height: 400px;
+      /* background-color: lightgray; */
+      font-size: 200%;
+      text-align: center;
+      display: table-cell;
+      /* vertical-align: middle; */
+      color: white;
+      padding: 5px;
+      border-radius: 5px;
+      border-style: solid;
+      border-width: 1px 1px 1px 1px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    .divSquareMaxi2800_300 {
+      width: 800px;
+      height: 350px;
+      /* background-color: lightgray; */
+      font-size: 200%;
+      text-align: center;
+      display: table-cell;
+      /* vertical-align: middle; */
+      color: white;
+      padding: 5px;
+      border-radius: 5px;
+      border-style: solid;
+      border-width: 1px 1px 1px 1px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+
+    .divSquareMini {
+      width: 400px;
+      height: 160px;
+      background-color: white;
+      font-size: 200%;
+      text-align: center;
+      display: table-cell;
+      vertical-align: middle;
+      color: white;
+      /* padding: 5px; */
+      /* border-radius: 20px; */
+      /* border-style: solid;
+      border-width: 0px 0px 1px 0px; */
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    .divSquare600 {
+      width: 600px;
+      height: 200px;
+      background-color: white;
+      font-size: 200%;
+      text-align: center;
+      display: table-cell;
+      vertical-align: middle;
+      color: white;
+      padding: 5px;
+      /* border-radius: 20px; */
+      /* border-style: solid;
+      border-width: 0px 0px 1px 0px; */
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    .divSquare500 {
+      width: 500px;
+      height: 200px;
+      background-color: white;
+      font-size: 200%;
+      text-align: center;
+      display: table-cell;
+      vertical-align: middle;
+      color: white;
+      padding: 5px;
+      /* border-radius: 20px; */
+      /* border-style: solid;
+      border-width: 0px 0px 1px 0px; */
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
     }
 
     .bigFigure {
-      color: lightgray;
+      color: darkblue;
       text-align: center;
-      font-size: 40px;
+      font-size: 34px;
       line-height: 0.8;
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      padding: 5px;
+    }
+
+    .bigFigure2 {
+      color: gray;
+      text-align: center;
+      font-size: 24px;
+      line-height: 0.8;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      padding: 5px;
+    }
+
+    .bigFiguremiddle {
+      color: darkblue;
+      text-align: center;
+      font-size: 24px;
+      line-height: 0.8;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      padding: 5px;
     }
 
     .bigFigureText {
-      color: gray;
+      color: darkblue;
       text-align: center;
-      font-size: 15px;
+      font-size: 18px;
       line-height: 0.80;
       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    }
+
+    .bigFigureTextSmall {
+      color: darkblue;
+      text-align: center;
+      font-size: 12px;
+      line-height: 0.80;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    }
+
+    .divAsHeader {
+      display: table-cell;
+      vertical-align: bottom;
+      border: 1px solid #f00;
+      height: 100px;
+      width: 100px;
+    }
+
+    .flex-gap {
+      display: inline-flex;
+      flex-wrap: wrap;
+    }
+
+    .flex-gap>div {
+      margin: 6px;
     }
 
     /* div {text-align: center;} */
@@ -74,11 +296,18 @@
       transform: translateY(-50%);
     }
 
+    .div-vertical {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
 
     li {
       position: relative;
       padding-left: 11px;
-      margin: 0 0 3px 0;
+      margin: 0 0 0px 0;
     }
 
     div.firstColumn {
@@ -123,7 +352,11 @@
       border-radius: 20px;
       padding: 10px; */
       /* width: 200px;
-  height: 150px;   */
+    height: 150px;   */
+    }
+
+    canvas {
+      padding: 0px 15px 0px 15px;
     }
 
     canvas.first {
@@ -173,8 +406,9 @@
   <title>Landing Page</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <!-- <link rel="stylesheet" href="css/dashboard.css"> -->
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+
 
 </head>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -184,191 +418,619 @@
   <div class="container-fluid">
     <main role="main" class="col-md-12 pull-left">
       <div id="main-div" class="col-md-12 pull-left">
-        <!-- <h1 class="display-5">Landing-new</h1> -->
+
         <div class="container">
-          <div class="row">
+          <div class="divPageSize" id="sectionTop">
+            <div class="vertical-center">
 
-            <div class="col-md-2 auto center ">
-              <div class="first">
-                <p class="bigFigure" id="finalPLAmt">7.9m
-                </p>
-                <p class="bigFigureText" id="finalPLText">TRY YTD p&l as of 13.05.2022
-                </p>
-              </div>
-            </div>
-            <div class="col-md-2 auto center ">
-              <div class="first">
-                <p class="bigFigure" id="avgMargin">%4.44</p>
-                <p class="bigFigureText" id="avgMarginText">Average margin on loans outstanding</p>
-              </div>
-            </div>
+              <div class="col-md-12 divMainHeader"></div>
+              <div class="row">
+                <div class="col-md-2 ">
 
-            <div class="col-md-2 auto center ">
-              <div class="first">
-                <p class="bigFigure">125</p>
-                <p class="bigFigureText">Another text</p>
-              </div>
-            </div>
+                  <div class="divSquareMaxi400_300">
+                    <li style="list-style-type:none; height: 40px;"></li>
+                    <li style="list-style-type:none;" class="bigFigure">Finance
+                    </li>
+                    <li style="list-style-type:none;" class="bigFigure">Dashboard
+                    </li>
+                    <li style="list-style-type:none; height: 40px;"></li>
+                    <hr style="width:50%; color:gray; background-color:gray;margin: auto;">
+                    <li style="list-style-type:none; height: 20px;"></li>
+                    <li class="bigFigure2" style="list-style-type:none; height: 70px" id="datetime7"></li>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="divSquareMaxi400_300">
 
-            <div class="col-md-2 auto center ">
-              <div class="first">
-                <p class="bigFigure">210</p>
-                <p class="bigFigureText">Another text</p>
+                    <p class="bigFigure2">YTD P&L</p>
+                    <li style="list-style-type:none;" class="bigFigure" id="finalPLAmt">15.5m
+                    </li>
+                    <li style="list-style-type:none;" class="bigFigureText" id="finalPLText">TRY as of 08.10.2022
+                    </li>
+                    <li style="list-style-type:none; height: 20px;"></li>
+                    <hr style="width:50%; color:gray; background-color:gray;margin: auto;">
+                    <li style="list-style-type:none; height: 20px;"></li>
+                    <li class="bigFigure" style="list-style-type:none;  " id="cardActualVsBudget">3.4m</li>
+                    <!-- <p class="bigFigure" id="cardActualVsBudget"></p> -->
+                    <!-- <p class="bigFigureText" id="cardTextActualVsBudget"></p> -->
+                    <li class="bigFigureText" style="list-style-type:none;" id="cardTextActualVsBudget">TRY above budget (+24%)</li>
+                    <li style="list-style-type:none; height: 20px;"></li>
+                    <hr style="width:50%; color:gray; background-color:gray;margin: auto;">
+                    <li style="list-style-type:none; height: 20px;"></li>
+                    <li style="list-style-type:none;" class="bigFigure" id="cardActualVsPrevious">-1.7m</li>
+                    <li style="list-style-type:none;" class="bigFigureText" id="cardTextActualVsPrevious">TRY behind last year (-15%)</li>
+                    <!-- <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                      onclick="document.getElementById('sectionTop').scrollIntoView();">Scroll to top 10</button> -->
+                    <button type="button" style="font-size: 12px" class="btn btn-outline-primary btn-sm"
+                      onClick="document.getElementById('sectionPLtrend').scrollIntoView();">Scroll to trends</button>
+                  </div>
+                </div>
+                <div class="col-md-7 ">
+
+                  <div class="divSquareMaxi2800_300">
+                    <div class="row">
+                      <p class="bigFigure2">Changes eliminated from FX impact, </p>
+                      <p class="bigFigure2">in last 365 (30) days </p>
+
+                      <div class="col-md-4 auto center ">
+                        <p class="bigFigureText">Cash Loans</p>
+                        <p class="bigFigure" id="loanCard">-16% (2%)</p>
+                        <!-- <p class="bigFigureTextSmall">Change in cash loans-Yesterday vs 365 (30) days before</p> -->
+                        <p class="bigFigureText" id="loanCardNominal">incl.FX impact: -5% (1%)</p>
+
+                      </div>
+                      <div class="col-md-4 auto center ">
+                        <p class="bigFigureText">Noncash Loans</p>
+                        <p class="bigFigure" id="noncashLoanCard">-25% (5%)</p>
+                        <!-- <p class="bigFigureTextSmall">Change in noncash loans-Yesterday vs 365 (30) days before</p> -->
+                        <p class="bigFigureText" id="noncashLoanCardNominal"> incl.FX impact: -12% (2%)</p>
+                      </div>
+
+                      <!-- <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                      onclick="document.getElementById('sectionTop').scrollIntoView();">Scroll to top 10</button> -->
+                    </div>
+                    <button type="button" style="font-size: 12px" class="btn btn-outline-primary btn-sm"
+                      onclick="openLoans()">Open Loan
+                      Analysis Page</button>
+                    <button type="button" style="font-size: 12px; width: 200px;" class="btn btn-outline-primary btn-sm"
+                      onClick="document.getElementById('sectionBalancesheet').scrollIntoView();">Scroll to balancesheet
+                      trends</button>
+                    <button type="button" style="font-size: 12px" class="btn btn-outline-primary btn-sm"
+                      onclick="openNoncashLoans()">Open Noncash Loan
+                      Analysis Page</button>
+
+
+                  </div>
+                </div>
+
+              </div>
+
+              <br>
+              <!-- Second row starts here -->
+              <div class="row">
+                <div class="col-md-3 ">
+                  <div class="divSquareMaxi">
+                    <p class="bigFigure2">Budget Utilization of Expenses</p>
+                    <p class="bigFiguremiddle" id="staffExpProgress">Staff:105%</p>
+                    <div class="progress" style="height: 20px; width: 300px">
+                      <div class="progress-bar" id="staffExpProgressBar" role="progressbar" aria-valuenow="105"
+                        aria-valuemin="0" aria-valuemax="100" style="width:105%; font-size: x-large; background: red">
+                      </div>
+                    </div>
+                    <!-- <p class="bigFigureTextSmall" onclick="openExpenseSummary()">click for figures</p> -->
+
+                    <p class="bigFiguremiddle"></p>
+                    <hr style="width:90%; color:gray; background-color:gray;margin: auto;">
+
+                    <p class="bigFiguremiddle" id="adminExpProgress">Admin:90%</p>
+                    <div class="progress " style="height: 20px; width: 300px">
+                      <div class="progress-bar" id="adminExpProgressBar" role="progressbar" aria-valuenow="90"
+                        aria-valuemin="0" aria-valuemax="100" style="width:90%; font-size: x-large">
+                      </div>
+                    </div>
+                    <p class="bigFiguremiddle"></p>
+                    <hr style="width:90%; color:gray; background-color:gray;margin: auto;">
+                    <p class="bigFiguremiddle" id="deprExpProgress">Depr:70%</p>
+                    <div class="progress" style="height: 20px; width: 300px">
+                      <div class="progress-bar" id="deprExpProgressBar" role="progressbar" aria-valuenow="70"
+                        aria-valuemin="0" aria-valuemax="100" style="width:70%; font-size: x-large">
+                      </div>
+                    </div>
+                    <button type="button" style="font-size: 12px" class="btn btn-outline-primary btn-sm"
+                      onclick="openExpenseSummary()">Open Expense
+                      Analysis Page</button>
+
+                    <!-- <p class="bigFigureTextSmall" onclick="openExpenseSummary()">click for figures</p> -->
+
+                  </div>
+                </div>
+
+                <div class="col-md-6 ">
+                  <div class="divSquareMaxi600_400">
+                    <p class="bigFigure2">Top 10 customers - net int.income (YTD)</p>
+                    <div id="canvas-holder">
+                        <img src="TREEMAP.JPG" alt=”an artist's rendition of a black hole in space”>
+                    </div>
+                    <button type="button" style="font-size: 12px" class="btn btn-outline-primary"
+                      onclick="document.getElementById('sectionInterestResults').scrollIntoView();">Scroll to QTD and
+                      MTD results</button>
+                  </div>
+                </div>
+
+                <div class="col-md-3 ">
+
+                  <div class="divSquareMaxi">
+                    <!-- <p class="bigFigure2">Interest Income</p> -->
+
+                    <p class="bigFigure" id="avgMargin">% 3.13</p>
+                    <p class="bigFigureText" id="avgMarginText">Avg. NIM on loans outstanding
+                    </p>
+                    <button type="button" style="font-size: 12px" class="btn btn-outline-primary btn-sm"
+                      onclick="openMargins()">Open Margin
+                      Analysis Page</button>
+                      <hr style="width:100%; color:gray; background-color:gray;margin: auto;">
+
+                      <li style="list-style-type:none; height: 20px;"></li>
+
+                    <p class="bigFigure" id="cardGrossInterest">SAMSUNG FLAVOURS INC.</p>
+                    <p class="bigFigureText" >has biggest daily avg. loan balance with TRY</p>
+                    <p class="bigFigure" id="cardTextGrossInterest">20.42m</p>
+
+                    <!-- <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                      onclick="document.getElementById('sectionTop').scrollIntoView();">Scroll to top 10</button> -->
+                      <button type="button" style="font-size: 12px" class="btn btn-outline-primary btn-sm"
+                      onClick="document.getElementById('sectionAllTimeInterestByCustomer').scrollIntoView();">See previous years</button>
+                      <button type="button" style="font-size: 12px" class="btn btn-outline-primary btn-sm"
+                      onClick="document.getElementById('sectionInterestResultsTable').scrollIntoView();">Scroll to other customers</button>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+
+          <div class="divPageSize" id="sectionPLtrend">
+            <div class="col-md-12 div-vertical">
+
+              <div class="row">
+                <div class="divHeaderNoBorder">
+                  <label style="height: 60px;" for="selectYear">P&L Trends of year </label>
+                  <select id="selectYear" aria-label="Select year" onchange="refreshMtdPL(); refreshAccPL();">
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row ">
+                <div class="col-md-6 heightAsChartTitle">
+                  Current Year ('000 TRY')
+                </div>
+                <div class="col-md-6 heightAsChartTitle">
+                  Current Year MTD ('000 TRY')
+                </div>
+                <!-- <div class="col-md-4 heightAsChartTitle ">
+                        P&L by Years ('000 TRY')
+                      </div> -->
+              </div>
+
+              <div class="row ">
+                <div class="col-md-6 auto center ">
+                  <div class="first centerAll">
+                    <canvas id="canvasMonthendBalance"></canvas>
+                    <!-- <canvas id="cashCurrencyChart" width="200" height="200"></canvas> -->
+                  </div>
+                </div>
+                <div class="col-md-6 auto center">
+                  <div class="first centerAll">
+                    <canvas id="canvasMtdAll"></canvas>
+                    <!-- <canvas id="cashCurrencyChart2" width="200" height="200"></canvas> -->
+                  </div>
+                </div>
+                <!-- <div class="col-md-4 auto center">
+                        <div class="first centerAll">
+                          <canvas id="canvasAnnualAll"></canvas>
+                        </div>
+                      </div> -->
+              </div>
+              <div class="row">
+                <div class="col-md-9 auto"
+                  style="color:gray; text-align:left; font-size: 32px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+                  <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                    onclick="document.getElementById('sectionTop').scrollIntoView();">&#8648 Top of Page</button>
+                  <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                    onclick="document.getElementById('sectionBalancesheet').scrollIntoView();">&#8595 Scroll to Balancesheet Trends</button>
+                </div>
+
+                <div class="col-md-3 auto center">
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                      <a style="font-size: 14px;" align:"right">Current Date: <span id="datetime"></span></a>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="col-md-2 auto center ">
-              <div class="first">
-                <p class="bigFigure">%70</p>
-                <p class="bigFigureText">Another ratio</p>
+          </div>
+
+          <div class="divPageSize" id="sectionBalancesheet">
+            <div class="col-md-12 div-vertical">
+              <div class="row divHeaderNoBorder">Monthly Trends of Balancesheet:
+              </div>
+
+              <div class="row ">
+                <!-- <div class="col-md-4 heightAsChartTitle">
+                        Exchange Rates
+                      </div> -->
+                <div class="col-md-6 heightAsChartTitle">
+                  Assets
+                </div>
+                <div class="col-md-6 heightAsChartTitle ">
+                  Non-cash Loans
+                </div>
+              </div>
+
+              <div class="row ">
+                <div class="col-md-6 auto center">
+                  <div class="first">
+                    <canvas class="padded" id="loansChart"></canvas>
+                  </div>
+                </div>
+                <div class="col-md-6 auto center">
+                  <div class="first">
+                    <canvas class="padded" id="nonCashLoansChart"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row divHeaderNoBorder">Annual Trends of Balancesheet:
+              </div>
+
+              <div class="row ">
+                <div class="col-md-6 auto center">
+                  <div class="first">
+                    <canvas id="loansChartAnnual"></canvas>
+                  </div>
+                </div>
+                <div class="col-md-6 auto center">
+                  <div class="first">
+                    <canvas id="nonCashLoansChartAnnual"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-9 auto"
+                  style="color:gray; text-align:left; font-size: 32px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+                  <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                    onclick="document.getElementById('sectionTop').scrollIntoView();">&#8648 Top of Page</button>
+                  <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                    onclick="document.getElementById('sectionExchangeRates').scrollIntoView();">&#8595 Scroll Exchange Rates</button>
+                    <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                    onclick="document.getElementById('sectionPLtrend').scrollIntoView();">&#8593 Scroll to PL Trends
+                  </button>
+                </div>
+
+                <div class="col-md-3 auto center">
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                      <a style="font-size: 14px;" align:"right">Current Date: <span id="datetime2"></span></a>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="col-md-2 auto center ">
-              <div class="first">
-                <p class="bigFigure">%95</p>
-                <p class="bigFigureText">Another ratio</p>
+          </div>
+
+          <div class="divPageSize" id="sectionExchangeRates">
+            <div class="col-md-12 div-vertical">
+
+              <div class="row divHeaderNoBorder">
+                Exchange Rates:
+              </div>
+              <div class="row " style="font-size: 18px">
+                <div class="col-md-6 heightAsChartTitle">
+                  Trend of last 12 monthends
+                </div>
+                <div class="col-md-6 heightAsChartTitle ">
+                  Trend of last 8 yearends
+                </div>
+              </div>
+
+              <div class="row ">
+                <div class="col-md-6 auto center ">
+                  <div class="first">
+                    <canvas class="padded" id="exchangeRates"></canvas>
+                  </div>
+                </div>
+                <div class="col-md-6 auto center ">
+                  <div class="first">
+                    <canvas id="exchangeRatesAnnual"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="row ">
+              <div class="col-md-4 auto center">
+                <div class="first centerAll">
+                  <canvas id="canvasAnnualAll"></canvas>
+                </div>
+              </div>
+            </div> -->
+
+              <div class="row">
+                <div class="col-md-9 auto"
+                  style="color:gray; text-align:left; font-size: 32px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+                  <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                    onclick="document.getElementById('sectionTop').scrollIntoView();">&#8648 Top of Page</button>
+                  <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                    onclick="document.getElementById('sectionInterestResults').scrollIntoView();">&#8595 Scroll to Top 20 customers - net int.income</button>
+                    <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                    onclick="document.getElementById('sectionBalancesheet').scrollIntoView();">&#8593 Scroll to Balancesheet Trends
+                  </button>
+                </div>
+
+                <div class="col-md-3 auto center">
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                      <a style="font-size: 14px;" align:"right">Current Date: <span id="datetime3"></span></a>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+
+          <div class="divPageSize" id="sectionInterestResults">
+            <div class="col-md-12 div-vertical">
+              <div class="row divHeaderNoBorder">Top 20 customers - net int.income:
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <img src="TREEMAP2.JPG">
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col-md-9 auto"
+                  style="color:gray; text-align:left; font-size: 32px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+                  <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                    onclick="document.getElementById('sectionTop').scrollIntoView();">&#8648 Top of Page</button>
+                  <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                    onclick="document.getElementById('sectionInterestResultsTable').scrollIntoView();">&#8595 Scroll to detailed loan interest income tables</button>
+                    <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                    onclick="document.getElementById('sectionExchangeRates').scrollIntoView();">&#8593 Scroll to exchange rates</button>
+                </div>
+
+                <div class="col-md-3 auto center">
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                      <a style="font-size: 14px;" align:"right">Current Date: <span id="datetime4"></span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="divPageSize" id="sectionInterestResultsTable">
+            <div class="col-md-12 div-vertical">
+              <div class="row divHeaderNoBorder">Top 50 Contributors to Interest Income:
+              </div>
+
+              <div class="row " style="font-size: 18px;height: 45px;" >
+                <div class="col-md-6 heightAsChartTitle">
+                  Current Year - YTD
+                </div>
+                <div class="col-md-6 heightAsChartTitle ">
+                  <select style="background-color: lightgoldenrodyellow" id="selectYearForInterest" aria-label="Select year" onchange="getNewDataExtra();">
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                  </select>
+                   - YTD
+                </div>
+              </div>
+
+              <div class="row ">
+                <div class="col-md-6 auto center">
+                  <div class="first">
+                    <table id="interestIncomeCurrent-table" class="table table-striped  ">
+                      <thead style="font-size: 12px">
+                        <tr>
+                          
+                          <th  scope="col" onclick="sortTableTextFormat('interestIncomeCurrent-table',0)">Cust.No</th>
+                          <th style="width:30%" scope="col" onclick="sortTableTextFormat('interestIncomeCurrent-table',1)">Cust.Name</th>
+                          <th scope="col" onclick="sortTable('interestIncomeCurrent-table',2)">Avg.Bal.(Y.end.FX)</th>
+                          <th scope="col" onclick="sortTable('interestIncomeCurrent-table',3)">Gross Inc.(Y.end.FX)</th>
+                          <th scope="col" onclick="sortTable('interestIncomeCurrent-table',4)">Net Inc.(Y.end.FX)</th>
+                          <th scope="col" onclick="sortTable('interestIncomeCurrent-table',5)">Gross Inc.(Act.FX)</th>
+                          <th style="background-color:orange" scope="col" onclick="sortTable('interestIncomeCurrent-table',6)">Net Inc.(Act.FX)</th>
+                          <th scope="col" onclick="sortTable('interestIncomeCurrent-table',7)">Net Margin</th>
+                          <!-- <th style="color:black; background-color:lightgreen" scope="col">diff.</th> -->
+                        </tr>
+
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="col-md-6 auto center">
+                  <div class="first">
+                    <div class="spinner-border text-primary center" id="spinnerPrevYear" role="status" style="display:none">
+                    </div>
+                    <table id="interestIncomePrev-table" class="table table-striped  ">
+                      <thead style="font-size: 12px">
+                        <tr>
+                          
+                          <th  scope="col" onclick="sortTableTextFormat('interestIncomePrev-table',0)">Cust.No</th>
+                          <th style="width:30%" scope="col" onclick="sortTableTextFormat('interestIncomePrev-table',1)">Cust.Name</th>
+                          <th scope="col" onclick="sortTable('interestIncomePrev-table',2)">Avg.Bal.(Y.end.FX)</th>
+                          <th scope="col" onclick="sortTable('interestIncomePrev-table',3)">Gross Inc.(Y.end.FX)</th>
+                          <th scope="col" onclick="sortTable('interestIncomePrev-table',4)">Net Inc.(Y.end.FX)</th>
+                          <th scope="col" onclick="sortTable('interestIncomePrev-table',5)">Gross Inc.(Act.FX)</th>
+                          <th style="background-color:orange" scope="col" onclick="sortTable('interestIncomePrev-table',6)">Net Inc.(Act.FX)</th>
+                          <th scope="col" onclick="sortTable('interestIncomePrev-table',7)">Net Margin</th>
+                          <!-- <th style="color:black; background-color:lightgreen" scope="col">diff.</th> -->
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-9 auto"
+                  style="color:gray; text-align:left; font-size: 32px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+                  <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                    onclick="document.getElementById('sectionTop').scrollIntoView();">&#8648 Top of Page</button>
+                  <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                    onclick="document.getElementById('sectionAllTimeInterestByCustomer').scrollIntoView();">&#8595 Scroll to all time interest revenue by customer</button>
+                    <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                    onclick="document.getElementById('sectionInterestResults').scrollIntoView();">&#8593 Scroll to Top 20 customers - net int.income
+                  </button>
+                </div>
+
+                <div class="col-md-3 auto center">
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                      <a style="font-size: 14px;" align:"right">Current Date: <span id="datetime5"></span></a>
+                  </div>
+                </div>
               </div>
             </div>
 
           </div>
 
-          <div class="row">
-            <div class="col-md-3 auto"
-              style="color:gray; text-align:left; font-size: 32px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
-              Finance Dashboard
+          <div class="divPageSize" id="sectionAllTimeInterestByCustomer">
+            <div class="col-md-12 div-vertical">
+              <div class="row divHeaderNoBorder">All time interest revenue by customer:
+              </div>
+
+              <div class="row " style="font-size: 18px;height: 45px;" >
+                <div class="col-md-12 heightAsChartTitle ">
+                  <select style="background-color: lightgoldenrodyellow" id="selectCustomerForInterest" aria-label="Select year" onchange="getNewCustomerDataExtra();">
+                    <option selected>SAMSUNG FLAVOURS INC.</option>
+                    <option value="2022">TESLA WIND TURBINES</option>
+                    <option value="2021">GE BEVERAGES</option>
+                    <option value="2020">APPLE TRUCKS</option>
+                    <option value="2019">MICROSOFT MARKETS</option>
+                    <option value="2018">3M CONSUMER ELECTRONICS</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row ">
+                <div class="col-md-8 auto center">
+                  <div class="first">
+                    <div class="spinner-border text-primary center" id="spinnerCustomer" role="status" style="display:none">
+                    </div>
+                    <table id="interestIncomeByCustomer-table" class="table table-striped ">
+                      <thead style="font-size: 16px">
+                        <tr>
+                          <th scope="col" onclick="sortTable('interestIncomeByCustomer-table',0)">Year</th>
+                          <th scope="col" onclick="sortTable('interestIncomeByCustomer-table',1)">Avg Balance (Y.end.FX)</th>
+                          <th scope="col" onclick="sortTable('interestIncomeByCustomer-table',2)">Gross Inc.(Y.end.FX)</th>
+                          <th scope="col" onclick="sortTable('interestIncomeByCustomer-table',3)">Net Inc.(Y.end.FX)</th>
+                          <th scope="col" onclick="sortTable('interestIncomeByCustomer-table',4)">Gross Inc.(Act.FX)</th>
+                          <th style="background-color:orange" scope="col" onclick="sortTable('interestIncomeByCustomer-table',5)">Net Inc.(Act.FX)</th>
+                          <th scope="col" onclick="sortTable('interestIncomeByCustomer-table',6)">Net Margin</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-9 auto"
+                  style="color:gray; text-align:left; font-size: 32px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+                  <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                    onclick="document.getElementById('sectionTop').scrollIntoView();">&#8648 Top of Page</button>
+                  <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                    onclick="document.getElementById('sectionOtherNavigation').scrollIntoView();">&#8595 Scroll to navigation to other pages</button>
+                    <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                    onclick="document.getElementById('sectionInterestResultsTable').scrollIntoView();">&#8593 Scroll to detailed loan interest income tables
+                  </button>
+                </div>
+
+                <div class="col-md-3 auto center">
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                      <a style="font-size: 14px;" align:"right">Current Date: <span id="datetime8"></span></a>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="col-md-9 auto center">
+          </div>          
+        
 
-              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="button" style="font-size: 13px" class="btn btn-outline-primary"
-                        onclick="window.open('expenseSummary.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes');"
-                        >Expense
-                  Summary</button>
-                <button type="button" style="font-size: 13px" class="btn btn-outline-primary"
-                  onclick="window.open('expense.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes');">Expense GL
-                  Details</button>
-                <button type="button" style="font-size: 13px" class="btn btn-outline-primary" onclick="window.open('loans.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes');">
-                  Loan Analysis</button>
-                <button type="button" style="font-size: 13px" class="btn btn-outline-primary"
-                                          onclick="window.open('loansNoncash.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes');">
-                  Non-cash Loan Analysis</button>
-                <button type="button" style="font-size: 13px" class="btn btn-outline-primary"
-                   onclick="window.open('margins.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes');">
+        <div class="divPageSize" id="sectionOtherNavigation">
+          <div class="col-md-12 div-vertical">
+            <div class="row divHeaderNoBorder">Navigate to other pages
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="row">
+              <div class="col-md-8 auto center">
+                  <button type="button" style="font-size: 20px; width: 150px; height: 150px;" class="btn btn-primary"
+                  onclick="window.open('expenseSummary.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes');">Expense
+                    Summary</button>
+                  <button type="button" style="font-size: 20px; width: 150px; height: 150px;" class="btn btn-primary"
+                  onclick="window.open('expense.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes');">Expense
+                    GL
+                    Details</button>
+                  <button type="button" style="font-size: 20px; width: 150px; height: 150px;" class="btn btn-primary" onclick="window.open('loans.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes');">Loan Analysis</button>
+                  <button type="button" style="font-size: 20px; width: 150px; height: 150px;" class="btn btn-primary"
+                  onclick="window.open('loansNoncash.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes');">Non-cash Loan Analysis</button>
+                  <button type="button" style="font-size: 20px; width: 150px; height: 150px;" class="btn btn-primary"
+                  onclick="window.open('margins.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes');">
                   Margin
-                  Analysis</button>
-                <button type="button" id="btnOpenLoans" style="font-size: 13px" class="btn btn-outline-primary"
-                  >Link to somewhere</button>
+                    Analysis</button>
+              </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="row">
+              <div class="col-md-9 auto"
+                style="color:gray; text-align:left; font-size: 32px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+                <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                  onclick="document.getElementById('sectionTop').scrollIntoView();">&#8648 Top of Page</button>
+                  <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                  onclick="document.getElementById('sectionAllTimeInterestByCustomer').scrollIntoView();">&#8593 Scroll to all time interest income by customer
+                </button>
+              </div>
+
+              <div class="col-md-3 auto center">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a style="font-size: 14px;" align:"right">Current Date: <span id="datetime6"></span></a>
+                </div>
               </div>
             </div>
           </div>
-
-          <div class="row">
-          <div class="divHeader">
-            <label for="selectYear">P&L Trend of year </label>
-            <select id="selectYear" aria-label="Select year" onchange="refreshMtdPL(); refreshAccPL();">
-              <option value="2022">2022</option>
-              <option value="2021">2021</option>
-              <option value="2020">2020</option>
-              <option value="2019">2019</option>
-              <option value="2018">2018</option>
-              <option value="2017">2017</option>
-              <option value="2016">2016</option>
-              <option value="2015">2015</option>
-            </select>
-          </div>
-        </div>
-
-          <div class="row ">
-            <div class="col-md-4 heightAsChartTitle">
-              Current Year ('000 TRY')
-            </div>
-            <div class="col-md-4 heightAsChartTitle">
-              Current Year MTD ('000 TRY')
-            </div>
-            <div class="col-md-4 heightAsChartTitle ">
-              P&L by Years ('000 TRY')
-            </div>
-          </div>
-
-          <div class="row ">
-            <div class="col-md-4 auto center ">
-              <div class="first centerAll">
-                <canvas id="canvasMonthendBalance"></canvas>
-                <!-- <canvas id="cashCurrencyChart" width="200" height="200"></canvas> -->
-              </div>
-            </div>
-            <div class="col-md-4 auto center">
-              <div class="first centerAll">
-                <canvas id="canvasMtdAll"></canvas>
-                <!-- <canvas id="cashCurrencyChart2" width="200" height="200"></canvas> -->
-              </div>
-            </div>
-            <div class="col-md-4 auto center">
-              <div class="first centerAll">
-                <canvas id="canvasAnnualAll"></canvas>
-                <!-- <canvas id="cashCurrencyChart3" width="200" height="200"></canvas> -->
-              </div>
-            </div>
-          </div>
-
-          <div class="row divHeader">Monthly and Annual Trends of Balancesheet:
-          </div>
-
-          <div class="row ">
-            <div class="col-md-4 heightAsChartTitle">
-              Exchange Rates
-            </div>
-            <div class="col-md-4 heightAsChartTitle">
-              Assets
-            </div>
-            <div class="col-md-4 heightAsChartTitle ">
-              Non-cash Loans
-            </div>
-          </div>
-
-          <div class="row ">
-            <div class="col-md-4 auto center ">
-              <div class="first">
-                <canvas id="exchangeRates"></canvas>
-              </div>
-            </div>
-            <div class="col-md-4 auto center">
-              <div class="first">
-                <canvas id="loansChart"></canvas>
-              </div>
-            </div>
-            <div class="col-md-4 auto center">
-              <div class="first">
-                <canvas id="nonCashLoansChart"></canvas>
-              </div>
-            </div>
-          </div>
-
-          <div class="row ">
-            <div class="col-md-4 auto center ">
-              <div class="first">
-                <canvas id="exchangeRatesAnnual"></canvas>
-              </div>
-            </div>
-            <div class="col-md-4 auto center">
-              <div class="first">
-                <canvas id="loansChartAnnual"></canvas>
-              </div>
-            </div>
-            <div class="col-md-4 auto center">
-              <div class="first">
-                <canvas id="nonCashLoansChartAnnual"></canvas>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
+      </div>
+
     </main>
   </div>
-
+  <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+  </script>
   <script type="text/javascript">
-var _0x529c=["\x6F\x70\x65\x6E\x45\x78\x70\x65\x6E\x73\x65\x53\x75\x6D\x6D\x61\x72\x79","\x73\x65\x6E\x64","\x6F\x70\x65\x6E\x45\x78\x70\x65\x6E\x73\x65","\x6F\x70\x65\x6E\x4D\x61\x69\x6E","\x6F\x70\x65\x6E\x4C\x6F\x61\x6E\x73","\x6F\x70\x65\x6E\x4E\x6F\x6E\x63\x61\x73\x68\x4C\x6F\x61\x6E\x73","\x6F\x70\x65\x6E\x4D\x61\x72\x67\x69\x6E\x73","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x44\x4F\x4D\x43\x6F\x6E\x74\x65\x6E\x74\x4C\x6F\x61\x64\x65\x64","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72","\x61\x72\x72\x61\x79\x73","\x6C\x65\x6E\x67\x74\x68","\x6F\x70\x74\x69\x6F\x6E\x73","\x74\x6F\x55\x70\x70\x65\x72\x43\x61\x73\x65","\x76\x61\x6C\x75\x65","\x6D\x79\x49\x6E\x70\x75\x74","\x69\x6E\x63\x6C\x75\x64\x65\x73","\x66\x69\x6C\x74\x65\x72","\x66\x61\x6D\x69\x6C\x79","\x66\x6F\x6E\x74","\x64\x65\x66\x61\x75\x6C\x74\x73","\x43\x61\x6C\x69\x62\x72\x69","\x73\x69\x7A\x65","\x64\x69\x73\x70\x6C\x61\x79","\x67\x72\x69\x64","\x73\x63\x61\x6C\x65","\x32\x64","\x67\x65\x74\x43\x6F\x6E\x74\x65\x78\x74","\x63\x61\x6E\x76\x61\x73\x4D\x6F\x6E\x74\x68\x65\x6E\x64\x42\x61\x6C\x61\x6E\x63\x65","\x6C\x69\x6E\x65","\x31","\x32","\x33","\x34","\x35","\x36","\x37","\x38","\x39","\x31\x30","\x31\x31","\x31\x32","\x42\x75\x64\x67\x65\x74","\x6F\x72\x61\x6E\x67\x65","\x41\x63\x74\x75\x61\x6C","\x62\x6C\x75\x65","\x50\x26\x4C\x20\x54\x72\x65\x6E\x64","\x20\x28\x27\x30\x30\x30\x20\x54\x52\x59\x29","\x6D\x6F\x75\x73\x65\x6D\x6F\x76\x65","\x6D\x6F\x75\x73\x65\x6F\x75\x74","\x63\x6C\x69\x63\x6B","\x74\x6F\x75\x63\x68\x73\x74\x61\x72\x74","\x74\x6F\x75\x63\x68\x6D\x6F\x76\x65","\x74\x6F\x75\x63\x68\x65\x6E\x64","\x63\x61\x6E\x76\x61\x73\x4D\x74\x64\x41\x6C\x6C","\x62\x61\x72","\x73\x65\x6C\x65\x63\x74\x59\x65\x61\x72","\x20\x4D\x54\x44\x20\x50\x26\x4C","\x63\x61\x6E\x76\x61\x73\x41\x6E\x6E\x75\x61\x6C\x41\x6C\x6C","\x42\x6C\x75\x65","\x50\x26\x4C\x20\x62\x79\x20\x79\x65\x61\x72\x73\x20\x28\x27\x30\x30\x30\x20\x54\x52\x59\x29","\x65\x78\x63\x68\x61\x6E\x67\x65\x52\x61\x74\x65\x73","\x32\x31\x2D\x35","\x32\x31\x2D\x36","\x32\x31\x2D\x37","\x32\x31\x2D\x38","\x32\x31\x2D\x39","\x32\x31\x2D\x31\x30","\x32\x31\x2D\x31\x31","\x32\x31\x2D\x31\x32","\x32\x32\x2D\x31","\x32\x32\x2D\x32","\x32\x32\x2D\x33","\x32\x32\x2D\x34","\x55\x53\x44","\x45\x55\x52","\x70\x75\x72\x70\x6C\x65","\x74\x6F\x70","\x45\x78\x63\x68\x61\x6E\x67\x65\x20\x52\x61\x74\x65\x73","\x65\x78\x63\x68\x61\x6E\x67\x65\x52\x61\x74\x65\x73\x41\x6E\x6E\x75\x61\x6C","\x31\x35\x2D\x31\x32","\x31\x36\x2D\x31\x32","\x31\x37\x2D\x31\x32","\x31\x38\x2D\x31\x32","\x31\x39\x2D\x31\x32","\x32\x30\x2D\x31\x32","\x6C\x6F\x61\x6E\x73\x43\x68\x61\x72\x74","\x46\x58\x20\x4C\x6F\x61\x6E\x73","\x54\x52\x59\x20\x4C\x6F\x61\x6E\x73","\x6C\x69\x67\x68\x74\x62\x6C\x75\x65","\x42\x61\x6E\x6B\x73","\x52\x65\x73\x65\x72\x76\x65\x73","\x67\x72\x61\x79","\x41\x73\x73\x65\x74\x73","\x6C\x6F\x61\x6E\x73\x43\x68\x61\x72\x74\x41\x6E\x6E\x75\x61\x6C","\x6E\x6F\x6E\x43\x61\x73\x68\x4C\x6F\x61\x6E\x73\x43\x68\x61\x72\x74","\x4C\x2F\x47","\x4C\x2F\x43","\x41\x63\x63\x65\x70\x74\x61\x6E\x63\x65\x73","\x4E\x6F\x6E\x2D\x63\x61\x73\x68\x20\x4C\x6F\x61\x6E\x73","\x6E\x6F\x6E\x43\x61\x73\x68\x4C\x6F\x61\x6E\x73\x43\x68\x61\x72\x74\x41\x6E\x6E\x75\x61\x6C"];function fillSelect(_0x1d2dxb= []){var _0x1d2dxc=getId(_0x529c[10]);_0x1d2dxc[_0x529c[12]][_0x529c[11]]= 0;var _0x1d2dxd=GLList[_0x529c[17]]((_0x1d2dxe)=>{return _0x1d2dxe[_0x529c[16]](getId(_0x529c[15])[_0x529c[14]][_0x529c[13]]())});for(var _0x1d2dxf=0;_0x1d2dxf< _0x1d2dxd[_0x529c[11]];++_0x1d2dxf){_0x1d2dxc[_0x1d2dxc[_0x529c[11]]]=  new Option(_0x1d2dxd[_0x1d2dxf],_0x1d2dxd[_0x1d2dxf])}}Chart[_0x529c[20]][_0x529c[19]][_0x529c[18]]= _0x529c[21];Chart[_0x529c[20]][_0x529c[19]][_0x529c[22]]= 12;Chart[_0x529c[20]][_0x529c[25]][_0x529c[24]][_0x529c[23]]= false;var $=function(_0x1d2dx8){return document[_0x529c[7]](_0x1d2dx8)};var ctx=document[_0x529c[7]](_0x529c[28])[_0x529c[27]](_0x529c[26]);var mtdBalanceChart= new Chart(ctx,{type:_0x529c[29],responsive:true,data:{labels:[_0x529c[30],_0x529c[31],_0x529c[32],_0x529c[33],_0x529c[34],_0x529c[35],_0x529c[36],_0x529c[37],_0x529c[38],_0x529c[39],_0x529c[40],_0x529c[41]],datasets:[{label:_0x529c[42],type:_0x529c[29],backgroundColor:_0x529c[43],borderColor:_0x529c[43],borderWidth:1,data:[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000,11000,12000]},{label:_0x529c[44],backgroundColor:_0x529c[45],data:[1100,2582,3885,5175,6230]}]},options:{plugins:{datalabels:{display:false},title:{display:false,text:_0x529c[46]+ _0x529c[47],font:{size:15}},legend:{display:false}},events:[_0x529c[48],_0x529c[49],_0x529c[50],_0x529c[51],_0x529c[52],_0x529c[53]],scales:{xAxes:[{display:true,ticks:{fontSize:20}}],yAxes:[{display:false,ticks:{fontSize:20}}]}}});var ctx=document[_0x529c[7]](_0x529c[54])[_0x529c[27]](_0x529c[26]);var mtdAllChart= new Chart(ctx,{type:_0x529c[55],responsive:true,data:{labels:[_0x529c[30],_0x529c[31],_0x529c[32],_0x529c[33],_0x529c[34],_0x529c[35],_0x529c[36],_0x529c[37],_0x529c[38],_0x529c[39],_0x529c[40],_0x529c[41]],datasets:[{label:_0x529c[42],type:_0x529c[29],backgroundColor:_0x529c[43],borderColor:_0x529c[43],borderWidth:1,data:[1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000]},{label:_0x529c[44],backgroundColor:_0x529c[45],data:[1100,1482,1303,1290,1055,0,0,0,0,0,0,0]}]},options:{plugins:{datalabels:{display:false},title:{display:false,text:$(_0x529c[56])[_0x529c[14]]+ _0x529c[57]+ _0x529c[47],font:{size:15}}},events:[_0x529c[48],_0x529c[49],_0x529c[50],_0x529c[51],_0x529c[52],_0x529c[53]],legend:{display:true},scales:{xAxes:[{display:true,ticks:{fontSize:10}}],yAxes:[{display:false,ticks:{fontSize:10}}]}}});var ctx=document[_0x529c[7]](_0x529c[58])[_0x529c[27]](_0x529c[26]);var annualAllChart= new Chart(ctx,{type:_0x529c[55],responsive:true,data:{labels:[2014,2015,2016,2017,2018,2019,2020,2021,2022],datasets:[{label:_0x529c[44],data:[1917,2799,4078,6472,6813,13546,7710,13571,4710],backgroundColor:_0x529c[59]},{label:_0x529c[42],backgroundColor:_0x529c[43],data:[1500,1700,2500,4300,7500,11950,9000,10000,16000]}]},options:{plugins:{datalabels:{display:false},title:{text:_0x529c[60],display:false,font:{size:15}},legend:{display:false}},events:[_0x529c[48],_0x529c[49],_0x529c[50],_0x529c[51],_0x529c[52],_0x529c[53]],scales:{xAxes:[{display:true,ticks:{fontSize:10}}],yAxes:[{display:false,ticks:{fontSize:10}}]}}});let obj=[];let exchRatesArray=[];var ctx=document[_0x529c[7]](_0x529c[61])[_0x529c[27]](_0x529c[26]);var exchangeRatesChart= new Chart(ctx,{type:_0x529c[29],data:{"\x6C\x61\x62\x65\x6C\x73":[_0x529c[62],_0x529c[63],_0x529c[64],_0x529c[65],_0x529c[66],_0x529c[67],_0x529c[68],_0x529c[69],_0x529c[70],_0x529c[71],_0x529c[72],_0x529c[73]],"\x64\x61\x74\x61\x73\x65\x74\x73":[{"\x6C\x61\x62\x65\x6C":_0x529c[74],"\x64\x61\x74\x61":[8.499,8.6803,8.4139,8.3043,8.8785,9.4813,12.9387,13.329,13.4015,13.8286,14.6371,14.7852],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[45],"\x62\x6F\x72\x64\x65\x72\x43\x6F\x6C\x6F\x72":_0x529c[45],"\x62\x6F\x72\x64\x65\x72\x57\x69\x64\x74\x68":1,"\x74\x65\x6E\x73\x69\x6F\x6E":0.1,"\x70\x6F\x69\x6E\x74\x52\x61\x64\x69\x75\x73":2,"\x70\x6F\x69\x6E\x74\x48\x6F\x76\x65\x72\x52\x61\x64\x69\x75\x73":1},{"\x6C\x61\x62\x65\x6C":_0x529c[75],"\x64\x61\x74\x61":[10.3629,10.3249,10.0084,9.8228,10.2933,10.998,14.6798,15.0867,14.9676,15.4724,16.2855,15.6139],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[76],"\x62\x6F\x72\x64\x65\x72\x43\x6F\x6C\x6F\x72":_0x529c[76],"\x62\x6F\x72\x64\x65\x72\x57\x69\x64\x74\x68":1,"\x74\x65\x6E\x73\x69\x6F\x6E":0.1,"\x70\x6F\x69\x6E\x74\x52\x61\x64\x69\x75\x73":2,"\x70\x6F\x69\x6E\x74\x48\x6F\x76\x65\x72\x52\x61\x64\x69\x75\x73":1}]},axisX:{labelFontSize:10},options:{scales:{},plugins:{datalabels:{display:false},legend:{position:_0x529c[77],display:true,labels:{fontSize:10}},title:{display:false,text:_0x529c[78],font:{size:15}}},responsive:true}});var ctx=document[_0x529c[7]](_0x529c[79])[_0x529c[27]](_0x529c[26]);var exchangeRatesAnnualChart= new Chart(ctx,{type:_0x529c[29],data:{"\x6C\x61\x62\x65\x6C\x73":[_0x529c[80],_0x529c[81],_0x529c[82],_0x529c[83],_0x529c[84],_0x529c[85],_0x529c[69],_0x529c[73]],"\x64\x61\x74\x61\x73\x65\x74\x73":[{"\x6C\x61\x62\x65\x6C":_0x529c[74],"\x64\x61\x74\x61":[2.9181,3.5192,3.7719,5.281,5.94,7.4194,13.329,14.7852],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[45],"\x62\x6F\x72\x64\x65\x72\x43\x6F\x6C\x6F\x72":_0x529c[45],"\x62\x6F\x72\x64\x65\x72\x57\x69\x64\x74\x68":1,"\x74\x65\x6E\x73\x69\x6F\x6E":0.1,"\x70\x6F\x69\x6E\x74\x52\x61\x64\x69\x75\x73":2,"\x70\x6F\x69\x6E\x74\x48\x6F\x76\x65\x72\x52\x61\x64\x69\x75\x73":1},{"\x6C\x61\x62\x65\x6C":_0x529c[75],"\x64\x61\x74\x61":[3.1838,3.7099,4.5155,6.0422,6.6621,9.1164,15.0867,15.6139],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[76],"\x62\x6F\x72\x64\x65\x72\x43\x6F\x6C\x6F\x72":_0x529c[76],"\x62\x6F\x72\x64\x65\x72\x57\x69\x64\x74\x68":1,"\x74\x65\x6E\x73\x69\x6F\x6E":0.1,"\x70\x6F\x69\x6E\x74\x52\x61\x64\x69\x75\x73":2,"\x70\x6F\x69\x6E\x74\x48\x6F\x76\x65\x72\x52\x61\x64\x69\x75\x73":1}]},axisX:{labelFontSize:10},options:{scales:{},plugins:{datalabels:{display:false},legend:{position:_0x529c[77],display:false,labels:{fontSize:10}},title:{display:false,text:_0x529c[78],font:{size:15}}},responsive:true}});var ctx=document[_0x529c[7]](_0x529c[86])[_0x529c[27]](_0x529c[26]);var loanChart= new Chart(ctx,{type:_0x529c[55],data:{"\x6C\x61\x62\x65\x6C\x73":[_0x529c[62],_0x529c[63],_0x529c[64],_0x529c[65],_0x529c[66],_0x529c[67],_0x529c[68],_0x529c[69],_0x529c[70],_0x529c[71],_0x529c[72],_0x529c[73]],"\x64\x61\x74\x61\x73\x65\x74\x73":[{"\x6C\x61\x62\x65\x6C":_0x529c[87],"\x64\x61\x74\x61":[756,761,586,574,608,658,820,795,768,709,733,651],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[45]},{"\x6C\x61\x62\x65\x6C":_0x529c[88],"\x64\x61\x74\x61":[290,240,220,220,261,0,0,590,740,740,490,490],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[89]},{"\x6C\x61\x62\x65\x6C":_0x529c[90],"\x64\x61\x74\x61":[936,964,1034,999,976,1295,1278,677,552,558,846,842],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[43]},{"\x6C\x61\x62\x65\x6C":_0x529c[91],"\x64\x61\x74\x61":[130,125,86,84,85,91,125,122,114,110,106,86],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[92]}]},axisX:{labelFontSize:10},options:{plugins:{datalabels:{display:false},legend:{position:_0x529c[77],display:true,labels:{fontSize:8}},title:{display:false,text:_0x529c[93],font:{size:15}}},responsive:true,scales:{x:{ticks:{display:true,font:{size:11}},stacked:true},y:{stacked:true,ticks:{display:false}}}}});var ctx=document[_0x529c[7]](_0x529c[94])[_0x529c[27]](_0x529c[26]);var loansChartAnnual= new Chart(ctx,{type:_0x529c[55],data:{"\x6C\x61\x62\x65\x6C\x73":[_0x529c[80],_0x529c[81],_0x529c[82],_0x529c[83],_0x529c[84],_0x529c[85],_0x529c[69],_0x529c[73]],"\x64\x61\x74\x61\x73\x65\x74\x73":[{"\x6C\x61\x62\x65\x6C":_0x529c[87],"\x64\x61\x74\x61":[121,350,450,747,538,561,795,651],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[45]},{"\x6C\x61\x62\x65\x6C":_0x529c[88],"\x64\x61\x74\x61":[1,0,621,647,217,290,590,490],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[89]},{"\x6C\x61\x62\x65\x6C":_0x529c[90],"\x64\x61\x74\x61":[723,0,239,265,842,850,677,842],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[43]},{"\x6C\x61\x62\x65\x6C":_0x529c[91],"\x64\x61\x74\x61":[9,0,75,132,91,102,122,86],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[92]}]},axisX:{labelFontSize:10},options:{plugins:{datalabels:{display:false},legend:{position:_0x529c[77],display:false,labels:{fontSize:8}},title:{display:false,text:_0x529c[93],font:{size:15}}},responsive:true,scales:{x:{ticks:{display:true,font:{size:11}},stacked:true},y:{stacked:true,ticks:{display:false}}}}});var ctx=document[_0x529c[7]](_0x529c[95])[_0x529c[27]](_0x529c[26]);var nonCashLoanChart= new Chart(ctx,{type:_0x529c[55],data:{"\x6C\x61\x62\x65\x6C\x73":[_0x529c[62],_0x529c[63],_0x529c[64],_0x529c[65],_0x529c[66],_0x529c[67],_0x529c[68],_0x529c[69],_0x529c[70],_0x529c[71],_0x529c[72],_0x529c[73]],"\x64\x61\x74\x61\x73\x65\x74\x73":[{"\x6C\x61\x62\x65\x6C":_0x529c[96],"\x64\x61\x74\x61":[100,178,108,110,178,177,157,100,199,134,122,154],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[45]},{"\x6C\x61\x62\x65\x6C":_0x529c[97],"\x64\x61\x74\x61":[200,247,303,292,375,231,318,300,338,285,336,266],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[89]},{"\x6C\x61\x62\x65\x6C":_0x529c[98],"\x64\x61\x74\x61":[50,56,95,90,62,52,91,61,52,94,65,62],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[43]}]},axisX:{labelFontSize:10},options:{plugins:{datalabels:{display:false},legend:{position:_0x529c[77],display:true,labels:{fontSize:8}},title:{display:false,text:_0x529c[99],font:{size:15}}},responsive:true,scales:{x:{ticks:{display:true,font:{size:11}},stacked:true,grid:{display:false}},y:{stacked:true,ticks:{display:false}}}}});var ctx=document[_0x529c[7]](_0x529c[100])[_0x529c[27]](_0x529c[26]);var nonCashLoansChartAnnual= new Chart(ctx,{type:_0x529c[55],data:{"\x6C\x61\x62\x65\x6C\x73":[_0x529c[80],_0x529c[81],_0x529c[82],_0x529c[83],_0x529c[84],_0x529c[85],_0x529c[69],_0x529c[73]],"\x64\x61\x74\x61\x73\x65\x74\x73":[{"\x6C\x61\x62\x65\x6C":_0x529c[96],"\x64\x61\x74\x61":[70,122,94,104,94,111,95,132,116,104,107,89],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[45]},{"\x6C\x61\x62\x65\x6C":_0x529c[97],"\x64\x61\x74\x61":[140,251,231,255,212,181,169,169,257,239,223,219],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[89]},{"\x6C\x61\x62\x65\x6C":_0x529c[98],"\x64\x61\x74\x61":[30,32,44,60,37,39,34,60,56,30,34,55],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[43]}]},axisX:{labelFontSize:10},options:{plugins:{datalabels:{display:false},legend:{position:_0x529c[77],display:false,labels:{fontSize:8}},title:{display:false,text:_0x529c[99],font:{size:15}}},responsive:true,scales:{x:{ticks:{display:true,font:{size:11}},stacked:true,grid:{display:false}},y:{stacked:true,ticks:{display:false}}}}})</script>
+document.addEventListener("DOMContentLoaded", () => {
+
+});
+
+var _0x186776=_0xb78c;(function(_0x338a3d,_0x97cc98){var _0x18519c=_0xb78c,_0x276bac=_0x338a3d();while(!![]){try{var _0x5f32ad=parseInt(_0x18519c(0x210))/0x1*(-parseInt(_0x18519c(0x1e4))/0x2)+-parseInt(_0x18519c(0x206))/0x3+parseInt(_0x18519c(0x1de))/0x4*(-parseInt(_0x18519c(0x222))/0x5)+parseInt(_0x18519c(0x203))/0x6*(-parseInt(_0x18519c(0x266))/0x7)+parseInt(_0x18519c(0x1e9))/0x8*(-parseInt(_0x18519c(0x1cf))/0x9)+-parseInt(_0x18519c(0x1d5))/0xa*(-parseInt(_0x18519c(0x1d6))/0xb)+parseInt(_0x18519c(0x25b))/0xc;if(_0x5f32ad===_0x97cc98)break;else _0x276bac['push'](_0x276bac['shift']());}catch(_0x3a65e1){_0x276bac['push'](_0x276bac['shift']());}}}(_0x2a81,0x9c2c1),document[_0x186776(0x1d7)]('cardActualVsPrevious')[_0x186776(0x234)][_0x186776(0x1ed)]=_0x186776(0x22e),document[_0x186776(0x1d7)](_0x186776(0x21e))[_0x186776(0x234)]['color']='red');var $=function(_0xbca0cf){var _0x25a6f0=_0x186776;return document[_0x25a6f0(0x1d7)](_0xbca0cf);},ctx=document[_0x186776(0x1d7)](_0x186776(0x227))['getContext']('2d'),mtdBalanceChart=new Chart(ctx,{'type':_0x186776(0x247),'responsive':!![],'data':{'labels':[_0x186776(0x221),_0x186776(0x1e7),'Mar',_0x186776(0x236),_0x186776(0x21a),_0x186776(0x260),_0x186776(0x261),'Aug','Sep',_0x186776(0x20d),_0x186776(0x244),_0x186776(0x22f)],'datasets':[{'label':_0x186776(0x201),'type':_0x186776(0x247),'backgroundColor':_0x186776(0x1d8),'borderColor':_0x186776(0x1d8),'borderWidth':0x1,'data':[0x3e8,2000.5,3000.666666666664,4000.83333333333,0x1388,6000.16666666666,7000.33333333333,8000.5,9000.66666666666,10000.8333333333,0x2af8,0x2ee0],'fill':![]},{'label':_0x186776(0x20c),'backgroundColor':_0x186776(0x240),'data':[1212.78387,2747.35098,2678.96264,3936.49621,4747.73965,5414.37652,6551.07541,7280.68504,8196.26528,8485.79624,0x0,0x0],'barPercentage':0.65,'borderRadius':0x4}]},'options':{'plugins':{'datalabels':{'display':![]},'title':{'display':![],'text':_0x186776(0x226)+_0x186776(0x1c9),'font':{'size':0xf}},'legend':{'display':![]}},'events':[_0x186776(0x1ea),'mouseout',_0x186776(0x21b),'touchstart',_0x186776(0x1ee),_0x186776(0x207)],'scales':{'xAxes':[{'display':!![],'ticks':{'fontSize':0xe}}],'yAxes':[{'display':![],'ticks':{'fontSize':0xe}}]}}}),ctx=document['getElementById']('canvasMtdAll')[_0x186776(0x1e6)]('2d'),mtdAllChart=new Chart(ctx,{'type':_0x186776(0x243),'responsive':!![],'data':{'labels':[_0x186776(0x221),_0x186776(0x1e7),_0x186776(0x269),'Apr',_0x186776(0x21a),_0x186776(0x260),_0x186776(0x261),'Aug',_0x186776(0x1dc),_0x186776(0x20d),_0x186776(0x244),_0x186776(0x22f)],'datasets':[{'label':_0x186776(0x201),'type':_0x186776(0x247),'backgroundColor':_0x186776(0x1d8),'borderColor':'orange','borderWidth':0x1,'data':[0x3e8,0x3e8,0x3e8,0x3e8,0x3e8,0x3e8,0x3e8,0x3e8,0x3e8,0x3e8,0x3e8,0x3e8],'fill':![]},{'label':_0x186776(0x20c),'backgroundColor':_0x186776(0x240),'data':[1212.78387,961.56711,791.6116,964.53357,862.24344,626.63687,1136.69889,729.60963,835.58024,379.53096,0x0,0x0],'barPercentage':0.65,'borderRadius':0x4}]},'options':{'plugins':{'datalabels':{'display':![]},'title':{'display':![],'text':$(_0x186776(0x1ef))[_0x186776(0x265)]+'\x20MTD\x20P&L'+'\x20(\x27000\x20TRY)','font':{'size':0xf}}},'events':[_0x186776(0x1ea),_0x186776(0x259),_0x186776(0x21b),_0x186776(0x23c),_0x186776(0x1ee),_0x186776(0x207)],'legend':{'display':!![]},'scales':{'xAxes':[{'display':!![],'ticks':{'fontSize':0xe}}],'yAxes':[{'display':![],'ticks':{'fontSize':0xe}}]}}}),barChartData={'labels':[_0x186776(0x20c),_0x186776(0x201)],'datasets':[{'backgroundColor':[_0x186776(0x240),_0x186776(0x1d8)],'data':[localStorage['getItem'](_0x186776(0x216)),localStorage[_0x186776(0x1fb)]('sessionTotalBudget')]}]};let obj=[],exchRatesArray=[];var ctx=document[_0x186776(0x1d7)](_0x186776(0x24d))[_0x186776(0x1e6)]('2d'),exchangeRatesChart=new Chart(ctx,{'type':_0x186776(0x247),'data':{'labels':[_0x186776(0x1d3),_0x186776(0x209),_0x186776(0x21d),_0x186776(0x1fc),_0x186776(0x205),_0x186776(0x1cc),_0x186776(0x268),_0x186776(0x20f),_0x186776(0x254),_0x186776(0x26c),_0x186776(0x1c8),'2022-9'],'datasets':[{'label':'USD','data':[9.4813,12.9387,13.329,13.4015,13.8286,14.6371,14.7852,16.3876,16.6614,17.8939,18.1704,18.5187],'backgroundColor':_0x186776(0x240),'borderColor':_0x186776(0x240),'borderWidth':0x1,'tension':0.1,'pointRadius':0x2,'pointHoverRadius':0x1},{'label':'EUR','data':[10.998,14.6798,15.0867,14.9676,15.4724,16.2855,15.6139,17.5702,17.3701,18.2977,18.1574,18.1395],'backgroundColor':'lightblue','borderColor':_0x186776(0x1f9),'borderWidth':0x1,'tension':0.1,'pointRadius':0x2,'pointHoverRadius':0x1}]},'axisX':{'labelFontSize':0xa},'options':{'scales':{},'plugins':{'datalabels':{'display':![]},'legend':{'position':_0x186776(0x25a),'display':!![],'labels':{'fontSize':0xa}},'title':{'display':![],'text':'Exchange\x20Rates','font':{'size':0xf}}},'responsive':!![]}}),ctx=document[_0x186776(0x1d7)](_0x186776(0x211))['getContext']('2d'),exchangeRatesAnnualChart=new Chart(ctx,{'type':_0x186776(0x247),'data':{'labels':[_0x186776(0x223),_0x186776(0x228),_0x186776(0x1d0),'2018-12','2019-12',_0x186776(0x1f4),_0x186776(0x21d),_0x186776(0x242)],'datasets':[{'label':_0x186776(0x23e),'data':[2.9181,3.5192,3.7719,5.281,5.94,7.4194,13.329,18.5187],'backgroundColor':'blue','borderColor':_0x186776(0x240),'borderWidth':0x1,'tension':0.1,'pointRadius':0x2,'pointHoverRadius':0x1},{'label':_0x186776(0x1e2),'data':[3.1838,3.7099,4.5155,6.0422,6.6621,9.1164,15.0867,18.1395],'backgroundColor':_0x186776(0x22c),'borderColor':_0x186776(0x1f9),'borderWidth':0x1,'tension':0.1,'pointRadius':0x2,'pointHoverRadius':0x1}]},'axisX':{'labelFontSize':0xa},'options':{'scales':{},'plugins':{'datalabels':{'display':![]},'legend':{'position':_0x186776(0x25a),'display':![],'labels':{'fontSize':0xa}},'title':{'display':![],'text':'Exchange\x20Rates','font':{'size':0xf}}},'responsive':!![]}}),ctx=document[_0x186776(0x1d7)]('loansChart')[_0x186776(0x1e6)]('2d'),loanChart=new Chart(ctx,{'type':'bar','data':{'labels':[_0x186776(0x1d3),'2021-11',_0x186776(0x21d),_0x186776(0x1fc),_0x186776(0x205),'2022-3',_0x186776(0x268),_0x186776(0x20f),'2022-6',_0x186776(0x26c),_0x186776(0x1c8),_0x186776(0x242)],'datasets':[{'label':_0x186776(0x1f7),'data':[0x41,0x52,0x4f,0x4e,0x46,0x49,0x41,0x3b,0x3b,0x3f,0x40,0x41],'backgroundColor':_0x186776(0x240),'barPercentage':0.95},{'label':_0x186776(0x237),'data':[0x1e,0x2d,0x3b,0x4a,0x4a,0x31,0x31,0x31,0x19,0xa,0xa,0xa],'backgroundColor':_0x186776(0x22c),'barPercentage':0.95},{'label':'Banks','data':[0x81,0x7f,0x43,0x37,0x37,0x54,0x54,0x53,0x6d,0x7f,0x7b,0x7a],'backgroundColor':_0x186776(0x1d8),'barPercentage':0.95},{'label':_0x186776(0x26a),'data':[0x9,0xc,0xc,0xb,0xb,0xa,0x8,0x9,0x7,0x7,0x7,0x7],'backgroundColor':_0x186776(0x23d),'barPercentage':0.95}]},'axisX':{'labelFontSize':0xa},'options':{'plugins':{'datalabels':{'display':![]},'legend':{'position':'top','display':!![],'labels':{'fontSize':0x8}},'title':{'display':![],'text':_0x186776(0x1ce),'font':{'size':0xf}}},'responsive':!![],'scales':{'xAxes':[{'stacked':!![]}],'yAxes':[{'stacked':!![]}]}}}),ctx=document[_0x186776(0x1d7)](_0x186776(0x200))['getContext']('2d'),loansChartAnnual=new Chart(ctx,{'type':'bar','data':{'labels':[_0x186776(0x223),_0x186776(0x228),_0x186776(0x1d0),_0x186776(0x1e5),'2019-12',_0x186776(0x1f4),_0x186776(0x21d),_0x186776(0x242)],'datasets':[{'label':_0x186776(0x1f7),'data':[0xc,0x32,0x2d,0x4a,0x35,0x38,0x4f,0x43],'backgroundColor':'blue'},{'label':_0x186776(0x237),'data':[0xa,0xa,0x3e,0x43,0x15,0x1d,0x3b,0xa],'backgroundColor':'lightblue'},{'label':_0x186776(0x24c),'data':[0x48,0x28,0x17,0x1a,0x54,0x55,0x43,0x78],'backgroundColor':_0x186776(0x1d8)},{'label':_0x186776(0x26a),'data':[0x9,0x8,0x7,0xd,0x9,0xa,0xc,0x7],'backgroundColor':_0x186776(0x23d)}]},'axisX':{'labelFontSize':0xa},'options':{'plugins':{'datalabels':{'display':![]},'legend':{'position':_0x186776(0x25a),'display':![],'labels':{'fontSize':0x8}},'title':{'display':![],'text':_0x186776(0x1ce),'font':{'size':0xf}}},'responsive':!![],'scales':{'xAxes':[{'stacked':!![]}],'yAxes':[{'stacked':!![]}]}}}),ctx=document[_0x186776(0x1d7)](_0x186776(0x213))['getContext']('2d'),nonCashLoanChart=new Chart(ctx,{'type':'bar','data':{'labels':[_0x186776(0x1d3),'2021-11',_0x186776(0x21d),_0x186776(0x1fc),_0x186776(0x205),_0x186776(0x1cc),_0x186776(0x268),'2022-5',_0x186776(0x254),_0x186776(0x26c),'2022-8','2022-9'],'datasets':[{'label':_0x186776(0x1c6),'data':[0xd,0x11,0x12,0x12,0x12,0x13,0x12,0x15,0x14,0x12,0x15,0x14],'backgroundColor':_0x186776(0x240)},{'label':_0x186776(0x1ca),'data':[0x3a,0x4d,0x47,0x4d,0x2a,0x3f,0x34,0x39,0x3a,0x3e,0x34,0x35],'backgroundColor':_0x186776(0x22c)},{'label':'Acceptances','data':[0x3a,0x4d,0x47,0x4d,0x2a,0x3f,0x34,0x39,0x3a,0x3e,0x34,0x35],'backgroundColor':'orange'}]},'axisX':{'labelFontSize':0xa},'options':{'plugins':{'datalabels':{'display':![]},'legend':{'position':_0x186776(0x25a),'display':!![],'labels':{'fontSize':0x8}},'title':{'display':![],'text':_0x186776(0x1d9),'font':{'size':0xf}}},'responsive':!![],'scales':{'xAxes':[{'stacked':!![]}],'yAxes':[{'stacked':!![]}]}}}),ctx=document['getElementById']('nonCashLoansChartAnnual')[_0x186776(0x1e6)]('2d'),nonCashLoansChartAnnual=new Chart(ctx,{'type':_0x186776(0x243),'data':{'labels':[_0x186776(0x223),_0x186776(0x228),_0x186776(0x1d0),_0x186776(0x1e5),_0x186776(0x21c),'2020-12',_0x186776(0x21d),_0x186776(0x242)],'datasets':[{'label':_0x186776(0x1c6),'data':[0x9,0xa,0x7,0x14,0x5,0x7,0x12],'backgroundColor':_0x186776(0x240)},{'label':'L/C','data':[0x14,0xa,0x1e,0x14,0x23,0x1d,0x47,0x35],'backgroundColor':_0x186776(0x22c)},{'label':'Acceptances','data':[0x14,0xa,0x1e,0x14,0x23,0x1d,0x47,0x35],'backgroundColor':_0x186776(0x1d8)}]},'axisX':{'labelFontSize':0xa},'options':{'plugins':{'datalabels':{'display':![]},'legend':{'position':_0x186776(0x25a),'display':![],'labels':{'fontSize':0x8}},'title':{'display':![],'text':_0x186776(0x1d9),'font':{'size':0xf}}},'responsive':!![],'scales':{'xAxes':[{'stacked':!![]}],'yAxes':[{'stacked':!![]}]}}}),dt=new Date();const options={'weekday':_0x186776(0x267),'year':_0x186776(0x257),'month':_0x186776(0x267),'day':_0x186776(0x257)};document['getElementById'](_0x186776(0x21f))[_0x186776(0x1fa)]=dt[_0x186776(0x204)](),document[_0x186776(0x1d7)](_0x186776(0x258))['innerHTML']=dt[_0x186776(0x204)](),document['getElementById'](_0x186776(0x20b))['innerHTML']=dt[_0x186776(0x204)](),document[_0x186776(0x1d7)](_0x186776(0x255))[_0x186776(0x1fa)]=dt[_0x186776(0x204)](),document[_0x186776(0x1d7)](_0x186776(0x1ff))['innerHTML']=dt[_0x186776(0x204)](),document[_0x186776(0x1d7)]('datetime6')['innerHTML']=dt['toLocaleDateString'](),document[_0x186776(0x1d7)](_0x186776(0x238))['innerHTML']=dt[_0x186776(0x204)](),document[_0x186776(0x1d7)](_0x186776(0x224))['innerHTML']=dt['toLocaleDateString'](_0x186776(0x233),options);function deleteItems(){localStorage['clear']();}function _0x2a81(){var _0x3a507a=['38583vgtnFG','2017-12','values','toLowerCase','2021-10','10px','810mTsGnT','147015LXXzzT','getElementById','orange','Non-cash\x20Loans','getTime','1010','Sep','getElementsByTagName','11744awupfb','none','textContent','#interestIncomePrev-table>\x20tbody','EUR','#interestIncomeCurrent-table>\x20tbody','16306BYRSEX','2018-12','getContext','Feb','16px','1864mfyOkA','mousemove','substring','includes','color','touchmove','selectYear','1285','rgbString','dw_production','spinnerCustomer','2020-12','toUpperCase','querySelector','FX\x20Loans','arrays','purple','innerHTML','getItem','2022-1','display','getFullYear','datetime5','loansChartAnnual','Budget','3M\x20CONSUMER\x20ELECTRONICS','427866CLUoWs','toLocaleDateString','2022-2','3695013JvNCWy','touchend','SAMSUNG\x20FLAVOURS\x20INC.','2021-11','appendChild','datetime3','Actual','Oct','1270','2022-5','118pVMcmw','exchangeRatesAnnual','SAMSUNG','nonCashLoansChart','YTD','MICROSOFT\x20MARKETS','sessionTotalActual','getMonth','asc','replace','May','click','2019-12','2021-12','cardTextActualVsPrevious','datetime','myInput','Jan','1000vnkZQt','2015-12','datetime7','firstChild','P&L\x20Trend','canvasMonthendBalance','2016-12','ceil','join','1047','lightblue','createElement','red','Dec','1002','map','SAMSUNG\x20FLAVOURS\x20INC','en-US','style','sqlMonthEnds','Apr','TRY\x20Loans','datetime8','\x27,\x27','parentNode','#interestIncomeByCustomer-table>\x20tbody','touchstart','gray','USD','removeChild','blue','setMonth','2022-9','bar','Nov','setDate','rows','line','GE\x20BEVERAGES','getDate','104','helpers','Banks','exchangeRates','options','1044','5px','split','height','raw','2022-6','datetime4','TESLA\x20WIND\x20TURBINES','numeric','datetime2','mouseout','top','45177336OwRYRB','alpha','log','fontSize','filter','Jun','Jul','desc','type','APPLE\x20TRUCKS','value','42FRhksz','long','2022-4','Mar','Reserves','1129','2022-7','L/G','insertBefore','2022-8','\x20(\x27000\x20TRY)','L/C','length','2022-3','forEach','Assets'];_0x2a81=function(){return _0x3a507a;};return _0x2a81();}function fillSelect(_0x39f6e5=[]){var _0x3b35eb=_0x186776,_0x50e387=getId(_0x3b35eb(0x1f8));_0x50e387[_0x3b35eb(0x24e)][_0x3b35eb(0x1cb)]=0x0;var _0x363e9c=GLList[_0x3b35eb(0x25f)](_0x486ae6=>_0x486ae6[_0x3b35eb(0x1ec)](getId(_0x3b35eb(0x220))[_0x3b35eb(0x265)][_0x3b35eb(0x1f5)]()));for(var _0x3ce904=0x0;_0x3ce904<_0x363e9c['length'];++_0x3ce904){_0x50e387[_0x50e387[_0x3b35eb(0x1cb)]]=new Option(_0x363e9c[_0x3ce904],_0x363e9c[_0x3ce904]);}}function refreshAccPL(){var _0x4e5f2a=_0x186776;getAccPLChartData(mtdBalanceChart,sqlStrAccumulatedPL,sqlStrBudgetMonthly,_0x4e5f2a(0x1f2));}function refreshMtdPL(){var _0x5a3440=_0x186776;getMonthlyChartData(mtdAllChart,sqlStrMtdAllByDk,sqlStrBudgetMonthly,_0x5a3440(0x1f2));}const netInterestsBody=document[_0x186776(0x1f6)](_0x186776(0x1e3)),netInterestsBodyPrev=document[_0x186776(0x1f6)](_0x186776(0x1e1)),netInterestsByCustomerBody=document[_0x186776(0x1f6)](_0x186776(0x23b));InterestObjectPrevYearTop50=[{'PERIOD':_0x186776(0x214),'MUST_NO':_0x186776(0x22b),'Name':_0x186776(0x208),'ortalamaBakiyeFixedDate':157.54,'brutFaizFixedDate':5.96,'netFaizFixedDate':4.66,'brutFaiz':5.96,'netFaiz':3.66,'grossRate':0x3,'netRate':2.03},{'PERIOD':_0x186776(0x214),'MUST_NO':_0x186776(0x1db),'Name':_0x186776(0x256),'ortalamaBakiyeFixedDate':178.22,'brutFaizFixedDate':2.96,'netFaizFixedDate':1.93,'brutFaiz':2.97,'netFaiz':1.95,'grossRate':3.5,'netRate':3.49},{'PERIOD':_0x186776(0x214),'MUST_NO':_0x186776(0x20e),'Name':'GE\x20BEVERAGES','ortalamaBakiyeFixedDate':218.85,'brutFaizFixedDate':29.24,'netFaizFixedDate':7.35,'brutFaiz':29.24,'netFaiz':7.35,'grossRate':16.3,'netRate':4.1},{'PERIOD':_0x186776(0x214),'MUST_NO':_0x186776(0x26b),'Name':_0x186776(0x264),'ortalamaBakiyeFixedDate':251.09,'brutFaizFixedDate':12.13,'netFaizFixedDate':10.38,'brutFaiz':9.08,'netFaiz':7.33,'grossRate':9.08,'netRate':7.75},{'PERIOD':_0x186776(0x214),'MUST_NO':_0x186776(0x230),'Name':'MICROSOFT\x20MARKETS','ortalamaBakiyeFixedDate':237.37,'brutFaizFixedDate':8.1,'netFaizFixedDate':6.61,'brutFaiz':7.91,'netFaiz':6.4,'grossRate':3.28,'netRate':2.67},{'PERIOD':_0x186776(0x214),'MUST_NO':'1285','Name':_0x186776(0x202),'ortalamaBakiyeFixedDate':52.29,'brutFaizFixedDate':5.02,'netFaizFixedDate':0.69,'brutFaiz':5.02,'netFaiz':0.69,'grossRate':17.56,'netRate':2.4}],InterestObjectTop50=[{'PERIOD':'YTD','MUST_NO':_0x186776(0x22b),'Name':'SAMSUNG\x20FLAVOURS\x20INC.','ortalamaBakiyeFixedDate':157.54,'brutFaizFixedDate':5.96,'netFaizFixedDate':4.66,'brutFaiz':5.96,'netFaiz':3.66,'grossRate':0x3,'netRate':2.03},{'PERIOD':'YTD','MUST_NO':'1010','Name':_0x186776(0x256),'ortalamaBakiyeFixedDate':178.22,'brutFaizFixedDate':2.96,'netFaizFixedDate':1.93,'brutFaiz':2.97,'netFaiz':1.95,'grossRate':3.5,'netRate':3.49},{'PERIOD':'YTD','MUST_NO':_0x186776(0x20e),'Name':_0x186776(0x248),'ortalamaBakiyeFixedDate':218.85,'brutFaizFixedDate':29.24,'netFaizFixedDate':7.35,'brutFaiz':29.24,'netFaiz':7.35,'grossRate':16.3,'netRate':4.1},{'PERIOD':_0x186776(0x214),'MUST_NO':_0x186776(0x26b),'Name':_0x186776(0x264),'ortalamaBakiyeFixedDate':251.09,'brutFaizFixedDate':12.13,'netFaizFixedDate':10.38,'brutFaiz':9.08,'netFaiz':7.33,'grossRate':9.08,'netRate':7.75},{'PERIOD':_0x186776(0x214),'MUST_NO':_0x186776(0x230),'Name':_0x186776(0x215),'ortalamaBakiyeFixedDate':237.37,'brutFaizFixedDate':8.1,'netFaizFixedDate':6.61,'brutFaiz':7.91,'netFaiz':6.4,'grossRate':3.28,'netRate':2.67},{'PERIOD':'YTD','MUST_NO':_0x186776(0x1f0),'Name':'3M\x20CONSUMER\x20ELECTRONICS','ortalamaBakiyeFixedDate':52.29,'brutFaizFixedDate':5.02,'netFaizFixedDate':0.69,'brutFaiz':5.02,'netFaiz':0.69,'grossRate':17.56,'netRate':2.4},{'PERIOD':_0x186776(0x214),'MUST_NO':_0x186776(0x22b),'Name':_0x186776(0x208),'ortalamaBakiyeFixedDate':157.54,'brutFaizFixedDate':5.96,'netFaizFixedDate':4.66,'brutFaiz':5.96,'netFaiz':3.66,'grossRate':0x3,'netRate':2.03},{'PERIOD':_0x186776(0x214),'MUST_NO':_0x186776(0x1db),'Name':_0x186776(0x256),'ortalamaBakiyeFixedDate':178.22,'brutFaizFixedDate':2.96,'netFaizFixedDate':1.93,'brutFaiz':2.97,'netFaiz':1.95,'grossRate':3.5,'netRate':3.49},{'PERIOD':_0x186776(0x214),'MUST_NO':_0x186776(0x20e),'Name':_0x186776(0x248),'ortalamaBakiyeFixedDate':218.85,'brutFaizFixedDate':29.24,'netFaizFixedDate':7.35,'brutFaiz':29.24,'netFaiz':7.35,'grossRate':16.3,'netRate':4.1},{'PERIOD':_0x186776(0x214),'MUST_NO':_0x186776(0x26b),'Name':'APPLE\x20TRUCKS','ortalamaBakiyeFixedDate':251.09,'brutFaizFixedDate':12.13,'netFaizFixedDate':10.38,'brutFaiz':9.08,'netFaiz':7.33,'grossRate':9.08,'netRate':7.75},{'PERIOD':_0x186776(0x214),'MUST_NO':'1002','Name':_0x186776(0x215),'ortalamaBakiyeFixedDate':237.37,'brutFaizFixedDate':8.1,'netFaizFixedDate':6.61,'brutFaiz':7.91,'netFaiz':6.4,'grossRate':3.28,'netRate':2.67},{'PERIOD':'YTD','MUST_NO':_0x186776(0x1f0),'Name':_0x186776(0x202),'ortalamaBakiyeFixedDate':52.29,'brutFaizFixedDate':5.02,'netFaizFixedDate':0.69,'brutFaiz':5.02,'netFaiz':0.69,'grossRate':17.56,'netRate':2.4}],InterestObjectCustomerTop50=[{'year':0x7e4,'MUST_NO':'1040','NAME':_0x186776(0x232),'BAKIYEFixedDate_TL':0x2d,'brutFaizFixedDate':2.33,'netFaizFixedDate':0.24,'brutFaiz':2.33,'netFaiz':0.24,'grossRate':32.5,'netRate':2.3},{'year':0x7e3,'MUST_NO':_0x186776(0x24f),'NAME':_0x186776(0x256),'BAKIYEFixedDate_TL':156.78,'brutFaizFixedDate':27.32,'netFaizFixedDate':3.37,'brutFaiz':27.32,'netFaiz':3.37,'grossRate':17.19,'netRate':2.12},{'year':0x7e2,'MUST_NO':_0x186776(0x24a),'NAME':'SAMSUNG','BAKIYEFixedDate_TL':173.26,'brutFaizFixedDate':27.24,'netFaizFixedDate':3.54,'brutFaiz':27.24,'netFaiz':3.54,'grossRate':15.5,'netRate':2.02},{'year':0x7e1,'MUST_NO':_0x186776(0x24a),'NAME':_0x186776(0x212),'BAKIYEFixedDate_TL':0x96,'brutFaizFixedDate':19.47,'netFaizFixedDate':2.62,'brutFaiz':19.47,'netFaiz':2.62,'grossRate':12.8,'netRate':1.72},{'year':0x7e0,'MUST_NO':_0x186776(0x24a),'NAME':_0x186776(0x212),'BAKIYEFixedDate_TL':136.92,'brutFaizFixedDate':15.47,'netFaizFixedDate':2.06,'brutFaiz':15.47,'netFaiz':2.06,'grossRate':12.79,'netRate':1.71}],populateInterests(InterestObjectPrevYearTop50,netInterestsBodyPrev),populateInterests(InterestObjectTop50,netInterestsBody),populateInterestsByCustomer(InterestObjectCustomerTop50,netInterestsByCustomerBody);function populateInterests(_0xd55b41,_0x3247bf){var _0x43cb1b=_0x186776;while(_0x3247bf[_0x43cb1b(0x225)]){_0x3247bf['removeChild'](_0x3247bf[_0x43cb1b(0x225)]);}_0xd55b41[_0x43cb1b(0x1cd)](_0x260b4d=>{var _0xe33771=_0x43cb1b;if(_0x260b4d['PERIOD']!==_0xe33771(0x214))return;const _0x2b2767=Object[_0xe33771(0x1d1)](_0x260b4d),_0x38758b=document[_0xe33771(0x22d)]('tr');_0x3247bf[_0xe33771(0x20a)](_0x38758b);for(let _0x365136=0x1;_0x365136<=0x9;_0x365136++){if(_0x365136==0x8)continue;const _0x10a350=document[_0xe33771(0x22d)]('td');_0x10a350[_0xe33771(0x1e0)]=_0x2b2767[_0x365136],_0x38758b['appendChild'](_0x10a350);};_0x38758b[_0xe33771(0x234)][_0xe33771(0x252)]=_0xe33771(0x250),_0x38758b[_0xe33771(0x234)][_0xe33771(0x25e)]='12px';});}function populateInterestsByCustomer(_0x2d0f03,_0x1c1e57){var _0x1c3c1d=_0x186776;while(_0x1c1e57['firstChild']){_0x1c1e57[_0x1c3c1d(0x23f)](_0x1c1e57[_0x1c3c1d(0x225)]);}_0x2d0f03[_0x1c3c1d(0x1cd)](_0x4394fc=>{var _0x3ac82a=_0x1c3c1d;const _0x21c406=Object[_0x3ac82a(0x1d1)](_0x4394fc),_0x21cc71=document[_0x3ac82a(0x22d)]('tr');_0x1c1e57['appendChild'](_0x21cc71);for(let _0x16ada1=0x0;_0x16ada1<=0x9;_0x16ada1++){if(_0x16ada1==0x1||_0x16ada1==0x2||_0x16ada1==0x8)continue;const _0x309131=document['createElement']('td');_0x309131['textContent']=_0x21c406[_0x16ada1],_0x21cc71[_0x3ac82a(0x20a)](_0x309131);};_0x21cc71[_0x3ac82a(0x234)][_0x3ac82a(0x252)]=_0x3ac82a(0x1d4),_0x21cc71['style'][_0x3ac82a(0x25e)]=_0x3ac82a(0x1e8);}),document['getElementById'](_0x1c3c1d(0x1f3))[_0x1c3c1d(0x234)][_0x1c3c1d(0x1fd)]=_0x1c3c1d(0x1df);}function colorFromValue(_0x254ebd,_0x4f72a5){var _0x3b34cc=_0x186776;let _0x5c8beb=(0x1+Math[_0x3b34cc(0x25d)](_0x254ebd))/0x5;const _0x41959c=_0x3b34cc(0x1f9);return _0x4f72a5&&(_0x5c8beb+=0.01),Chart[_0x3b34cc(0x24b)][_0x3b34cc(0x1ed)](_0x41959c)['alpha'](_0x5c8beb)[_0x3b34cc(0x1f1)]();}function colorFromRaw(_0x30302c,_0x22b26a){var _0x188c24=_0x186776;if(_0x30302c[_0x188c24(0x263)]!=='data')return'transparent';const _0x4890e2=_0x30302c[_0x188c24(0x253)]['v'];let _0x4d3965=(0x1+Math[_0x188c24(0x25d)](_0x4890e2))/0xa;return Chart[_0x188c24(0x24b)][_0x188c24(0x1ed)](_0x22b26a)[_0x188c24(0x25c)](_0x4d3965)['rgbString']();}function getSqlMonthendsFrom(_0x272403){var _0x183e2d=_0x186776;let _0x48e1ad=new Date();_0x48e1ad[_0x183e2d(0x245)](_0x48e1ad[_0x183e2d(0x249)]()-0x1);let _0x1622bd=_0x48e1ad['getFullYear'](),_0x51bb9c=_0x48e1ad[_0x183e2d(0x217)](),_0x130e4e,_0x2ab726,_0x4afec7=[];for(let _0x46a70b=0x1;_0x46a70b<0x25;_0x46a70b++){if(_0x130e4e==_0x1622bd&&_0x2ab726==_0x51bb9c){let _0x5ad3b7=_0x4afec7['toString']()[_0x183e2d(0x219)](/,/gi,_0x183e2d(0x239));localStorage['setItem'](_0x183e2d(0x235),_0x5ad3b7);break;}_0x4afec7[_0x46a70b-0x1]=new Date(_0x272403[_0x183e2d(0x241)](_0x272403[_0x183e2d(0x217)]()+0x1)),_0x4afec7[_0x46a70b-0x1][_0x183e2d(0x245)](_0x4afec7[_0x46a70b-0x1][_0x183e2d(0x249)]()-0x1),_0x130e4e=_0x4afec7[_0x46a70b-0x1][_0x183e2d(0x1fe)](),_0x2ab726=_0x4afec7[_0x46a70b-0x1][_0x183e2d(0x217)]()+0x1,_0x4afec7[_0x46a70b-0x1]=formatSqlDate(_0x4afec7[_0x46a70b-0x1]);}}function _0xb78c(_0x2cf585,_0x303fc4){var _0x2a8138=_0x2a81();return _0xb78c=function(_0xb78c0a,_0x5875c8){_0xb78c0a=_0xb78c0a-0x1c6;var _0x38af1c=_0x2a8138[_0xb78c0a];return _0x38af1c;},_0xb78c(_0x2cf585,_0x303fc4);}function sortTable(_0x25a5a1,_0x816ca8){var _0x5f4927=_0x186776,_0x5c8e8e,_0x3b48af,_0x39d8a1,_0x8dde8c,_0x50effd,_0x3eb297,_0x3c94a0,_0x156be6,_0x453f9d=0x0;_0x5c8e8e=document[_0x5f4927(0x1d7)](_0x25a5a1),_0x39d8a1=!![],_0x156be6=_0x5f4927(0x218);while(_0x39d8a1){_0x39d8a1=![],_0x3b48af=_0x5c8e8e[_0x5f4927(0x246)];for(_0x8dde8c=0x1;_0x8dde8c<_0x3b48af[_0x5f4927(0x1cb)]-0x1;_0x8dde8c++){_0x3c94a0=![],_0x50effd=_0x3b48af[_0x8dde8c][_0x5f4927(0x1dd)]('TD')[_0x816ca8],_0x3eb297=_0x3b48af[_0x8dde8c+0x1][_0x5f4927(0x1dd)]('TD')[_0x816ca8];if(_0x156be6==_0x5f4927(0x218)){if(Number(_0x50effd[_0x5f4927(0x1fa)])>Number(_0x3eb297['innerHTML'])){_0x3c94a0=!![];break;}}else{if(_0x156be6=='desc'){if(Number(_0x50effd[_0x5f4927(0x1fa)])<Number(_0x3eb297[_0x5f4927(0x1fa)])){_0x3c94a0=!![];break;}}}}_0x3c94a0?(_0x3b48af[_0x8dde8c][_0x5f4927(0x23a)][_0x5f4927(0x1c7)](_0x3b48af[_0x8dde8c+0x1],_0x3b48af[_0x8dde8c]),_0x39d8a1=!![],_0x453f9d++):_0x453f9d==0x0&&_0x156be6==_0x5f4927(0x218)&&(_0x156be6=_0x5f4927(0x262),_0x39d8a1=!![]);}}function sortTableTextFormat(_0x1a26a8,_0x305a41){var _0x3be67c=_0x186776,_0x219314,_0x2cbe2,_0x23bd29,_0x18b1a6,_0x661598,_0x51c2a0,_0x70e2bc,_0x2e21c0,_0x30ad2d=0x0;_0x219314=document[_0x3be67c(0x1d7)](_0x1a26a8),_0x23bd29=!![],_0x2e21c0='asc';while(_0x23bd29){_0x23bd29=![],_0x2cbe2=_0x219314[_0x3be67c(0x246)];for(_0x18b1a6=0x1;_0x18b1a6<_0x2cbe2[_0x3be67c(0x1cb)]-0x1;_0x18b1a6++){_0x70e2bc=![],_0x661598=_0x2cbe2[_0x18b1a6]['getElementsByTagName']('TD')[_0x305a41],_0x51c2a0=_0x2cbe2[_0x18b1a6+0x1][_0x3be67c(0x1dd)]('TD')[_0x305a41];if(_0x2e21c0==_0x3be67c(0x218)){if(_0x661598[_0x3be67c(0x1fa)][_0x3be67c(0x1d2)]()>_0x51c2a0['innerHTML'][_0x3be67c(0x1d2)]()){_0x70e2bc=!![];break;}}else{if(_0x2e21c0=='desc'){if(_0x661598[_0x3be67c(0x1fa)][_0x3be67c(0x1d2)]()<_0x51c2a0[_0x3be67c(0x1fa)][_0x3be67c(0x1d2)]()){_0x70e2bc=!![];break;}}}}_0x70e2bc?(_0x2cbe2[_0x18b1a6]['parentNode']['insertBefore'](_0x2cbe2[_0x18b1a6+0x1],_0x2cbe2[_0x18b1a6]),_0x23bd29=!![],_0x30ad2d++):_0x30ad2d==0x0&&_0x2e21c0==_0x3be67c(0x218)&&(_0x2e21c0=_0x3be67c(0x262),_0x23bd29=!![]);}}function toTitleCase(_0x57d348){var _0x4c5d70=_0x186776;let _0x2e76eb=!![],_0x555aa2='';for(let _0xe867f4=0x0,_0x15a5a9=_0x57d348[_0x4c5d70(0x1cb)];_0xe867f4<_0x15a5a9;_0xe867f4++){if(_0x57d348[_0xe867f4]=='\x20'){_0x2e76eb=!![],_0x555aa2+='\x20';continue;}_0x555aa2+=_0x2e76eb?_0x57d348[_0xe867f4][_0x4c5d70(0x1f5)]():_0x57d348[_0xe867f4][_0x4c5d70(0x1d2)](),_0x2e76eb=![];}return _0x555aa2;}function titleCase(_0x3a0000){var _0xa4e8f7=_0x186776;newStr=_0x3a0000[_0xa4e8f7(0x251)]('\x20')[_0xa4e8f7(0x231)](_0x356a88=>_0x356a88[0x0][_0xa4e8f7(0x1f5)]()+_0x356a88[_0xa4e8f7(0x1eb)](0x1)[_0xa4e8f7(0x1d2)]())[_0xa4e8f7(0x22a)]('\x20');}function formatSqlDate(_0x234921){var _0x27e845=_0x186776;return[_0x234921[_0x27e845(0x1fe)](),padTo2Digits(_0x234921[_0x27e845(0x217)]()+0x1),padTo2Digits(_0x234921[_0x27e845(0x249)]())][_0x27e845(0x22a)]('-');}function daysPassedCurrentYear(){var _0x5a81f7=_0x186776;let _0x5a57fb=new Date();var _0x1b42a1=new Date(_0x5a57fb[_0x5a81f7(0x1da)]()),_0x99e3cf=new Date(_0x5a57fb['getFullYear'](),0x0,0x1);return Math[_0x5a81f7(0x229)]((_0x1b42a1-_0x99e3cf+0x1)/0x5265c00);}
+
+
+  </script>
 </body>
 
 </html>
