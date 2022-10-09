@@ -30,6 +30,6 @@
 
 #### To see demo: https://cozgun.github.io/dashboard.html#
 
+![image](https://user-images.githubusercontent.com/59412630/194773189-4f51910a-fc88-4a6c-8020-4e428d4b863e.png)
 
-![dash2](https://user-images.githubusercontent.com/59412630/170441581-0a4af112-ad3e-4424-92ac-6af9a0accbad.JPG)
 
