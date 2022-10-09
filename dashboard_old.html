@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+     canvas{
+      padding: 0px 15px 0px 15px;
+    }
+    .no-border {
+      border: 0;
+      box-shadow: none;
+    }
+
+    .divHeader {
+      padding-top: 10px;
+      color: black;
+      text-align: left;
+      font-size: 22px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      border-style: solid;
+      border-width: 1px 0px 0px 0px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    .centerAll {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .center {
+      text-align: center;
+      margin: auto;
+      width: 100%;
+      /* border: 3px solid #73AD21; */
+      padding: 10px;
+    }
+
+    .centerText {
+      text-align: center
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    .bigFigure {
+      color: lightgray;
+      text-align: center;
+      font-size: 40px;
+      line-height: 0.8;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    }
+
+    .bigFigureText {
+      color: gray;
+      text-align: center;
+      font-size: 15px;
+      line-height: 0.80;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    }
+
+    /* div {text-align: center;} */
+    .vertical-center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+
+
+    li {
+      position: relative;
+      padding-left: 11px;
+      margin: 0 0 3px 0;
+    }
+
+    div.firstColumn {
+      padding: 0px;
+      border-style: solid;
+      border-width: 0px 0px 0px 1px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: darkblue;
+    }
+
+    div.topBottomBorder {
+      padding: 10px;
+      border-style: solid;
+      border-width: 1px 0px 1px 0px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    div.topBorder {
+      padding: 10px;
+      border-style: solid;
+      border-width: 1px 0px 0px 0px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    div.bottomBorder {
+      /* padding: 10px; */
+      border-style: solid;
+      border-width: 0px 0px 1px 0px;
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      border-color: lightgray;
+    }
+
+    div.first {
+      padding: 0px;
+      /* border-style: solid;
+      border-width: 0px 0px 1px 0px; */
+      /* 25px top, 10px right, 4px bottom and 35px left */
+      /* border-color: lightgray; */
+      /* background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      /* width: 200px;
+  height: 150px;   */
+    }
+
+    canvas.first {
+      /* background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 10px;
+    }
+
+
+    div.second {
+      /* background: rgba(255, 255, 0, 0.2);
+      background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 0px;
+    }
+
+    div.third {
+      /* background: rgba(255, 255, 0, 0.1);
+      background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 0px;
+    }
+
+    div.height {
+      height: 150px;
+    }
+
+    div.heightAsChartTitle {
+      height: 10;
+      text-align: center
+    }
+
+    div.fourth {
+      /* background: rgba(255, 255, 0, 0.05);
+      background: rgba(109, 216, 235, 0.3);
+      border-radius: 20px;
+      padding: 10px; */
+      padding: 0px;
+    }
+  </style>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+
+</head>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<body>
+  <div class="container-fluid">
+    <main role="main" class="col-md-12 pull-left">
+      <div id="main-div" class="col-md-12 pull-left">
+        <!-- <h1 class="display-5">Landing-new</h1> -->
+        <div class="container">
+          <div class="row">
+
+            <div class="col-md-2 auto center ">
+              <div class="first">
+                <p class="bigFigure" id="finalPLAmt">7.9m
+                </p>
+                <p class="bigFigureText" id="finalPLText">TRY YTD p&l as of 13.05.2022
+                </p>
+              </div>
+            </div>
+            <div class="col-md-2 auto center ">
+              <div class="first">
+                <p class="bigFigure" id="avgMargin">%4.44</p>
+                <p class="bigFigureText" id="avgMarginText">Average margin on loans outstanding</p>
+              </div>
+            </div>
+
+            <div class="col-md-2 auto center ">
+              <div class="first">
+                <p class="bigFigure">125</p>
+                <p class="bigFigureText">Another text</p>
+              </div>
+            </div>
+
+            <div class="col-md-2 auto center ">
+              <div class="first">
+                <p class="bigFigure">210</p>
+                <p class="bigFigureText">Another text</p>
+              </div>
+            </div>
+            <div class="col-md-2 auto center ">
+              <div class="first">
+                <p class="bigFigure">%70</p>
+                <p class="bigFigureText">Another ratio</p>
+              </div>
+            </div>
+            <div class="col-md-2 auto center ">
+              <div class="first">
+                <p class="bigFigure">%95</p>
+                <p class="bigFigureText">Another ratio</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-3 auto"
+              style="color:gray; text-align:left; font-size: 32px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+              Finance Dashboard
+            </div>
+
+            <div class="col-md-9 auto center">
+
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="button" style="font-size: 13px" class="btn btn-outline-primary"
+                        onclick="window.open('expenseSummary.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes');"
+                        >Expense
+                  Summary</button>
+                <button type="button" style="font-size: 13px" class="btn btn-outline-primary"
+                  onclick="window.open('expense.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes');">Expense GL
+                  Details</button>
+                <button type="button" style="font-size: 13px" class="btn btn-outline-primary" onclick="window.open('loans.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes');">
+                  Loan Analysis</button>
+                <button type="button" style="font-size: 13px" class="btn btn-outline-primary"
+                                          onclick="window.open('loansNoncash.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes');">
+                  Non-cash Loan Analysis</button>
+                <button type="button" style="font-size: 13px" class="btn btn-outline-primary"
+                   onclick="window.open('margins.html', '_blank', 'location=no,top=0,left=0, height=4000,width=4000,scrollbars=yes,status=yes');">
+                  Margin
+                  Analysis</button>
+                <button type="button" id="btnOpenLoans" style="font-size: 13px" class="btn btn-outline-primary"
+                  >Link to somewhere</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+          <div class="divHeader">
+            <label for="selectYear">P&L Trend of year </label>
+            <select id="selectYear" aria-label="Select year" onchange="refreshMtdPL(); refreshAccPL();">
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+              <option value="2020">2020</option>
+              <option value="2019">2019</option>
+              <option value="2018">2018</option>
+              <option value="2017">2017</option>
+              <option value="2016">2016</option>
+              <option value="2015">2015</option>
+            </select>
+          </div>
+        </div>
+
+          <div class="row ">
+            <div class="col-md-4 heightAsChartTitle">
+              Current Year ('000 TRY')
+            </div>
+            <div class="col-md-4 heightAsChartTitle">
+              Current Year MTD ('000 TRY')
+            </div>
+            <div class="col-md-4 heightAsChartTitle ">
+              P&L by Years ('000 TRY')
+            </div>
+          </div>
+
+          <div class="row ">
+            <div class="col-md-4 auto center ">
+              <div class="first centerAll">
+                <canvas id="canvasMonthendBalance"></canvas>
+                <!-- <canvas id="cashCurrencyChart" width="200" height="200"></canvas> -->
+              </div>
+            </div>
+            <div class="col-md-4 auto center">
+              <div class="first centerAll">
+                <canvas id="canvasMtdAll"></canvas>
+                <!-- <canvas id="cashCurrencyChart2" width="200" height="200"></canvas> -->
+              </div>
+            </div>
+            <div class="col-md-4 auto center">
+              <div class="first centerAll">
+                <canvas id="canvasAnnualAll"></canvas>
+                <!-- <canvas id="cashCurrencyChart3" width="200" height="200"></canvas> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="row divHeader">Monthly and Annual Trends of Balancesheet:
+          </div>
+
+          <div class="row ">
+            <div class="col-md-4 heightAsChartTitle">
+              Exchange Rates
+            </div>
+            <div class="col-md-4 heightAsChartTitle">
+              Assets
+            </div>
+            <div class="col-md-4 heightAsChartTitle ">
+              Non-cash Loans
+            </div>
+          </div>
+
+          <div class="row ">
+            <div class="col-md-4 auto center ">
+              <div class="first">
+                <canvas id="exchangeRates"></canvas>
+              </div>
+            </div>
+            <div class="col-md-4 auto center">
+              <div class="first">
+                <canvas id="loansChart"></canvas>
+              </div>
+            </div>
+            <div class="col-md-4 auto center">
+              <div class="first">
+                <canvas id="nonCashLoansChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="row ">
+            <div class="col-md-4 auto center ">
+              <div class="first">
+                <canvas id="exchangeRatesAnnual"></canvas>
+              </div>
+            </div>
+            <div class="col-md-4 auto center">
+              <div class="first">
+                <canvas id="loansChartAnnual"></canvas>
+              </div>
+            </div>
+            <div class="col-md-4 auto center">
+              <div class="first">
+                <canvas id="nonCashLoansChartAnnual"></canvas>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="text/javascript">
+var _0x529c=["\x6F\x70\x65\x6E\x45\x78\x70\x65\x6E\x73\x65\x53\x75\x6D\x6D\x61\x72\x79","\x73\x65\x6E\x64","\x6F\x70\x65\x6E\x45\x78\x70\x65\x6E\x73\x65","\x6F\x70\x65\x6E\x4D\x61\x69\x6E","\x6F\x70\x65\x6E\x4C\x6F\x61\x6E\x73","\x6F\x70\x65\x6E\x4E\x6F\x6E\x63\x61\x73\x68\x4C\x6F\x61\x6E\x73","\x6F\x70\x65\x6E\x4D\x61\x72\x67\x69\x6E\x73","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x44\x4F\x4D\x43\x6F\x6E\x74\x65\x6E\x74\x4C\x6F\x61\x64\x65\x64","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72","\x61\x72\x72\x61\x79\x73","\x6C\x65\x6E\x67\x74\x68","\x6F\x70\x74\x69\x6F\x6E\x73","\x74\x6F\x55\x70\x70\x65\x72\x43\x61\x73\x65","\x76\x61\x6C\x75\x65","\x6D\x79\x49\x6E\x70\x75\x74","\x69\x6E\x63\x6C\x75\x64\x65\x73","\x66\x69\x6C\x74\x65\x72","\x66\x61\x6D\x69\x6C\x79","\x66\x6F\x6E\x74","\x64\x65\x66\x61\x75\x6C\x74\x73","\x43\x61\x6C\x69\x62\x72\x69","\x73\x69\x7A\x65","\x64\x69\x73\x70\x6C\x61\x79","\x67\x72\x69\x64","\x73\x63\x61\x6C\x65","\x32\x64","\x67\x65\x74\x43\x6F\x6E\x74\x65\x78\x74","\x63\x61\x6E\x76\x61\x73\x4D\x6F\x6E\x74\x68\x65\x6E\x64\x42\x61\x6C\x61\x6E\x63\x65","\x6C\x69\x6E\x65","\x31","\x32","\x33","\x34","\x35","\x36","\x37","\x38","\x39","\x31\x30","\x31\x31","\x31\x32","\x42\x75\x64\x67\x65\x74","\x6F\x72\x61\x6E\x67\x65","\x41\x63\x74\x75\x61\x6C","\x62\x6C\x75\x65","\x50\x26\x4C\x20\x54\x72\x65\x6E\x64","\x20\x28\x27\x30\x30\x30\x20\x54\x52\x59\x29","\x6D\x6F\x75\x73\x65\x6D\x6F\x76\x65","\x6D\x6F\x75\x73\x65\x6F\x75\x74","\x63\x6C\x69\x63\x6B","\x74\x6F\x75\x63\x68\x73\x74\x61\x72\x74","\x74\x6F\x75\x63\x68\x6D\x6F\x76\x65","\x74\x6F\x75\x63\x68\x65\x6E\x64","\x63\x61\x6E\x76\x61\x73\x4D\x74\x64\x41\x6C\x6C","\x62\x61\x72","\x73\x65\x6C\x65\x63\x74\x59\x65\x61\x72","\x20\x4D\x54\x44\x20\x50\x26\x4C","\x63\x61\x6E\x76\x61\x73\x41\x6E\x6E\x75\x61\x6C\x41\x6C\x6C","\x42\x6C\x75\x65","\x50\x26\x4C\x20\x62\x79\x20\x79\x65\x61\x72\x73\x20\x28\x27\x30\x30\x30\x20\x54\x52\x59\x29","\x65\x78\x63\x68\x61\x6E\x67\x65\x52\x61\x74\x65\x73","\x32\x31\x2D\x35","\x32\x31\x2D\x36","\x32\x31\x2D\x37","\x32\x31\x2D\x38","\x32\x31\x2D\x39","\x32\x31\x2D\x31\x30","\x32\x31\x2D\x31\x31","\x32\x31\x2D\x31\x32","\x32\x32\x2D\x31","\x32\x32\x2D\x32","\x32\x32\x2D\x33","\x32\x32\x2D\x34","\x55\x53\x44","\x45\x55\x52","\x70\x75\x72\x70\x6C\x65","\x74\x6F\x70","\x45\x78\x63\x68\x61\x6E\x67\x65\x20\x52\x61\x74\x65\x73","\x65\x78\x63\x68\x61\x6E\x67\x65\x52\x61\x74\x65\x73\x41\x6E\x6E\x75\x61\x6C","\x31\x35\x2D\x31\x32","\x31\x36\x2D\x31\x32","\x31\x37\x2D\x31\x32","\x31\x38\x2D\x31\x32","\x31\x39\x2D\x31\x32","\x32\x30\x2D\x31\x32","\x6C\x6F\x61\x6E\x73\x43\x68\x61\x72\x74","\x46\x58\x20\x4C\x6F\x61\x6E\x73","\x54\x52\x59\x20\x4C\x6F\x61\x6E\x73","\x6C\x69\x67\x68\x74\x62\x6C\x75\x65","\x42\x61\x6E\x6B\x73","\x52\x65\x73\x65\x72\x76\x65\x73","\x67\x72\x61\x79","\x41\x73\x73\x65\x74\x73","\x6C\x6F\x61\x6E\x73\x43\x68\x61\x72\x74\x41\x6E\x6E\x75\x61\x6C","\x6E\x6F\x6E\x43\x61\x73\x68\x4C\x6F\x61\x6E\x73\x43\x68\x61\x72\x74","\x4C\x2F\x47","\x4C\x2F\x43","\x41\x63\x63\x65\x70\x74\x61\x6E\x63\x65\x73","\x4E\x6F\x6E\x2D\x63\x61\x73\x68\x20\x4C\x6F\x61\x6E\x73","\x6E\x6F\x6E\x43\x61\x73\x68\x4C\x6F\x61\x6E\x73\x43\x68\x61\x72\x74\x41\x6E\x6E\x75\x61\x6C"];function fillSelect(_0x1d2dxb= []){var _0x1d2dxc=getId(_0x529c[10]);_0x1d2dxc[_0x529c[12]][_0x529c[11]]= 0;var _0x1d2dxd=GLList[_0x529c[17]]((_0x1d2dxe)=>{return _0x1d2dxe[_0x529c[16]](getId(_0x529c[15])[_0x529c[14]][_0x529c[13]]())});for(var _0x1d2dxf=0;_0x1d2dxf< _0x1d2dxd[_0x529c[11]];++_0x1d2dxf){_0x1d2dxc[_0x1d2dxc[_0x529c[11]]]=  new Option(_0x1d2dxd[_0x1d2dxf],_0x1d2dxd[_0x1d2dxf])}}Chart[_0x529c[20]][_0x529c[19]][_0x529c[18]]= _0x529c[21];Chart[_0x529c[20]][_0x529c[19]][_0x529c[22]]= 12;Chart[_0x529c[20]][_0x529c[25]][_0x529c[24]][_0x529c[23]]= false;var $=function(_0x1d2dx8){return document[_0x529c[7]](_0x1d2dx8)};var ctx=document[_0x529c[7]](_0x529c[28])[_0x529c[27]](_0x529c[26]);var mtdBalanceChart= new Chart(ctx,{type:_0x529c[29],responsive:true,data:{labels:[_0x529c[30],_0x529c[31],_0x529c[32],_0x529c[33],_0x529c[34],_0x529c[35],_0x529c[36],_0x529c[37],_0x529c[38],_0x529c[39],_0x529c[40],_0x529c[41]],datasets:[{label:_0x529c[42],type:_0x529c[29],backgroundColor:_0x529c[43],borderColor:_0x529c[43],borderWidth:1,data:[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000,11000,12000]},{label:_0x529c[44],backgroundColor:_0x529c[45],data:[1100,2582,3885,5175,6230]}]},options:{plugins:{datalabels:{display:false},title:{display:false,text:_0x529c[46]+ _0x529c[47],font:{size:15}},legend:{display:false}},events:[_0x529c[48],_0x529c[49],_0x529c[50],_0x529c[51],_0x529c[52],_0x529c[53]],scales:{xAxes:[{display:true,ticks:{fontSize:20}}],yAxes:[{display:false,ticks:{fontSize:20}}]}}});var ctx=document[_0x529c[7]](_0x529c[54])[_0x529c[27]](_0x529c[26]);var mtdAllChart= new Chart(ctx,{type:_0x529c[55],responsive:true,data:{labels:[_0x529c[30],_0x529c[31],_0x529c[32],_0x529c[33],_0x529c[34],_0x529c[35],_0x529c[36],_0x529c[37],_0x529c[38],_0x529c[39],_0x529c[40],_0x529c[41]],datasets:[{label:_0x529c[42],type:_0x529c[29],backgroundColor:_0x529c[43],borderColor:_0x529c[43],borderWidth:1,data:[1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000]},{label:_0x529c[44],backgroundColor:_0x529c[45],data:[1100,1482,1303,1290,1055,0,0,0,0,0,0,0]}]},options:{plugins:{datalabels:{display:false},title:{display:false,text:$(_0x529c[56])[_0x529c[14]]+ _0x529c[57]+ _0x529c[47],font:{size:15}}},events:[_0x529c[48],_0x529c[49],_0x529c[50],_0x529c[51],_0x529c[52],_0x529c[53]],legend:{display:true},scales:{xAxes:[{display:true,ticks:{fontSize:10}}],yAxes:[{display:false,ticks:{fontSize:10}}]}}});var ctx=document[_0x529c[7]](_0x529c[58])[_0x529c[27]](_0x529c[26]);var annualAllChart= new Chart(ctx,{type:_0x529c[55],responsive:true,data:{labels:[2014,2015,2016,2017,2018,2019,2020,2021,2022],datasets:[{label:_0x529c[44],data:[1917,2799,4078,6472,6813,13546,7710,13571,4710],backgroundColor:_0x529c[59]},{label:_0x529c[42],backgroundColor:_0x529c[43],data:[1500,1700,2500,4300,7500,11950,9000,10000,16000]}]},options:{plugins:{datalabels:{display:false},title:{text:_0x529c[60],display:false,font:{size:15}},legend:{display:false}},events:[_0x529c[48],_0x529c[49],_0x529c[50],_0x529c[51],_0x529c[52],_0x529c[53]],scales:{xAxes:[{display:true,ticks:{fontSize:10}}],yAxes:[{display:false,ticks:{fontSize:10}}]}}});let obj=[];let exchRatesArray=[];var ctx=document[_0x529c[7]](_0x529c[61])[_0x529c[27]](_0x529c[26]);var exchangeRatesChart= new Chart(ctx,{type:_0x529c[29],data:{"\x6C\x61\x62\x65\x6C\x73":[_0x529c[62],_0x529c[63],_0x529c[64],_0x529c[65],_0x529c[66],_0x529c[67],_0x529c[68],_0x529c[69],_0x529c[70],_0x529c[71],_0x529c[72],_0x529c[73]],"\x64\x61\x74\x61\x73\x65\x74\x73":[{"\x6C\x61\x62\x65\x6C":_0x529c[74],"\x64\x61\x74\x61":[8.499,8.6803,8.4139,8.3043,8.8785,9.4813,12.9387,13.329,13.4015,13.8286,14.6371,14.7852],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[45],"\x62\x6F\x72\x64\x65\x72\x43\x6F\x6C\x6F\x72":_0x529c[45],"\x62\x6F\x72\x64\x65\x72\x57\x69\x64\x74\x68":1,"\x74\x65\x6E\x73\x69\x6F\x6E":0.1,"\x70\x6F\x69\x6E\x74\x52\x61\x64\x69\x75\x73":2,"\x70\x6F\x69\x6E\x74\x48\x6F\x76\x65\x72\x52\x61\x64\x69\x75\x73":1},{"\x6C\x61\x62\x65\x6C":_0x529c[75],"\x64\x61\x74\x61":[10.3629,10.3249,10.0084,9.8228,10.2933,10.998,14.6798,15.0867,14.9676,15.4724,16.2855,15.6139],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[76],"\x62\x6F\x72\x64\x65\x72\x43\x6F\x6C\x6F\x72":_0x529c[76],"\x62\x6F\x72\x64\x65\x72\x57\x69\x64\x74\x68":1,"\x74\x65\x6E\x73\x69\x6F\x6E":0.1,"\x70\x6F\x69\x6E\x74\x52\x61\x64\x69\x75\x73":2,"\x70\x6F\x69\x6E\x74\x48\x6F\x76\x65\x72\x52\x61\x64\x69\x75\x73":1}]},axisX:{labelFontSize:10},options:{scales:{},plugins:{datalabels:{display:false},legend:{position:_0x529c[77],display:true,labels:{fontSize:10}},title:{display:false,text:_0x529c[78],font:{size:15}}},responsive:true}});var ctx=document[_0x529c[7]](_0x529c[79])[_0x529c[27]](_0x529c[26]);var exchangeRatesAnnualChart= new Chart(ctx,{type:_0x529c[29],data:{"\x6C\x61\x62\x65\x6C\x73":[_0x529c[80],_0x529c[81],_0x529c[82],_0x529c[83],_0x529c[84],_0x529c[85],_0x529c[69],_0x529c[73]],"\x64\x61\x74\x61\x73\x65\x74\x73":[{"\x6C\x61\x62\x65\x6C":_0x529c[74],"\x64\x61\x74\x61":[2.9181,3.5192,3.7719,5.281,5.94,7.4194,13.329,14.7852],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[45],"\x62\x6F\x72\x64\x65\x72\x43\x6F\x6C\x6F\x72":_0x529c[45],"\x62\x6F\x72\x64\x65\x72\x57\x69\x64\x74\x68":1,"\x74\x65\x6E\x73\x69\x6F\x6E":0.1,"\x70\x6F\x69\x6E\x74\x52\x61\x64\x69\x75\x73":2,"\x70\x6F\x69\x6E\x74\x48\x6F\x76\x65\x72\x52\x61\x64\x69\x75\x73":1},{"\x6C\x61\x62\x65\x6C":_0x529c[75],"\x64\x61\x74\x61":[3.1838,3.7099,4.5155,6.0422,6.6621,9.1164,15.0867,15.6139],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[76],"\x62\x6F\x72\x64\x65\x72\x43\x6F\x6C\x6F\x72":_0x529c[76],"\x62\x6F\x72\x64\x65\x72\x57\x69\x64\x74\x68":1,"\x74\x65\x6E\x73\x69\x6F\x6E":0.1,"\x70\x6F\x69\x6E\x74\x52\x61\x64\x69\x75\x73":2,"\x70\x6F\x69\x6E\x74\x48\x6F\x76\x65\x72\x52\x61\x64\x69\x75\x73":1}]},axisX:{labelFontSize:10},options:{scales:{},plugins:{datalabels:{display:false},legend:{position:_0x529c[77],display:false,labels:{fontSize:10}},title:{display:false,text:_0x529c[78],font:{size:15}}},responsive:true}});var ctx=document[_0x529c[7]](_0x529c[86])[_0x529c[27]](_0x529c[26]);var loanChart= new Chart(ctx,{type:_0x529c[55],data:{"\x6C\x61\x62\x65\x6C\x73":[_0x529c[62],_0x529c[63],_0x529c[64],_0x529c[65],_0x529c[66],_0x529c[67],_0x529c[68],_0x529c[69],_0x529c[70],_0x529c[71],_0x529c[72],_0x529c[73]],"\x64\x61\x74\x61\x73\x65\x74\x73":[{"\x6C\x61\x62\x65\x6C":_0x529c[87],"\x64\x61\x74\x61":[756,761,586,574,608,658,820,795,768,709,733,651],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[45]},{"\x6C\x61\x62\x65\x6C":_0x529c[88],"\x64\x61\x74\x61":[290,240,220,220,261,0,0,590,740,740,490,490],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[89]},{"\x6C\x61\x62\x65\x6C":_0x529c[90],"\x64\x61\x74\x61":[936,964,1034,999,976,1295,1278,677,552,558,846,842],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[43]},{"\x6C\x61\x62\x65\x6C":_0x529c[91],"\x64\x61\x74\x61":[130,125,86,84,85,91,125,122,114,110,106,86],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[92]}]},axisX:{labelFontSize:10},options:{plugins:{datalabels:{display:false},legend:{position:_0x529c[77],display:true,labels:{fontSize:8}},title:{display:false,text:_0x529c[93],font:{size:15}}},responsive:true,scales:{x:{ticks:{display:true,font:{size:11}},stacked:true},y:{stacked:true,ticks:{display:false}}}}});var ctx=document[_0x529c[7]](_0x529c[94])[_0x529c[27]](_0x529c[26]);var loansChartAnnual= new Chart(ctx,{type:_0x529c[55],data:{"\x6C\x61\x62\x65\x6C\x73":[_0x529c[80],_0x529c[81],_0x529c[82],_0x529c[83],_0x529c[84],_0x529c[85],_0x529c[69],_0x529c[73]],"\x64\x61\x74\x61\x73\x65\x74\x73":[{"\x6C\x61\x62\x65\x6C":_0x529c[87],"\x64\x61\x74\x61":[121,350,450,747,538,561,795,651],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[45]},{"\x6C\x61\x62\x65\x6C":_0x529c[88],"\x64\x61\x74\x61":[1,0,621,647,217,290,590,490],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[89]},{"\x6C\x61\x62\x65\x6C":_0x529c[90],"\x64\x61\x74\x61":[723,0,239,265,842,850,677,842],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[43]},{"\x6C\x61\x62\x65\x6C":_0x529c[91],"\x64\x61\x74\x61":[9,0,75,132,91,102,122,86],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[92]}]},axisX:{labelFontSize:10},options:{plugins:{datalabels:{display:false},legend:{position:_0x529c[77],display:false,labels:{fontSize:8}},title:{display:false,text:_0x529c[93],font:{size:15}}},responsive:true,scales:{x:{ticks:{display:true,font:{size:11}},stacked:true},y:{stacked:true,ticks:{display:false}}}}});var ctx=document[_0x529c[7]](_0x529c[95])[_0x529c[27]](_0x529c[26]);var nonCashLoanChart= new Chart(ctx,{type:_0x529c[55],data:{"\x6C\x61\x62\x65\x6C\x73":[_0x529c[62],_0x529c[63],_0x529c[64],_0x529c[65],_0x529c[66],_0x529c[67],_0x529c[68],_0x529c[69],_0x529c[70],_0x529c[71],_0x529c[72],_0x529c[73]],"\x64\x61\x74\x61\x73\x65\x74\x73":[{"\x6C\x61\x62\x65\x6C":_0x529c[96],"\x64\x61\x74\x61":[100,178,108,110,178,177,157,100,199,134,122,154],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[45]},{"\x6C\x61\x62\x65\x6C":_0x529c[97],"\x64\x61\x74\x61":[200,247,303,292,375,231,318,300,338,285,336,266],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[89]},{"\x6C\x61\x62\x65\x6C":_0x529c[98],"\x64\x61\x74\x61":[50,56,95,90,62,52,91,61,52,94,65,62],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[43]}]},axisX:{labelFontSize:10},options:{plugins:{datalabels:{display:false},legend:{position:_0x529c[77],display:true,labels:{fontSize:8}},title:{display:false,text:_0x529c[99],font:{size:15}}},responsive:true,scales:{x:{ticks:{display:true,font:{size:11}},stacked:true,grid:{display:false}},y:{stacked:true,ticks:{display:false}}}}});var ctx=document[_0x529c[7]](_0x529c[100])[_0x529c[27]](_0x529c[26]);var nonCashLoansChartAnnual= new Chart(ctx,{type:_0x529c[55],data:{"\x6C\x61\x62\x65\x6C\x73":[_0x529c[80],_0x529c[81],_0x529c[82],_0x529c[83],_0x529c[84],_0x529c[85],_0x529c[69],_0x529c[73]],"\x64\x61\x74\x61\x73\x65\x74\x73":[{"\x6C\x61\x62\x65\x6C":_0x529c[96],"\x64\x61\x74\x61":[70,122,94,104,94,111,95,132,116,104,107,89],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[45]},{"\x6C\x61\x62\x65\x6C":_0x529c[97],"\x64\x61\x74\x61":[140,251,231,255,212,181,169,169,257,239,223,219],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[89]},{"\x6C\x61\x62\x65\x6C":_0x529c[98],"\x64\x61\x74\x61":[30,32,44,60,37,39,34,60,56,30,34,55],"\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x43\x6F\x6C\x6F\x72":_0x529c[43]}]},axisX:{labelFontSize:10},options:{plugins:{datalabels:{display:false},legend:{position:_0x529c[77],display:false,labels:{fontSize:8}},title:{display:false,text:_0x529c[99],font:{size:15}}},responsive:true,scales:{x:{ticks:{display:true,font:{size:11}},stacked:true,grid:{display:false}},y:{stacked:true,ticks:{display:false}}}}})</script>
+</body>
+
+</html>
