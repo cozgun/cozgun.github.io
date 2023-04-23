@@ -21,7 +21,7 @@
         <source src="Final.wav" type="audio/wav">
         Your browser does not support the audio element.
     </audio>
-    <h1 id="baslik">Hang Man</h1>
+    <h4 id="baslik">Hang Man</h4>
     <input maxlength="1" style="font-size: 30px; width: 60px;" type="text" id="harf">
     <button onclick="checkLetter()" id="btnCheckLetter">Harfi kontrol etmek için tıklayın ya da enter a basın</button>
     <hr>
@@ -31,10 +31,15 @@
     <h3 style="background-color: aqua;">Aradığınız Kelime:</h3>
     <div id="divArananKelime" style="font-size: 80px"></div>
     <br>
-    <div id="lives" style="font-size: 40px">Kalan hakkınız: 10</div>
+    <div id="lives" style="font-size: 30px">Kalan hakkınız: 10</div>
+    <br>
+    <div id="newGame">
+        <button onclick="location.reload()" id="btnNewGame">Yeni Oyun</button>
+    </div>
 
     <div></div>
     <script>
+        document.getElementById("newGame").style.display = "none"
         var livesRemaining = 10;
         var j= 0
         function getRandomInt(max) {
@@ -78,7 +83,7 @@
 
         function checkLetter() {
             let result = false;
-            var girilenHarf = document.getElementById("harf").value
+            var girilenHarf = document.getElementById("harf").value.toLowerCase()
 
             if (document.getElementById("enteredLetters").innerHTML.includes(girilenHarf)) {
                 alert("Bu harf zaten denenmiş")
@@ -100,7 +105,7 @@
                 finalGuncelKelime
 
             document.getElementById("enteredLetters").innerHTML =
-                lettersTried + document.getElementById("harf").value
+                lettersTried + girilenHarf
 
             lettersTried = lettersTried + document.getElementById("harf").value
 
@@ -112,6 +117,7 @@
                         document.getElementById("lives").innerHTML = "Tebrikler bildiniz !"
                         document.getElementById("harf").setAttribute("disabled", true)
                         document.getElementById("btnCheckLetter").setAttribute("disabled", true)
+                        document.getElementById("newGame").style.display = "block"
                         return;
                     } 
                     document.getElementById("successAudio").play()
