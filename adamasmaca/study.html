@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <audio id="stopAudio">
+        <source src="Stop.wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="successAudio">
+        <source src="Success.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="finalAudio">
+        <source src="Final.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <h1 id="baslik">Hang Man</h1>
+    <input maxlength="1" style="font-size: 30px; width: 60px;" type="text" id="harf">
+    <button onclick="checkLetter()" id="btnCheckLetter">Harfi kontrol etmek için tıklayın ya da enter a basın</button>
+    <hr>
+    <h3 style="background-color: orange;">Denenen Harfler</h3>
+    <div id="enteredLetters" style="font-size: 30px"></div>
+
+    <h3 style="background-color: aqua;">Aradığınız Kelime:</h3>
+    <div id="divArananKelime" style="font-size: 80px"></div>
+    <br>
+    <div id="lives" style="font-size: 40px">Kalan hakkınız: 10</div>
+
+    <div></div>
+    <script>
+        var livesRemaining = 10;
+        var j= 0
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        var arananKelime, arananKelimeAnlami
+        var diziArananKelime = []
+        var lettersTried = ""
+        var diziGuncelKelime = [];
+        var finalGuncelKelime
+        var kelimeNo
+        kelimeNo = getRandomInt(90000)
+
+        // alert(kelimeNo)
+        // alert(Math.random())
+
+        fetch('https://sozluk.gov.tr/gts_id?id=' + kelimeNo, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+            },
+        })
+            .then(response => response.json())
+            .then(response => {
+                tdkMadde = JSON.parse(JSON.stringify(response))
+                console.log(tdkMadde)
+                arananKelime = tdkMadde[0].madde;
+                arananKelimeAnlami = tdkMadde[0].anlamlarListe[0].anlam;
+                diziArananKelime = [...arananKelime]
+                // console.log(arananKelime)
+                for (let index = 0; index < diziArananKelime.length; index++) {
+                    diziGuncelKelime.push("-")
+                }
+                // console.log(diziGuncelKelime)
+                document.getElementById("divArananKelime").innerHTML = diziGuncelKelime.join("")
+                document.getElementById("baslik").innerHTML = "Aranan kelimenin anlamı: " + arananKelimeAnlami
+                document.getElementById("harf").value = " "
+                checkLetter()
+            })
+
+        function checkLetter() {
+            let result = false;
+            var girilenHarf = document.getElementById("harf").value
+
+            if (document.getElementById("enteredLetters").innerHTML.includes(girilenHarf)) {
+                alert("Bu harf zaten denenmiş")
+                document.getElementById("harf").value = ''
+                return;
+            } 
+
+            i = 0
+            diziArananKelime.forEach(eleman => {
+                if (girilenHarf == diziArananKelime[i]) {
+                    diziGuncelKelime[i] = girilenHarf
+                    result = true;
+                }
+                i = i + 1
+            });
+            var finalGuncelKelime = diziGuncelKelime.join("")
+
+            document.getElementById("divArananKelime").innerHTML =
+                finalGuncelKelime
+
+            document.getElementById("enteredLetters").innerHTML =
+                lettersTried + document.getElementById("harf").value
+
+            lettersTried = lettersTried + document.getElementById("harf").value
+
+            if (document.getElementById("harf").value != " ") {
+                if(result){
+                    j=j+1
+                    if (!finalGuncelKelime.includes("-")) {
+                        document.getElementById("finalAudio").play()
+                        document.getElementById("lives").innerHTML = "Tebrikler bildiniz !"
+                        document.getElementById("harf").setAttribute("disabled", true)
+                        document.getElementById("btnCheckLetter").setAttribute("disabled", true)
+                        return;
+                    } 
+                    document.getElementById("successAudio").play()
+                }
+                else{
+                    livesRemaining = (10 + j) - document.getElementById("enteredLetters").innerText.length;
+                    document.getElementById("lives").innerHTML = "Kalan hakkınız: " + livesRemaining ;
+                    document.getElementById("stopAudio").play()
+                    if(livesRemaining == 0){
+                        document.getElementById("lives").innerHTML = "Maalesef kaybettiniz !"
+                        document.getElementById("harf").setAttribute("disabled", true)
+                        document.getElementById("btnCheckLetter").setAttribute("disabled", true)
+                        alert("Maalesef kaybettiniz ! Kelimeniz '" + arananKelime + "'' idi.")
+                        location.reload();
+                        return;
+                    }
+                }
+            }
+
+            document.getElementById("harf").value = ''
+            document.getElementById("harf").focus();
+            document.getElementById("harf").select();
+
+        }
+
+        document.getElementById("harf").addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                // event.preventDefault();
+                document.getElementById("btnCheckLetter").click();
+            }
+        });        
+    </script>
+</body>
+
+</html>
