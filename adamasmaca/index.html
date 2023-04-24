@@ -7,7 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    .flex-container {
+        display: flex;
+    }
 
+    .flex-child {
+        flex: 1;
+        border: 2px solid pink;
+        margin-right: 20px;
+        margin: auto;
+        width: 50%;
+    }
+
+    .center {
+        margin: auto;
+        width: 50%;
+        text-align: center;
+
+    }
+</style>
 <body>
     <audio id="stopAudio">
         <source src="Stop.wav">
@@ -38,6 +57,11 @@
     </div>
 
     <div></div>
+        <br>
+      <div class="center">
+
+<a href="carpimTablosu.html">Çarpım tablosu çalışmak için tıkla !</a>
+</div>
     <script>
         document.getElementById("newGame").style.display = "none"
         var livesRemaining = 10;
