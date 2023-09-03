@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+
     <style>
         .no-border {
             border: 0;
@@ -91,20 +91,30 @@
 
         .divSquareMaxi {
             width: 400px;
-            height: 400px;
+            height: 550px;
             /* background-color: lightgray; */
             font-size: 200%;
             text-align: center;
             display: table-cell;
             /* vertical-align: middle; */
             color: white;
-            padding: 5px;
+            /* padding: 5px; */
             border-radius: 5px;
             border-style: solid;
             border-width: 1px 1px 1px 1px;
-            /* 25px top, 10px right, 4px bottom and 35px left */
             border-color: lightgray;
+                        /* 25px top, 10px right, 4px bottom and 35px left */
         }
+        img {
+            /* border-radius: 5px;
+            border-style: solid;
+            border-width: 1px 1px 1px 1px;
+            border-color: lightgray;             */
+    width: 1000px;
+    height: 550px;
+    object-fit: scale-down;
+    /* You can also use cover instead of fill but they are different */
+}
 
         .divSquareMaxi600_400 {
             width: 600px;
@@ -399,49 +409,78 @@
             padding: 0px;
         }
     </style>
+        
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <title>Nota Pratiklerim</title>
+        <script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
+    <title>Nota pratiklerim</title>
 </head>
 
 <body>
     <div class="row">
-        <div class="divHeaderNoBorder center">
-            <label style="height: 80px;">Nota pratiklerim</label>
+        <div class="divHeaderNoBorder center" id="0">
+            <label style="height: 60px;">Nota pratiklerim</label>
         </div>
     </div>
 
     <div class="container" id='gallery-items'>
 
         <script>
+            //window.onload = getExif;
+
             function doPortItem(n) {
+                //getExif()
                 let img = document.createElement('img');
                 img.src = './NotesGallery/' + n + '.jpg';
                 img.addEventListener('load', () => {
-                    let div = `<div class="divPageSize ">
-                <div class="row ">
+                    let div = `<div class="divPageSize" id="` + n + `">
+                <div class="row" >
+                <div class="divHeaderNoBorder center" id="row` + n + `">Image Description</div>
                 <div class="divSquareMaxi">
-             <img data-lazy-image data-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzIDIiPjwvc3ZnPg==" src="${img.src}" alt="Demo img"> 
+             <img data-lazy-image data-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzIDIiPjwvc3ZnPg==" 
+             src="${img.src}" alt="Demo img" id="img${n}"> 
            </div>
          </div>
          <div class="row">
                 <div class="col-md-9 auto"
                     style="color:gray; text-align:left; font-size: 32px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
-                    <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                    <button type="button" style="font-size: 14px" class="btn btn-outline-primary" onClick="document.getElementById('` + (n - 1) + `').scrollIntoView();"
                         >&#8648 Previous</button>
-                    <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                    <button type="button" style="font-size: 14px" class="btn btn-outline-primary" onClick="document.getElementById('` + (n + 1) + `').scrollIntoView();"
                         >&#8595 Next </button>
                 </div>
             </div>
        </div>`;
                     document.querySelector('#gallery-items').innerHTML += div;
+                    getImageDescription(n)
                     doPortItem(++n)
                 })
             }
             doPortItem(1)
+
+            function getExif() {
+                var image = document.getElementById("img1");
+                EXIF.getData(image, function () {
+                var MetaData = EXIF.getAllTags(this);
+                //console.log(JSON.stringify(MetaData, null, "\t"));
+                });
+            }
+            function getImageDescription(imageId) {
+                console.log("getImageDescription started")
+                console.log(imageId)
+                var image = document.getElementById("img" + imageId);
+                EXIF.getData(image, function () {
+                var MetaData = EXIF.getAllTags(this);
+                //console.log(JSON.stringify(MetaData, null, "\t"));
+                console.log(JSON.stringify(MetaData.ImageDescription));    
+                console.log(MetaData.ImageDescription);  
+                document.getElementById("row" + imageId).innerHTML = MetaData.ImageDescription;
+                });
+            }            
+            
         </script>
 </body>
 
