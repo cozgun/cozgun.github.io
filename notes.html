@@ -1,1 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <style>
+        .no-border {
+            border: 0;
+            box-shadow: none;
+            /* You may want to include this as bootstrap applies these styles too */
+        }
+
+        .divHeader {
+            padding-top: 10px;
+            color: black;
+            text-align: left;
+            font-size: 22px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            border-style: solid;
+            border-width: 1px 0px 0px 0px;
+            /* 25px top, 10px right, 4px bottom and 35px left */
+            border-color: lightgray;
+        }
+
+        .divHeaderNoBorder {
+            color: black;
+            text-align: left;
+            font-size: 22px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .divMainHeader {
+            color: black;
+            background-color: white;
+            text-align: center;
+            font-size: 50px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .centerAll {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .center {
+            text-align: center;
+            margin: auto;
+            width: 100%;
+            /* border: 3px solid #73AD21; */
+            padding: 10px;
+        }
+
+        .centerText {
+            text-align: center
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .divPageSize {
+            height: 100vh;
+            position: relative;
+
+            /* vh stands for view-port height, 1vh is 1% of screen height */
+            /* background-color: yellow; */
+        }
+
+        .divSquare {
+            width: 300px;
+            height: 150px;
+            /* background-color: lightgray; */
+            font-size: 200%;
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+            color: white;
+            padding: 5px;
+            /* border-radius: 20px; */
+            /* border-style: solid;
+          border-width: 0px 0px 1px 0px; */
+            /* 25px top, 10px right, 4px bottom and 35px left */
+            border-color: lightgray;
+        }
+
+        .divSquareMaxi {
+            width: 400px;
+            height: 400px;
+            /* background-color: lightgray; */
+            font-size: 200%;
+            text-align: center;
+            display: table-cell;
+            /* vertical-align: middle; */
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            border-style: solid;
+            border-width: 1px 1px 1px 1px;
+            /* 25px top, 10px right, 4px bottom and 35px left */
+            border-color: lightgray;
+        }
+
+        .divSquareMaxi600_400 {
+            width: 600px;
+            height: 400px;
+            /* background-color: lightgray; */
+            font-size: 200%;
+            text-align: center;
+            display: table-cell;
+            /* vertical-align: middle; */
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            border-style: solid;
+            border-width: 1px 1px 1px 1px;
+            /* 25px top, 10px right, 4px bottom and 35px left */
+            border-color: lightgray;
+        }
+
+        .divSquareMaxi400_300 {
+            width: 400px;
+            height: 350px;
+            /* background-color: lightgray; */
+            font-size: 200%;
+            text-align: center;
+            display: table-cell;
+            /* vertical-align: middle; */
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            border-style: solid;
+            border-width: 1px 1px 1px 1px;
+            /* 25px top, 10px right, 4px bottom and 35px left */
+            border-color: lightgray;
+        }
+
+        .divSquareMaxi2 {
+            width: 800px;
+            height: 400px;
+            /* background-color: lightgray; */
+            font-size: 200%;
+            text-align: center;
+            display: table-cell;
+            /* vertical-align: middle; */
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            border-style: solid;
+            border-width: 1px 1px 1px 1px;
+            /* 25px top, 10px right, 4px bottom and 35px left */
+            border-color: lightgray;
+        }
+
+        .divSquareMaxi2800_300 {
+            width: 800px;
+            height: 350px;
+            /* background-color: lightgray; */
+            font-size: 200%;
+            text-align: center;
+            display: table-cell;
+            /* vertical-align: middle; */
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            border-style: solid;
+            border-width: 1px 1px 1px 1px;
+            /* 25px top, 10px right, 4px bottom and 35px left */
+            border-color: lightgray;
+        }
+
+
+        .divSquareMini {
+            width: 400px;
+            height: 160px;
+            background-color: white;
+            font-size: 200%;
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+            color: white;
+            /* padding: 5px; */
+            /* border-radius: 20px; */
+            /* border-style: solid;
+          border-width: 0px 0px 1px 0px; */
+            /* 25px top, 10px right, 4px bottom and 35px left */
+            border-color: lightgray;
+        }
+
+        .divSquare600 {
+            width: 600px;
+            height: 200px;
+            background-color: white;
+            font-size: 200%;
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+            color: white;
+            padding: 5px;
+            /* border-radius: 20px; */
+            /* border-style: solid;
+          border-width: 0px 0px 1px 0px; */
+            /* 25px top, 10px right, 4px bottom and 35px left */
+            border-color: lightgray;
+        }
+
+        .divSquare500 {
+            width: 500px;
+            height: 200px;
+            background-color: white;
+            font-size: 200%;
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+            color: white;
+            padding: 5px;
+            /* border-radius: 20px; */
+            /* border-style: solid;
+          border-width: 0px 0px 1px 0px; */
+            /* 25px top, 10px right, 4px bottom and 35px left */
+            border-color: lightgray;
+        }
+
+        .bigFigure {
+            color: darkblue;
+            text-align: center;
+            font-size: 34px;
+            line-height: 0.8;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            padding: 5px;
+        }
+
+        .bigFigure2 {
+            color: gray;
+            text-align: center;
+            font-size: 24px;
+            line-height: 0.8;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            padding: 5px;
+        }
+
+        .bigFiguremiddle {
+            color: darkblue;
+            text-align: center;
+            font-size: 24px;
+            line-height: 0.8;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            padding: 5px;
+        }
+
+        .bigFigureText {
+            color: darkblue;
+            text-align: center;
+            font-size: 18px;
+            line-height: 0.80;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+        }
+
+        .bigFigureTextSmall {
+            color: darkblue;
+            text-align: center;
+            font-size: 12px;
+            line-height: 0.80;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+        }
+
+        .divAsHeader {
+            display: table-cell;
+            vertical-align: bottom;
+            border: 1px solid #f00;
+            height: 100px;
+            width: 100px;
+        }
+
+        .flex-gap {
+            display: inline-flex;
+            flex-wrap: wrap;
+        }
+
+        .flex-gap>div {
+            margin: 6px;
+        }
+
+        /* div {text-align: center;} */
+        .vertical-center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+
+        .div-vertical {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+
+        li {
+            position: relative;
+            padding-left: 11px;
+            margin: 0 0 0px 0;
+        }
+
+        div.firstColumn {
+            padding: 0px;
+            border-style: solid;
+            border-width: 0px 0px 0px 1px;
+            /* 25px top, 10px right, 4px bottom and 35px left */
+            border-color: darkblue;
+        }
+
+        div.topBottomBorder {
+            padding: 10px;
+            border-style: solid;
+            border-width: 1px 0px 1px 0px;
+            /* 25px top, 10px right, 4px bottom and 35px left */
+            border-color: lightgray;
+        }
+
+        div.topBorder {
+            padding: 10px;
+            border-style: solid;
+            border-width: 1px 0px 0px 0px;
+            /* 25px top, 10px right, 4px bottom and 35px left */
+            border-color: lightgray;
+        }
+
+        div.bottomBorder {
+            /* padding: 10px; */
+            border-style: solid;
+            border-width: 0px 0px 1px 0px;
+            /* 25px top, 10px right, 4px bottom and 35px left */
+            border-color: lightgray;
+        }
+
+        div.first {
+            padding: 0px;
+            /* border-style: solid;
+          border-width: 0px 0px 1px 0px; */
+            /* 25px top, 10px right, 4px bottom and 35px left */
+            /* border-color: lightgray; */
+            /* background: rgba(109, 216, 235, 0.3);
+          border-radius: 20px;
+          padding: 10px; */
+            /* width: 200px;
+        height: 150px;   */
+        }
+
+        canvas {
+            padding: 0px 15px 0px 15px;
+        }
+
+        canvas.first {
+            /* background: rgba(109, 216, 235, 0.3);
+          border-radius: 20px;
+          padding: 10px; */
+            padding: 10px;
+        }
+
+
+        div.second {
+            /* background: rgba(255, 255, 0, 0.2);
+          background: rgba(109, 216, 235, 0.3);
+          border-radius: 20px;
+          padding: 10px; */
+            padding: 0px;
+        }
+
+        div.third {
+            /* background: rgba(255, 255, 0, 0.1);
+          background: rgba(109, 216, 235, 0.3);
+          border-radius: 20px;
+          padding: 10px; */
+            padding: 0px;
+        }
+
+        div.height {
+            height: 150px;
+        }
+
+        div.heightAsChartTitle {
+            height: 10;
+            text-align: center
+        }
+
+        div.fourth {
+            /* background: rgba(255, 255, 0, 0.05);
+          background: rgba(109, 216, 235, 0.3);
+          border-radius: 20px;
+          padding: 10px; */
+            padding: 0px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Nota Pratiklerim</title>
+</head>
+
+<body>
+    <div class="row">
+        <div class="divHeaderNoBorder center">
+            <label style="height: 80px;">Nota pratiklerim</label>
+        </div>
+    </div>
+
+    <div class="container" id='gallery-items'>
+
+        <script>
+            function doPortItem(n) {
+                let img = document.createElement('img');
+                img.src = './notesgallery/' + n + '.jpg';
+                img.addEventListener('load', () => {
+                    let div = `<div class="divPageSize ">
+                <div class="row ">
+                <div class="divSquareMaxi">
+             <img data-lazy-image data-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzIDIiPjwvc3ZnPg==" src="${img.src}" alt="Demo img"> 
+           </div>
+         </div>
+         <div class="row">
+                <div class="col-md-9 auto"
+                    style="color:gray; text-align:left; font-size: 32px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ">
+                    <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                        >&#8648 Previous</button>
+                    <button type="button" style="font-size: 14px" class="btn btn-outline-primary"
+                        >&#8595 Next </button>
+                </div>
+            </div>
+       </div>`;
+                    document.querySelector('#gallery-items').innerHTML += div;
+                    doPortItem(++n)
+                })
+            }
+            doPortItem(1)
+        </script>
+</body>
+
+</html>
